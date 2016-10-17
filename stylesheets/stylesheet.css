@@ -1,13 +1,20 @@
 * {
   box-sizing: border-box; }
 
+html{
+  height: 100vh;
+  padding:0;
+  margin:0;
+}
 body {
   padding: 0;
   margin: 0;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #606c71; }
+  color: #606c71;
+  height:100vh; 
+}
 
 a {
   color: #1e6bb8;
@@ -16,18 +23,21 @@ a {
     text-decoration: underline; }
 
 .page-header {
+  padding:0;
+  margin:0;
   color: #fff;
   text-align: center;
   background-color: #159957;
   padding-bottom: 0;
    }
 
-.nav.nav-pills {
-  padding: 1.5em;
-}
+/*.nav.nav-pills {
+  padding-left: 1.5em;
+}*/
 
 
 .main-content {
+  margin:0;
   padding: 0;
 }
 
@@ -41,17 +51,11 @@ a {
   display: block;
   font-weight: bold; }
 
- img {
+ /*img {
     display:block;
     margin: auto;
-}
+}*/
 
-.carousel.item a img{
-
-  width:100%;
-  margin: auto;
-
-}
 
 .carousel{
   width:100vw;
@@ -63,4 +67,24 @@ a {
   padding: 0;
 }
 
+
+.carousel,.item,.active{
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+.carousel-inner{
+  margin:0;
+  padding: 0;
+  height:100%;
+}
+img{
+  padding:0;
+  margin-top:0;
+  margin-right: 0;
+  margin-left:auto;
+  margin-right: auto;
+
+}
 
