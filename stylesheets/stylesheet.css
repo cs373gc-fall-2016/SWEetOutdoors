@@ -28,13 +28,8 @@ a {
 
 
 .main-content {
-  padding-left: 1em;
-  padding-top: 0;
-  padding-right: 1em;
-  padding-bottom: 0;
+  padding: 0;
 }
-
-
 
 
 .site-footer {
@@ -51,6 +46,21 @@ a {
     margin: auto;
 }
 
-#carousel-example-generic {
-  background-image: url('colorado.jpg');
+.carousel.item a img{
+
+  width:100%;
+  margin: auto;
+
 }
+
+.carousel{
+  width:100vw;
+  height: 80vh;
+}
+
+.container{
+  margin: 0;
+  padding: 0;
+}
+
+
