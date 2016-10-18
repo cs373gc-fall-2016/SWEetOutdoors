@@ -1,59 +1,94 @@
-* {
-  box-sizing: border-box; }
+/* 
+  ------------------------
+  GENERAL 
+  ------------------------
+*/
 
-html{
+html {
   height: 100vh;
   padding:0;
   margin:0;
+}   
+
+/* 
+  ------------------------
+  HEADER 
+  ------------------------
+*/
+
+.page-header {
+  padding:0;
+  margin:0;
+  padding-bottom: 0;
 }
+
+.nav.nav-pills {
+  background-color: #666666; /* bar */
+  padding-top:1em;
+  padding-bottom:1em;
+}
+
+.nav.nav-pills a{
+  font-weight: bold;
+  color: #95afd0; /* non-active text */
+}
+
+.nav.nav-pills a:hover{
+  font-weight: bold;
+  color: #95afd0; /* non-active text */
+  background-color: #dedede;
+}
+
+.nav.nav-pills .active a {
+  background-color: #4d4d4d; /* background of active */
+}
+
+.nav.nav-pills .active a:hover {
+  background-color: #4e79b1; /* background of active on hover */
+}
+
+.nav.nav-pills li {
+  display: inline-block;
+  float: none;
+  vertical-align: middle;
+  list-style: none;
+}
+
+/* 
+  ------------------------
+  MAIN BODY 
+  ------------------------
+*/
+
 body {
   padding: 0;
   margin: 0;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background-color: #57BC90;
-  height:100vh; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100 vw;
+  height: 100vh; 
 }
-
- a{
-    color: #01524B;
- }   
-
-.page-header {
-  padding:0;
-  margin:0;
-  padding-bottom: 0;
-   }
 
 .main-content {
   margin:0;
   padding: 0;
 }   
 
-.nav.nav-pills {
-  background-color: white;
-}
+/* 
+  ------------------------
+  SPLASH PAGE - CAROUSEL
+  ------------------------
+*/
 
-
-.nav.nav-pills .active a
-{
-  background-color: #01524B;
-}
-
-
-
- /*img {
-    display:block;
-    margin: auto;
-}*/
-
-.col-lg-12{
+.col-lg-12 {
   margin: 0;
-  padding: 0;
+  padding-top: 15em;
 }
 
-#myCarousel{
+#myCarousel {
   margin-left: auto;
   margin-right: auto;
   text-align:center;
@@ -61,50 +96,38 @@ body {
   height:50vh;
 }
 
-.carousel{
+.carousel {
   margin-left: 300px;
   width:50vw;
   height: 40vh;
 }
 
-.carousel,.item,.active{
+.carousel,.item,.active {
   margin:0;
   padding:0;
   height:100%;
 }
 
-.carousel-inner{
+.carousel-inner {
   margin:0;
   padding: 0;
   height:100%;
 }
-img{
+
+.carousel-pic {
   padding:0;
   margin-top:0;
   margin-right: 0;
   margin-left:auto;
   margin-right: auto;
-
 }
 
 
-#text-container{
-  width:50vw;
-  margin-left:auto;
-  margin-right:auto;
-
-}
-
-#text-container p{
-  color:#01524B;
-  font-size: 3em;
-}
-
-
-.filler{
-  height:10vh;
-}
-
+/* 
+  ------------------------
+  FOOTER 
+  ------------------------
+*/
 
 .site-footer {
   padding-top: 2rem;
