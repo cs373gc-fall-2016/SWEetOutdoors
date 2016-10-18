@@ -6,8 +6,8 @@
 
 html {
   height: 100vh;
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
 }   
 
 /* 
@@ -17,25 +17,25 @@ html {
 */
 
 .page-header {
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   padding-bottom: 0;
 }
 
 .nav.nav-pills {
   background-color: #666666; /* bar */
-  padding-top:1em;
-  padding-bottom:1em;
+  padding-top: .5em;
+  padding-bottom: .5em;
 }
 
 .nav.nav-pills a{
   font-weight: bold;
+  font-size: 15px;
   color: #95afd0; /* non-active text */
+  display: block;
 }
 
 .nav.nav-pills a:hover{
-  font-weight: bold;
-  color: #95afd0; /* non-active text */
   background-color: #dedede;
 }
 
@@ -63,19 +63,36 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
   line-height: 1.5;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100 vw;
+  width: 100vw;
   height: 100vh; 
 }
 
 .main-content {
-  margin:0;
+  margin: 0;
   padding: 0;
 }   
+
+/* 
+  ------------------------
+  TITLES
+  ------------------------
+*/
+
+.title h1 {
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  color: #4d4d4d; /* -currently- dark gray */
+}
+
+#main {
+  padding-top: 3em;
+}
+#main h1 {
+  font-size: 72px;
+}
 
 /* 
   ------------------------
@@ -83,9 +100,9 @@ body {
   ------------------------
 */
 
-.col-lg-12 {
+.carousel-container {
   margin: 0;
-  padding-top: 15em;
+  padding-top: 12em;
 }
 
 #myCarousel {
@@ -93,35 +110,35 @@ body {
   margin-right: auto;
   text-align:center;
   vertical-align: middle;
-  height:50vh;
+  width: 75vw;
+  height: 50vh;
 }
 
 .carousel {
-  margin-left: 300px;
-  width:50vw;
-  height: 40vh;
+  /*background-color: black;*/
 }
 
 .carousel,.item,.active {
-  margin:0;
-  padding:0;
-  height:100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .carousel-inner {
-  margin:0;
+  margin: 0;
   padding: 0;
-  height:100%;
+  height: 100%;
 }
 
-.carousel-pic {
-  padding:0;
-  margin-top:0;
-  margin-right: 0;
-  margin-left:auto;
-  margin-right: auto;
+.item .carousel-caption{
+  vertical-align: top;
+  height: 100%;
 }
 
+.carousel-caption h1 {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 50px;
+}
 
 /* 
   ------------------------
