@@ -100,7 +100,7 @@ body {
   ------------------------
 */
 
-.carousel-container {
+.col-md-12 {
   margin: 0;
   padding-top: 12em;
 }
