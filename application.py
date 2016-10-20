@@ -1,4 +1,4 @@
-from sweapplication import app as application
+from sweapplication import application
 
 if __name__ == '__main__':
 	application.debug = True
