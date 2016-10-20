@@ -53,5 +53,21 @@ def yellowStoneAnniversary():
 def runForTheHungry():
 	return render_template('/eventInstances/RunForTheHungry.html')
 
+@app.route("/campgrounds")
+def campgrounds():
+	return render_template('campgrounds.html')
+
+@app.route("/campgrounds/BearCreek")
+def bearCreek():
+	return render_template('campgroundInstances/BearCreek.html')
+
+@app.route("/campgrounds/Everglades")
+def everglades():
+	return render_template('campgroundInstances/Everglades.html')
+
+@app.route("/campgrounds/YosemiteCampground")
+def yosemiteCampground():
+	return render_template('campgroundInstances/YosemiteCampground.html')
+
 if __name__ == "__main__":
 	app.run()

@@ -19,9 +19,9 @@
     <ul class="nav nav-pills">
       <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
       <li role="presentation" class="active"><a href="{{ url_for('parks') }}">Parks</a></li>
-      <li role="presentation"><a href="../campgrounds.html">Campgrounds</a></li>
+      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
       <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
-      <li role="presentation"><a href="../events.html">Events</a></li>  
+      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li>  
       <li role="presentation"><a href="../about.html">About</a></li>      
     </ul>
        
@@ -113,7 +113,7 @@
         <row>
         <div class="card">
           <br>
-          <a href="../stateInstances/Texas.html" class="card-link" id ="Texas Link">Explore Texas</a>
+          <a href="{{ url_for('texas') }}" class="card-link" id ="Texas Link">Explore Texas</a>
           <br>
           <img class="card-img-top img-fluid" src="../../static/img/texasMap.jpg" alt="Card image cap">
           <div class="card-block">
