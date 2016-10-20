@@ -5,6 +5,10 @@ app = Flask(__name__)
 def index():
 	return render_template('index.html')
 
+@app.route("/states")
+def states():
+	return render_template('states.html')
+
 @app.route("/states/texas")
 def texas():
 	return render_template('/stateInstances/Texas.html')
@@ -16,6 +20,10 @@ def california():
 @app.route("/states/florida")
 def florida():
 	return render_template('/stateInstances/Florida.html')
+
+@app.route("/parks")
+def parks():
+	return render_template('parks.html')
 
 @app.route("/parks/BigBend")
 def bigBend():
