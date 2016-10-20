@@ -5,17 +5,18 @@
     <title>SWEet Outdoors</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../stylesheets/states.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../static/style/states.css" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script scr="states.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
   </head>
 
   <body>
     <ul class="nav nav-pills">
-      <li role="presentation"><a href="../index.html">Home</a></li>
+      <li role="presentation"><a href="index.html">Home</a></li>
       <li role="presentation"><a href="parks.html">Parks</a></li>
       <li role="presentation"><a href="campgrounds.html">Campgrounds</a></li>
       <li role="presentation" class="active"><a href="states.html">States</a></li>
@@ -40,45 +41,33 @@
               <thead>
                 <tr>
                   <th>State</th>
-                  <th>Number of Parks</th>
-                  <th>Largest Park</th>
-                  <th>Most Recent Event</th>
                   <th>Highest Point</th>
-                  <th>Lowest Point</th>
                   <th>Population</th>
-                  <th>Capital</th>
+                  <th>Total Area</th>
+                  <th>Biggest Park</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row"><a href="stateInstances/Texas.html">Texas</a></th>
-                  <td>50</td>
-                  <td>Zilker Metropolitan Park</td>
-                  <td>Trail of Lights</td>
-                  <td>Mt. Bonnel</td>
-                  <td>Gulf of Mexico</td>
-                  <td>1,000,000</td>
-                  <td>Austin</td>
+                  <td>8,751 ft</td>
+                  <td>27,469,114</td>
+                  <td>268,581</td>
+                  <th><a href="parkInstances/BigBend.html">Big Bend</a></th>
                 </tr>
                 <tr>
-                  <th scope="row">Florida</th>
-                  <td>50</td>
-                  <td>Zilker Metropolitan Park</td>
-                  <td>Trail of Lights</td>
-                  <td>Mt. Bonnel</td>
-                  <td>Gulf of Mexico</td>
-                  <td>1,000,000</td>
-                  <td>Austin</td>
+                  <th scope="row"><a href="stateInstances/California.html">California</a></td>
+                  <td>14,505 ft</td>
+                  <td>39,144,818</td>
+                  <td>163,696</td>
+                  <th><a href="parkInstances/Zilker.html">Zilker</a></th>
                 </tr>
                 <tr>
-                  <th scope="row">California</th>
-                  <td>50</td>
-                  <td>Zilker Metropolitan Park</td>
-                  <td>Trail of Lights</td>
-                  <td>Mt. Bonnel</td>
-                  <td>Gulf of Mexico</td>
-                  <td>1,000,000</td>
-                  <td>Austin</td>
+                  <th scope="row"><a href="stateInstances/Florida.html">Florida</a></th>
+                  <td>345 ft</td>
+                  <td>20,271,272</td>
+                  <td>65,755</td>
+                  <th><a href="parkInstances/DeathValley.html">Death Valley</a></th>
                 </tr>
               </tbody>
             </table>
