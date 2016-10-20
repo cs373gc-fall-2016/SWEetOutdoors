@@ -3,7 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://'
 db = SQLAlchemy(app)
 
 #pylint:disable=invalid-name, too-many-arguments, too-few-public-methods, too-many-instance-attributes
