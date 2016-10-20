@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
  
-class Parks(db.Model):
+class Park(db.Model):
     __tablename__ = 'Parks'
 
     idnum = db.Column(db.Integer, primary_key=True)
@@ -34,7 +34,7 @@ class Parks(db.Model):
     def __repr__(self):
             return '<Park %r>' % self.name
  
-class Events(db.Model):
+class Event(db.Model):
     __tablename__ = 'Events'
  
     idnum = db.Column(db.Integer, primary_key = True)
@@ -63,7 +63,7 @@ class Events(db.Model):
             return '<Event %r>' % self.name
  
 
-class States(db.Model):
+class State(db.Model):
     __tablename__ = 'States'
 
     idnum = db.Column(db.Integer, primary_key = True)
@@ -77,50 +77,38 @@ class States(db.Model):
     parks_rel = db.relationship('Parks', backref = 'States', lazy = 'dynamic')
     events_rel = db.relationship('Events', backref = 'States', lazy = 'dynamic')
  
-    def __init__(self, name, capital, numparks, largestParkId, mostRecentEventId, highestPoint,population):
-
+    def __init__(self, name, highestPoint, population, description, total_area):
         self.name = name
-        self.capital = captital
-        self.numparks = numparks
-        self.largestParkId = largestParkId
-        self.mostRecentEventId = mostRecentEventId
         self.highestPoint = highestPoint
-        self.population = population  
- 
- 
+        self.population = population
+        self.description = description
+        self.total_area = total_area
    
     def __repr__(self):
             return '<State %r>' % self.name
  
-class Campgrounds(db.Model):
+class Campground(db.Model):
     __tablename__ = 'Campgrounds'
 
     idnum = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(256))
-    longitude = db.Column(db.Float)
     latitude = db.Column(db.Float)
+    longitude = db.Column(db.Float)
     electricity = db.Column(db.Boolean)
     water = db.Column(db.Boolean)
     sewer = db.Column(db.Boolean)
     pets = db.Column(db.Boolean)
-    tents = db.Column(db.Boolean)
-    rv_access = db.Column(db.Boolean)
-    cabins = db.Column(db.Boolean)
 
     park_id_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'))
     state_id_fk = db.Column(db.Integer, db.ForeignKey('States.idnum')) 
  
-    def __init__(self, name, activities, longitude, latitude, address, price, electricity, water, rv_access, tents):
+    def __init__(self, name, latitude, longitude, electricity, water, sewer, pets, park_id_fk, state_id_fk):
         self.name = name
-        self.activities = activities
         self.longitude = longitude
         self.latitude = latitude
-        self.address = address
-        self.price = price
         self.electricity = electricity
         self.water = water
-        self.rv_access = rv_access
-        self.tents = tents
+        self.sewer = sewer
    
     def __repr__(self):
             return '<Campgrounds %r>' % self.name
