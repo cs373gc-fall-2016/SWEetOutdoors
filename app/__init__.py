@@ -72,6 +72,3 @@ def everglades():
 @app.route("/campgrounds/YosemiteCampground")
 def yosemiteCampground():
 	return render_template('campgroundInstances/YosemiteCampground.html')
-
-if __name__ == "__main__":
-	app.run()
