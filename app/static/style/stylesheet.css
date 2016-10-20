@@ -140,10 +140,12 @@ body {
   font-size: 50px;
 }
 
-#leftOuterPicture.col-lg-4{
-  margin-left: 7.5em;
+li{
+  color:white;
+  font-size:1.5em;
 }
 
-#rightOuterPicture.col-lg-4{
-  margin-left: -7.5em;
+ul{
+  margin-left: auto;
+  margin-right: auto;
 }
