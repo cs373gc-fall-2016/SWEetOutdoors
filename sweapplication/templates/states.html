@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <title>SWEet Outdoors</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../static/style/states.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../static/style/tablePages.css" media="screen">
+    <!-- basic js files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script scr="states.js"></script>
+    <!-- js files for table sorting -->
+    <script type="text/javascript" src="../static/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.tablesorter.min.js"></script>
+    <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
   </head>
@@ -21,7 +26,7 @@
       <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
       <li role="presentation" class="active"><a href="{{ url_for('states') }}">States</a></li>
       <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
-      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>         
+      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>
     </ul>
 
     <div class = "col-md-12">
@@ -37,7 +42,7 @@
         <div class="table" data-example-id="simple-responsive-table"
           <div class ="table-responsive">
             <!-- Table -->
-            <table class="table table-striped">
+            <table class="table table-striped sortable" id="myTable">
               <thead>
                 <tr>
                   <th>State</th>
@@ -79,5 +84,10 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+    $(function(){
+      $('#myTable').tablesorter(); 
+    });
+    </script>
   </body>
 </html>
