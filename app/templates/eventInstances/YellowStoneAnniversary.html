@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="../../stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../../stylesheets/eventInstanceTemplates/eventtemplate.css" media="screen">    
+    <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../static/style/eventtemplate.css" media="screen">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
@@ -22,7 +22,7 @@
       <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
       <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
       <li role="presentation" class="active"><a href="{{ url_for('events') }}">Events</a></li>  
-      <li role="presentation"><a href="../about.html">About</a></li>        
+      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>         
     </ul>
        
     <div class="title">

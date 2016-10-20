@@ -15,12 +15,12 @@
   
   <body>
     <ul class="nav nav-pills">
-      <li role="presentation"><a href="../index.html">Home</a></li>
-      <li role="presentation"><a href="parks.html">Parks</a></li>
-      <li role="presentation"><a href="campgrounds.html">Campgrounds</a></li>
-      <li role="presentation"><a href="states.html">States</a></li>
-      <li role="presentation"><a href="events.html">Events</a></li>  
-      <li role="presentation" class="active"><a href="about.html">About</a></li>      
+      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
+      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
+      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
+      <li role="presentation" class="active"><a href="{{ url_for('about') }}">About</a></li>       
     </ul>
 
     <div id="row1" class="row">

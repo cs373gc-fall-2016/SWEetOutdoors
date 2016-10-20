@@ -13,7 +13,6 @@
 	margin-top: 2.5em;
 }
 
-
 img{
 	width: 200px;
 	height: 200px;
@@ -52,16 +51,16 @@ img{
 }
 
 #row2 h2{
-	color:#95afd0;
+  color:#95afd0;
 }
 
 .row h2,p{
-	text-align: center;
+  text-align: center;
 }
 
 .col-lg-3 img{
-	margin-left: auto;
-	margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .stats.col-lg-4 p{
@@ -70,11 +69,11 @@ img{
 }
 
 .stats.col-lg-4{
-	margin-top: -2.5em;
+  margin-top: -2.5em;
 }
 
 ul{
-	text-align: center;
+  text-align: center;
   margin-top: 0;	
   margin-left: auto;
   margin-right: auto;
