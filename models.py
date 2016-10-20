@@ -6,6 +6,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
  
 class Parks(db.Model):
+    __tablename__ = 'Parks'
 
     idnum = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
@@ -17,8 +18,8 @@ class Parks(db.Model):
 
     state_id_fk = db.Column(db.Integer, db.ForeignKey('States.idnum')) 
 
-    events = db.relationship('Events', backref = 'park', lazy = 'dynamic')
-    campgrounds_rel = db.relationship('Campgrounds', backref = 'campground', lazy = 'dynamic')
+    events = db.relationship('Events', backref = 'Parks', lazy = 'dynamic')
+    campgrounds_rel = db.relationship('Campgrounds', backref = 'Parks', lazy = 'dynamic')
  
     def __init__(self, name, price, opentime, closetime, website, zipcode, state_id_fk):
 
@@ -34,6 +35,7 @@ class Parks(db.Model):
             return '<Park %r>' % self.name
  
 class Events(db.Model):
+    __tablename__ = 'Events'
  
     idnum = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(256))
@@ -62,6 +64,7 @@ class Events(db.Model):
  
 
 class States(db.Model):
+    __tablename__ = 'States'
 
     idnum = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(256))
@@ -70,9 +73,9 @@ class States(db.Model):
     description = db.Column(db.String(2048))
     total_area = db.Column(db.Float)
 
-    parks_rel = db.relationship('Parks', backref = 'state', lazy = 'dynamic')
-    events_rel = db.relationship('Events', backref = 'event', lazy = 'dynamic')
-    campgrounds_rel = db.relationship('Campgrounds', backref = 'campground', lazy = 'dynamic')
+    campgrounds_rel = db.relationship('Campgrounds', backref = 'States', lazy = 'dynamic')
+    parks_rel = db.relationship('Parks', backref = 'States', lazy = 'dynamic')
+    events_rel = db.relationship('Events', backref = 'States', lazy = 'dynamic')
  
     def __init__(self, name, capital, numparks, largestParkId, mostRecentEventId, highestPoint,population):
 
@@ -90,6 +93,7 @@ class States(db.Model):
             return '<State %r>' % self.name
  
 class Campgrounds(db.Model):
+    __tablename__ = 'Campgrounds'
 
     idnum = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(256))
@@ -99,6 +103,9 @@ class Campgrounds(db.Model):
     water = db.Column(db.Boolean)
     sewer = db.Column(db.Boolean)
     pets = db.Column(db.Boolean)
+    tents = db.Column(db.Boolean)
+    rv_access = db.Column(db.Boolean)
+    cabins = db.Column(db.Boolean)
 
     park_id_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'))
     state_id_fk = db.Column(db.Integer, db.ForeignKey('States.idnum')) 
