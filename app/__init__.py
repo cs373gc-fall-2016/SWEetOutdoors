@@ -37,5 +37,32 @@ def deathValley():
 def zilker():
 	return render_template('/parkInstances/Zilker.html')
 
+
+
+
+
+
+@app.route("/events")
+def parks():
+	return render_template('events.html')
+
+@app.route("/events/AustinCityLimits")
+def bigBend():
+	return render_template('/eventInstances/AustinCityLimits.html')
+
+@app.route("/events/YellowStoneAnniversary")
+def deathValley():
+	return render_template('/eventInstances/YellowStoneAnniversary.html')
+
+@app.route("/events/Relay")
+def zilker():
+	return render_template('/eventInstances/Relay.html')
+
+
+
+
+
+
+
 if __name__ == "__main__":
 	app.run()
