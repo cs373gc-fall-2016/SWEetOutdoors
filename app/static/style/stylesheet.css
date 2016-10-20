@@ -139,3 +139,11 @@ body {
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 50px;
 }
+
+#leftOuterPicture.col-lg-4{
+  margin-left: 7.5em;
+}
+
+#rightOuterPicture.col-lg-4{
+  margin-left: -7.5em;
+}
