@@ -42,35 +42,30 @@
                   <th>Price</th>
                   <th>Hours</th>
                   <th>Website</th>
-                  <th>Events</th>
-                  <th>Campground</th>
+                  <th>Upcoming Event</th>
+                  <th>Best Campground</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row"><a href="{{ url_for('zilker') }}">Zilker Metropolitan Park</th>
+                  <th scope="row"><a href="{{ url_for('zilker') }}">Zilker Metropolitan Park</a></th>
                   <td>$0</td>
                   <td>5am - 10pm</td>
                   <td>
                     <a href = "http://austintexas.gov/department/zilker-metropolitan-park">http://austintexas.gov/department/zilker-metropolitan-park</a>
                   </td>
-                  <td>
-                    <ul>
-                      <li>Trail of Lights</li>
-                      <li>Austin City Limits</li>
-                    </ul>
-                  </td>
-                  <td>No camping</td>
+                  <th scope="row"><a href="{{ url_for('runForTheHungry') }}">Run For The Hungry</a></th>
+                  <th scope="row"><a href="{{ url_for('bearCreek') }}">Bear Creek</a></th>
                 </tr>
                 <tr>
-                  <th scope="row"><a href="{{ url_for('deathValley') }}">Death Valley National Park</th>
+                  <th scope="row"><a href="{{ url_for('deathValley') }}">Death Valley National Park</a></th>
                   <td>$10</td>
                   <td>5am - 10pm</td>
                   <td>
                     <a href="https://www.nps.gov/deva/index.htm">https://www.nps.gov/deva/index.htm</a>
                   </td>
-                  <td>No Upcoming Events</td>
-                  <td>No camping</td>
+                  <th scope="row"><a href="{{ url_for('yellowStoneAnniversary') }}">Yellowstone Anniversary</a></th>
+                  <th scope="row"><a href="{{ url_for('everglades') }}">Everglades Campground</a></th>
                 </tr>
                 <tr>
                   <th scope="row"><a href="{{ url_for('bigBend') }}">Big Bend National Park</th>
@@ -79,15 +74,8 @@
                   <td>
                     <a href="https://www.nps.gov/bibe/index.htm">https://www.nps.gov/bibe/index.htm</a>
                   </td>
-                  <td>Our International Neighbors</td>
-                  <td>
-                    <ul>
-                      <li>Chisos Basin Campground</li>
-                      <li>Cottonwood Campground</li>
-                      <li>Rio Grand Village Campground</li>
-                      <li>Chisos Mountains Lodge</li>
-                    </ul>
-              </td>
+                  <th scope="row"><a href="{{ url_for('austinCityLimits') }}">Austin City Limits</a></th>
+                  <th scope="row"><a href="{{ url_for('yosemiteCampground') }}">Yosemite Campground</a></th>
           </tbody>
         </table>
       </div>

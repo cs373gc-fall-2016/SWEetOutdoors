@@ -50,8 +50,12 @@
                   <td>Music</td>
                   <td>2016-11-28</td>
                   <td>mark@purefitness.cc</td>
-                  <th><a href="stateInstances/Texas.html">Texas</a></th>                    
-                  <th><a href="parkInstances/Zilker.html">Zilker</a></th>
+                  <th>
+                    <a href="{{ url_for('texas')}}">Texas</a>
+                  </th>                    
+                  <th>
+                    <a href="{{ url_for('bigBend')}}">BigBend</a>
+                  </th>
                 </tr>
 
                 <tr>
@@ -59,8 +63,12 @@
                   <td>Races</td>
                   <td>2013-11-28</td>
                   <td>run@hungry.com</td>
-                  <th><a href="stateInstances/California.html">California</a></th>                    
-                  <th><a href="parkInstances/BigBend.html">Big Bend</a></th>
+                  <th>
+                    <a href="{{ url_for('california')}}">California</a>
+                  </th>                     
+                  <th>
+                    <a href="{{ url_for('zilker')}}">Zilker</a>
+                  </th>
                 </tr>
                 
                 <tr>
@@ -68,8 +76,12 @@
                   <td>Outdoors</td>
                   <td>2016-11-28</td>
                   <td>yellowstone@gmail.com</td>
-                  <th><a href="stateInstances/Florida.html">Florida</a></th>                    
-                  <th><a href="parkInstances/Zilker.html">Zilker</a></th>
+                  <th>
+                    <a href="{{ url_for('florida')}}">Florida</a>
+                  </th>                    
+                  <th>
+                    <a href="{{ url_for('deathValley')}}">Death Valley</a>
+                  </th>
                 </tr>
               </tbody>
             </table>
