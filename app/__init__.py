@@ -9,3 +9,5 @@ def index():
 def texas():
 	return render_template('templates/texas.html')
 
+if __name__ = "__main__":
+	app.run()
