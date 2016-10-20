@@ -18,11 +18,11 @@
   <body>
     <ul class="nav nav-pills">
       <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
-      <li role="presentation"><a href="../parks.html">Parks</a></li>
+      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
       <li role="presentation"><a href="../campgrounds.html">Campgrounds</a></li>
-      <li role="presentation"><a href="../states.html">States</a></li>
-      <li role="presentation" class="active"><a href="../events.html">Events</a></li>  
-      <li role="presentation"><a href="../about.html">About</a></li>      
+      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation" class="active"><a href="{{ url_for('events') }}">Events</a></li>  
+      <li role="presentation"><a href="../about.html">About</a></li>        
     </ul>
        
     <div class="title">
@@ -40,8 +40,8 @@
             <li class="list-group-item">Category: Outdoors</li>
             <li class="list-group-item">Start Date: 2016-11-28</li>
             <li class="list-group-item">Email: Yellowstone@gmail.com</li>
-            <li class="list-group-item">State: <a href="../stateInstances/Wyoming.html">Wyoming</a></li>
-            <li class="list-group-item">Park: <a href="../parkInstances/YellowStone.html"></a></li>
+            <li class="list-group-item">State: <a href="{{ url_for('texas') }}">Texas</a></li>
+            <li class="list-group-item">Park: <a href="{{ url_for('bigBend') }}">Big Bend</a></li>
           </ul>
         </div>        
       </div> 

@@ -17,11 +17,11 @@
   <body>
     <ul class="nav nav-pills">
       <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
-      <li role="presentation"><a href="../parks.html">Parks</a></li>
+      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
       <li role="presentation"><a href="../campgrounds.html">Campgrounds</a></li>
-      <li role="presentation" class="active"><a href="../states.html">States</a></li>
-      <li role="presentation"><a href="../events.html">Events</a></li>  
-      <li role="presentation"><a href="../about.html">About</a></li>      
+      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation" class="active"><a href="{{ url_for('events') }}">Events</a></li>  
+      <li role="presentation"><a href="../about.html">About</a></li>    
     </ul>
        
     <div class="title">
@@ -39,8 +39,8 @@
             <li class="list-group-item">Category: Music</li>
             <li class="list-group-item">Start Date: 2016-11-28</li>
             <li class="list-group-item">Email: mark@purefitness.cc</li>
-            <li class="list-group-item">State: <a href="../stateInstances/Texas.html">TX</a></li>
-            <li class="list-group-item">Park: <a href="../parkInstances/Zilker.html">Zilker</a></li>
+            <li class="list-group-item">State: <a href="{{ url_for('texas') }}">TX</a></li>
+            <li class="list-group-item">Park: <a href="{{ url_for('zilker') }}">Zilker</a></li>
           </ul>
         </div>        
       </div> <!-- end col-md-4 -->

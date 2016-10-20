@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" href="../../stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../../stylesheets/eventInstanceTemplates/eventtemplate.css" media="screen">    
+    <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../static/style/eventtemplate.css" media="screen">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
@@ -18,15 +17,15 @@
   <body>
     <ul class="nav nav-pills">
       <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
-      <li role="presentation"><a href="../parks.html">Parks</a></li>
+      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
       <li role="presentation"><a href="../campgrounds.html">Campgrounds</a></li>
-      <li role="presentation"><a href="../states.html">States</a></li>
-      <li role="presentation" class="active"><a href="../events.html">Events</a></li>  
+      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation" class="active"><a href="{{ url_for('events') }}">Events</a></li>  
       <li role="presentation"><a href="../about.html">About</a></li>      
     </ul>
        
     <div class="title">
-      <h1>Yellow Stone 50th Anniversary</h1>
+      <h1>RunForTheHungry</h1>
     </div>
 
 
@@ -35,13 +34,13 @@
       </div>              
       <div class="col-md-8">
         <div class="card">
-          <img class="card-img-top img-fluid" src="../../assets/YellowStone.jpg" alt="Card image cap">
+          <img class="card-img-top img-fluid" src="../../assets/eventPicture.jpg" alt="Card image cap">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Category: Outdoors</li>
-            <li class="list-group-item">Start Date: 2016-11-28</li>
-            <li class="list-group-item">Email: Yellowstone@gmail.com</li>
-            <li class="list-group-item">State: <a href="../stateInstances/Wyoming.html">Wyoming</a></li>
-            <li class="list-group-item">Park: <a href="../parkInstances/YellowStone.html"></a></li>
+            <li class="list-group-item">Category: Races</li>
+            <li class="list-group-item">Start Date: 2013-11-28</li>
+            <li class="list-group-item">Email: mark@purefitness.cc</li>
+            <li class="list-group-item">State: <a href="{{ url_for('texas') }}">TX</a></li>
+            <li class="list-group-item">Park: <a href="{{ url_for('bigBend') }}">Big Bend</a></li>
           </ul>
         </div>        
       </div> <!-- end col-md-4 -->

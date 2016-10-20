@@ -15,11 +15,11 @@
   
   <body>
     <ul class="nav nav-pills">
-      <li role="presentation"><a href="index.html">Home</a></li>
-      <li role="presentation"><a href="parks.html">Parks</a></li>
+      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
+      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
       <li role="presentation"><a href="campgrounds.html">Campgrounds</a></li>
-      <li role="presentation"><a href="states.html">States</a></li>
-      <li role="presentation" class="active"><a href="events.html">Events</a></li>  
+      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation" class="active"><a href="{{ url_for('events') }}">Events</a></li>  
       <li role="presentation"><a href="about.html">About</a></li>        
     </ul>
     
@@ -46,7 +46,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row"><a href="eventInstances/AustinCityLimits.html">Austin City Limits</a></th>
+                  <th scope="row"><a href="{{ url_for('austinCityLimits') }}">Austin City Limits</a></th>
                   <td>Music</td>
                   <td>2016-11-28</td>
                   <td>mark@purefitness.cc</td>
@@ -55,7 +55,7 @@
                 </tr>
 
                 <tr>
-                  <th scope="row"><a href="eventInstances/RunForTheHungry.html">RunForTheHungry</a></th>
+                  <th scope="row"><a href="{{ url_for('runForTheHungry') }}">Run For The Hungry</a></th>
                   <td>Races</td>
                   <td>2013-11-28</td>
                   <td>run@hungry.com</td>
@@ -64,7 +64,7 @@
                 </tr>
                 
                 <tr>
-                  <th scope="row"><a href="eventInstances/YellowStoneAnniversary.html">Yellowstone Anniversary</a></th>
+                  <th scope="row"><a href="{{ url_for('yellowStoneAnniversary') }}">Yellowstone Anniversary</a></th>
                   <td>Outdoors</td>
                   <td>2016-11-28</td>
                   <td>yellowstone@gmail.com</td>
