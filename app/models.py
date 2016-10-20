@@ -1,4 +1,6 @@
-"""Models page for website with each pillar and its attributes"""
+"""
+Models page for website with each pillar and its attributes
+"""
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
