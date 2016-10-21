@@ -1,80 +1,193 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://sweetoutdoors.me
 
-# sweetoutdoors
+# SWEetOutdoors
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+SWEetOudoors is a handy API to retrieve centralized data regarding outdoor parks along with campgrounds and events in those parks.
 
-## Questions Collection [/questions]
+Find the website at: sweetoutdoors.me
 
-### List All Questions [GET]
+
+# group Parks 
+
+## All Parks [/parks]
+
+### List Of All Parks [GET]
 
 + Response 200 (application/json)
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
+                "id": "0",
+                "name": "Zilker Metropolitan Park"
+            },
+            {
+                "id": "1",
+                "name": "Death Valley National Park"
+            },
+            {
+                "id": "2",
+                "name": "Big Bend National Park"
             }
         ]
 
-### Create a New Question [POST]
+## Specific Park [/parks/{park_id}]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
++ Parameters
+    + park_id (number) - id of the requested park in the form of an integer
 
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
+### Specific Park [GET]
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
+        [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+                "idnum": "0",
+                "name": "Zilker Metropolitan Park",
+                "price": "0",
+                "opentime": "5",
+                "closetime": "0",
+                "website": "http://austintexas.gov/department/zilker-metropolitan-park",
+                "zipcode": "78705",
+                "state_id_fk": "0"
             }
+        ]
+        
+
+# group States 
+
+## All States [/states]
+
+### List Of All States [GET]
+
++ Response 300 (application/json)
+
+        [
+            {
+                "id": "0",
+                "name": "Texas"
+            },
+            {
+                "id": "1",
+                "name": "California"
+            },
+            {
+                "id": "2",
+                "name": "Florida"
+            }
+        ]
+
+## Specific State [/states/{state_id}]
+
++ Parameters
+    + state_id (number) - id of the requested state in the form of an integer
+
+### Specific State [GET]
+
++ Response 301 (application/json)
+
+        [
+            {
+                "idnum": "0",
+                "name": "Texas",
+                "highestPoint": "1522341234",
+                "population": "6212345",
+                "description": "Texas is the second largest state in the United States by both area and population. Geographically located in the south central part of the country, Texas shares borders with the other US states of Louisiana to the east, Arkansas to the northeast, Oklahoma to the north, New Mexico to the west, and the Mexican states of Chihuahua, Coahuila, Nuevo León, and Tamaulipas to the southwest, while the Gulf of Mexico is to the southeast.",
+                "totalArea": "123456"
+            }
+        ]
+        
+
+# group Events 
+
+## All Events [/events]
+
+### List Of All Events [GET]
+
++ Response 400 (application/json)
+
+        [
+            {
+                "id": "0",
+                "name": "Austin City Limits"
+            },
+            {
+                "id": "1",
+                "name": "Run For The Hungry"
+            },
+            {
+                "id": "2",
+                "name": "Yellowstone Anniversary"
+            }
+        ]
+
+## Specific Event [/events/{event_id}]
+
++ Parameters
+    + event_id (number) - id of the requested event in the form of an integer
+
+### Specific Event [GET]
+
++ Response 401 (application/json)
+
+        [
+            {
+                "idnum": "0",
+                "name": "Austin City Limits",
+                "category": "Music",
+                "startDate": "2016-11-28",
+                "email": "mark@purefitness.cc",
+                "url": "http://www.aclfestival.com/",
+                "zipcode": "78705",
+                "park_id_fk": "0",
+                "state_id_fk": "0"
+            }
+        ]
+        
+
+# group Campgrounds 
+
+## All Campgrounds [/campground]
+
+### List Of All Campgrounds [GET]
+
++ Response 500 (application/json)
+
+        [
+            {
+                "id": "0",
+                "name": "Yosemite Campground"
+            },
+            {
+                "id": "1",
+                "name": "Bear Creek"
+            },
+            {
+                "id": "2",
+                "name": "Everglades Campground"
+            }
+        ]
+
+## Specific Campground [/campgrounds/{campground_id}]
+
++ Parameters
+    + campground_id (number) - id of the requested campground in the form of an integer
+
+### Specific Campground [GET]
+
++ Response 501 (application/json)
+
+        [
+            {
+                "idnum": "0",
+                "name": "Yosemite Campground",
+                "latitude": "123.643",
+                "longitude": "68.12",
+                "electricity": "True",
+                "water": "False",
+                "sewer": "True",
+                "pets": "True",
+                "park_id_fk": "1",
+                "state_id_fk": "1"
+            }
+        ]
