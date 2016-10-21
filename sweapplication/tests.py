@@ -1,15 +1,18 @@
-import unittest 
-from models import Park, State, Campground, Event.
-
+"""
+Unit tests for our database
+"""
+from models import Park, State, Campground, Event
+from unittest import assertEqual
 
 class TestModels(unittest.TestCase):
-"""" def __init__(self, name, price, opentime, closetime, website,
+    """ 
+    def __init__(self, name, price, opentime, closetime, website,
                  zipcode, state_id_fk):
-def __init__(self, name, highestPoint, population, description,
+    def __init__(self, name, highestPoint, population, description,
                  total_area)
-def __init__(self, name, latitude, longitude, electricity, water,
+    def __init__(self, name, latitude, longitude, electricity, water,
                  sewer, pets, park_id_fk, state_id_fk)
-"""
+    """
 
     def setUp(self):
 		
@@ -47,7 +50,7 @@ def __init__(self, name, latitude, longitude, electricity, water,
     def test_campground3(self):
     	cdict = {name:'Everglades','latitude':'32.15','longitude':'172.45','electricity':'True',
     	'water':'False','sewer':'True','pets':'True','park_id_fk':'77','state_id_fk':'89'}
-    	 self.assertEqual(self.campground3().dictionary(),cdict)    
+    	self.assertEqual(self.campground3().dictionary(),cdict)    
 
     def test_event3(self):
     	edict = {'name':'Yellowstone Anniversary','category':'Hiking','date':'12/9/16',
@@ -67,7 +70,7 @@ def __init__(self, name, latitude, longitude, electricity, water,
     def test_campground2(self):
     	cdict = {name:'Yosemite','latitude':'46.15','longitude':'142.45','electricity':'False',
     	'water':'False','sewer':'True','pets':'True','park_id_fk':'17','state_id_fk':'59'}
-    	 self.assertEqual(self.campground2().dictionary(),cdict)    
+    	self.assertEqual(self.campground2().dictionary(),cdict)    
 
     def test_event2(self):
     	edict = {'name':'Bikefest','category':'Biking','date':'11/13/16',
@@ -97,4 +100,4 @@ def __init__(self, name, latitude, longitude, electricity, water,
     def test_campground(self):
     	cdict = {name:'BearCreek','latitude':'324.55','longitude':'367.65','electricity':'True',
     	'water':'False','sewer':'True','pets':'False','park_id_fk':'67','state_id_fk':'82'}
-    	 self.assertEqual(self.campground().dictionary(),cdict)
+    	self.assertEqual(self.campground().dictionary(),cdict)
