@@ -10,7 +10,7 @@ def __init__(self, name, highestPoint, population, description,
 def __init__(self, name, latitude, longitude, electricity, water,
                  sewer, pets, park_id_fk, state_id_fk)
 """
-	def setUp(self):
+    def setUp(self):
 		
         park = Park("Park",200,1000,2000,"parkwebsite.com",65766,12)
         state = State("Texas","GuadalupePeak",10000000,"big",1234567)
