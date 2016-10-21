@@ -12,9 +12,9 @@ def __init__(self, name, latitude, longitude, electricity, water,
 """
 	def setUp(self):
 		
-	    park = Park("Park",200,1000,2000,"parkwebsite.com",65766,12)
-	    state = State("Texas","GuadalupePeak",10000000,"big",1234567)
-	    campground = Campground("BearCreek",324.55,367.65,True,False,True,False,67,82)
+        park = Park("Park",200,1000,2000,"parkwebsite.com",65766,12)
+        state = State("Texas","GuadalupePeak",10000000,"big",1234567)
+        campground = Campground("BearCreek",324.55,367.65,True,False,True,False,67,82)
         event = Event("Relay","Running","2/5/17","relay@gmail.com","relay.com",14553,23,12)
         self.event = event
         self.park = park
@@ -24,7 +24,7 @@ def __init__(self, name, latitude, longitude, electricity, water,
         park2 = Park("Park3",60,1200,2030,"park3website.com",61261,27)
         event2 = Event("Bike Fest","Biking","11/3/16","bikefest@gmail.com","bikefest.com",54321,12,18)
         campground2 = Campground("Yosemite",46.15,142.45,False,False,True,True,17,59)
-	    state2 = State("Florida","Mount Tallahasee",105036,"crazy",600000)
+        state2 = State("Florida","Mount Tallahasee",105036,"crazy",600000)
         self.park2 = park2
         self.event2 = event2
         self.state2 = state2
