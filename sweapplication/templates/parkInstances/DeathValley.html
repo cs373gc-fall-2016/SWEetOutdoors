@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>SWEet Outdoors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+  </head>
+
+  <body>
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
+      <li role="presentation" class="active"><a href="{{ url_for('parks') }}">Parks</a></li>
+      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
+      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>        
+    </ul>
+       
+    <div class="title">
+      <h1>Death Valley National Park</h1>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-2"></div>              
+      <div class="col-md-4">
+        
+        <div class="card">
+          <img class="card-img-top img-fluid" src="../../static/img/deathvalley.jpg" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">Death Valley Park</h4>
+            <p class="card-text">It sounds like a place to avoid, but don't let the ominous name scare you away. Most of the year, this vast and rugged expanse of east Californian desert is brutally hot, but visit in winter or early spring (though even in the dead of winter, midday temperatures can hit 30C) and you'll find a surprisingly beautiful and vibrant place.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Hours: 8am - 5pm</li>
+            <li class="list-group-item">Price: $12</li>
+            <li class="list-group-item">Website: <a href="https://www.nps.gov/deva/index.htm">Death Valley National Park</a></li>
+            <li class="list-group-item">Zipcode: 92328</li>
+          </ul>
+        </div>        
+        
+        <!-- <img src="../../assets/texasMap.jpg" class="img-fluid"></img> -->
+      
+      </div> 
+
+      <div class="col-md-4"> 
+        
+        <!-- <row>
+          <div class="title">
+            <h1>Texas</h1>
+          </div> 
+        </row>   -->         
+
+
+        <!-- <row>
+          <div class="card card-block">
+            <h4 class="card-title">Upcoming Events</h4>
+            <br>
+            <div class = "row">
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Category</a>
+              </div>
+
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Start Date</a>
+              </div>
+            </div>
+          <hr>
+            <div class = "row">
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Category</a>
+              </div>
+
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Start Date</a>
+              </div>
+            </div>
+          <hr>
+            <div class = "row">
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Category</a>
+              </div>
+
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Start Date</a>
+              </div>
+            </div>
+          </div>
+        </row> -->
+        
+
+        <row>
+        <div class="card">
+          <br>
+          <a href="{{ url_for('florida') }}" class="card-link" id ="California Link">Explore Florida</a>
+          <br>
+          <img class="card-img-top img-fluid" src="../../static/img/floridaMap.png" alt="Card image cap">
+          <div class="card-block">
+            <p class="card-text">Florida (Spanish for "land of flowers") is a state located in the southeastern region of the United States. The state is bordered to the west by the Gulf of Mexico, to the north by Alabama and Georgia, to the east by the Atlantic Ocean, and to the south by the Straits of Florida and Cuba. Florida is the 22nd most extensive, the 3rd most populous,[8] and the 8th most densely populated of the United States. Jacksonville is the most populous city in Florida, and the largest city by area in the contiguous United States. The Miami metropolitan area is the eighth-largest metropolitan area in the United States. Tallahassee is the state capital. </p>
+          </div>
+        </div>
+        </row>            
+      
+
+      </div> <!-- end of col-md-4--!>
+
+      <div class="col-md-3"></div>
+      
+      <!-- <div class="col-md-4">  -->
+      <!-- </div> -->
+
+    </div> 
+    
+      
+      <!-- <div class="col-md-4"> -->
+      <!-- </div> -->
+    
+    </div>
+
+  </body>
+</html>

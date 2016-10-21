@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>SWEet Outdoors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../static/style/tablePages.css" media="screen">
+    <!-- basic js files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- js files for table sorting -->
+    <script type="text/javascript" src="../static/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.tablesorter.min.js"></script>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+  </head>
+  
+  <body>
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
+      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
+      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation" class="active"><a href="{{ url_for('events') }}">Events</a></li>  
+      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>        
+    </ul>
+    
+    <div class="title">
+      <h1>Events</h1>
+    </div> <!-- end of title -->
+
+ <div class="row">
+      <div class="col-md-1"></div>  
+      <div class="col-md-10">
+        <div class="table" data-example-id="simple-responsive-table"
+          <div class ="table-responsive">
+            <!-- Table -->
+            <table class="table table-striped" id="myTable">
+              <thead>
+                <tr> 
+                  <th>Event</th>
+                  <th>Category</th>
+                  <th>Start Date</th>                  
+                  <th>Email</th>
+                  <th>State</th>
+                  <th>Park</th>                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><a href="{{ url_for('austinCityLimits') }}">Austin City Limits</a></th>
+                  <td>Music</td>
+                  <td>2016-11-28</td>
+                  <td>mark@purefitness.cc</td>
+                  <th>
+                    <a href="{{ url_for('texas')}}">Texas</a>
+                  </th>                    
+                  <th>
+                    <a href="{{ url_for('bigBend')}}">BigBend</a>
+                  </th>
+                </tr>
+
+                <tr>
+                  <th scope="row"><a href="{{ url_for('runForTheHungry') }}">Run For The Hungry</a></th>
+                  <td>Races</td>
+                  <td>2013-11-28</td>
+                  <td>run@hungry.com</td>
+                  <th>
+                    <a href="{{ url_for('california')}}">California</a>
+                  </th>                     
+                  <th>
+                    <a href="{{ url_for('zilker')}}">Zilker</a>
+                  </th>
+                </tr>
+                
+                <tr>
+                  <th scope="row"><a href="{{ url_for('yellowStoneAnniversary') }}">Yellowstone Anniversary</a></th>
+                  <td>Outdoors</td>
+                  <td>2016-11-28</td>
+                  <td>yellowstone@gmail.com</td>
+                  <th>
+                    <a href="{{ url_for('florida')}}">Florida</a>
+                  </th>                    
+                  <th>
+                    <a href="{{ url_for('deathValley')}}">Death Valley</a>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+    $(function(){
+      $('#myTable').tablesorter(); 
+    });
+    </script>
+  </body>
+</html>

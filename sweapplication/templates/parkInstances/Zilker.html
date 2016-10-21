@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>SWEet Outdoors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+  </head>
+
+  <body>
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
+      <li role="presentation" class="active"><a href="{{ url_for('parks') }}">Parks</a></li>
+      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
+      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>        
+    </ul>
+       
+    <div class="title">
+      <h1>Zilker National Park</h1>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-2"></div>              
+      <div class="col-md-4">
+        
+        <div class="card">
+          <img class="card-img-top img-fluid" src="../../static/img/zilker.jpg" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">Zilker Park</h4>
+            <p class="card-text">Zilker Metropolitan Park is considered "San Francisco's most-loved park." This 351-acre park is home to a variety of recreation opportunities and special events for individuals and families.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Hours: 5am - 10pm</li>
+            <li class="list-group-item">Price: $0</li>
+            <li class="list-group-item">Website: <a href="http://austintexas.gov/department/zilker-metropolitan-park">Zilker Park</a></li>
+            <li class="list-group-item">Zipcode: 78705</li>
+          </ul>
+        </div>        
+        
+        <!-- <img src="../../assets/texasMap.jpg" class="img-fluid"></img> -->
+      
+      </div> 
+
+      <div class="col-md-4"> 
+        
+        <!-- <row>
+          <div class="title">
+            <h1>Texas</h1>
+          </div> 
+        </row>   -->         
+
+
+        <!-- <row>
+          <div class="card card-block">
+            <h4 class="card-title">Upcoming Events</h4>
+            <br>
+            <div class = "row">
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Category</a>
+              </div>
+
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Start Date</a>
+              </div>
+            </div>
+          <hr>
+            <div class = "row">
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Category</a>
+              </div>
+
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Start Date</a>
+              </div>
+            </div>
+          <hr>
+            <div class = "row">
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Category</a>
+              </div>
+
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Start Date</a>
+              </div>
+            </div>
+          </div>
+        </row> -->
+        
+
+        <row>
+        <div class="card">
+          <br>
+          <a href="{{ url_for('california') }}" class="card-link" id ="Texas Link">Explore California</a>
+          <br>
+          <img class="card-img-top img-fluid" src="../../static/img/californiaMap.jpg" alt="Card image cap">
+          <div class="card-block">
+            <p class="card-text">California is the most populous state in the United States. It is also the third most extensive by area. Los Angeles, in Southern California, is the state's most populous city and the country's second largest after New York City. California also includes the nation's most populous county, Los Angeles County, and the largest county by area, San Bernardino County. </p>
+          </div>
+        </div>
+        </row>            
+      
+
+      </div> <!-- end of col-md-4--!>
+
+      <div class="col-md-3"></div>
+      
+      <!-- <div class="col-md-4">  -->
+      <!-- </div> -->
+
+    </div> 
+    
+      
+      <!-- <div class="col-md-4"> -->
+      <!-- </div> -->
+    
+    </div>
+
+  </body>
+</html>

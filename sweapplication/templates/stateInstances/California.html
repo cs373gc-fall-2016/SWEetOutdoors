@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>SWEet Outdoors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../static/style/statetemplate.css" media="screen">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+  </head>
+
+  <body>
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
+      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
+      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li role="presentation" class="active"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
+      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>         
+    </ul>
+       
+    <div class="title">
+      <h1>California</h1>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-2">
+      </div>              
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="../../static/img/californiaMap.jpg" alt="Card image cap">
+          <div class="card-block">
+            <p class="card-text">California is the most populous state in the United States. It is also the third most extensive by area. Los Angeles, in Southern California, is the state's most populous city and the country's second largest after New York City. California also includes the nation's most populous county, Los Angeles County, and the largest county by area, San Bernardino County. Geographically located in the western part of the United States, California is bordered by the other United States states of Oregon to the north, Nevada to the east, and Arizona to the southeast. California shares an international border with the Mexican state of Baja California to the south and the Pacific Ocean is on the state's western coastline. The state capital is Sacramento, which is located in the northern part of the state. A majority of California's cities are located in either the San Francisco Bay Area or the Sacramento metropolitan area in Northern California; or the Los Angeles area, the Riverside-San Bernardino-Inland Empire, or the San Diego metropolitan area in Southern California.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Area: 163,696 sq mi</li>
+            <li class="list-group-item">Population: 39,144,818</li>
+            <li class="list-group-item">Highest Point: 14,505 ft</li>
+          </ul>
+        </div>        
+      </div> <!-- end col-md-4 -->
+
+      <div class="col-md-4"> 
+        <row>
+          <div class="card card-block">
+            <h4 class="card-title">Upcoming Events</h4>
+            <br>
+            <div class = "row">
+              <div class = "col-md-4">
+                <a href="{{ url_for('runForTheHungry') }}" class="card-link">Run For The Hungry</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <a href="../eventInstances/EventTemplate.html" class="card-link">Races</a>
+              </div>
+
+              <div class = "col-md-4">
+                <a href="../eventInstances/EventTemplate.html" class="card-link">2013-11-28</a>
+              </div>
+            </div> <!-- end class row -->
+
+            <hr>
+
+            <div class = "row">
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Category</a>
+              </div>
+
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Start Date</a>
+              </div>
+            </div> <!-- end class row -->
+
+            <hr>
+
+            <div class = "row">
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Category</a>
+              </div>
+
+              <div class = "col-md-4">
+                <a href="#" class="card-link">Start Date</a>
+              </div>
+            </div> <!-- end class row -->
+          </div> <!-- end class card card-block -->
+        </row>
+
+        <row>
+          <div class="card">
+            <br>
+            <a href="{{ url_for('deathValley') }}" class="card-link" id ="deathValleyLink">Explore Death Valley</a>
+            <br>
+            <img class="card-img-top img-fluid" src="../../static/img/deathvalley.jpg" alt="Card image cap">
+            <div class="card-block">
+              <p class="card-text">It sounds like a place to avoid, but don't let the ominous name scare you away. Most of the year, this vast and rugged expanse of east Californian desert is brutally hot, but visit in winter or early spring (though even in the dead of winter, midday temperatures can hit 30C) and you'll find a surprisingly beautiful and vibrant place. </p>
+            </div>
+          </div>
+        </row>  
+      </div> <!-- end col-md-4 -->
+    </div> <!-- end class row -->
+  </body>
+</html>
