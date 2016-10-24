@@ -115,18 +115,18 @@ def bearCreek():
 	"""
 	routes to Bear Creek page
 	"""
-	return render_template('campgroundInstances/BearCreek.html')
+	return render_template('/campgroundInstances/BearCreek.html')
 
 @application.route("/campgrounds/Everglades")
 def everglades():
 	"""
 	routes to Everglades page
 	"""
-	return render_template('campgroundInstances/Everglades.html')
+	return render_template('/campgroundInstances/Everglades.html')
 
 @application.route("/campgrounds/YosemiteCampground")
 def yosemiteCampground():
 	"""
 	routes to Yosemite campgrounds page
 	"""
-	return render_template('campgroundInstances/YosemiteCampground.html')
+	return render_template('/campgroundInstances/YosemiteCampground.html')
