@@ -34,10 +34,10 @@ for i in states:
     s[i] = [landarea,pop,highestelev,url]
 
     #print[s]
-    print landarea
-    print pop
-    print highestpoint
-    print highestelev
+    print (landarea)
+    print (pop)
+    print (highestpoint)
+    print (highestelev)
     
 
     """ Unaltered from internet

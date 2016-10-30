@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../static/style/parkstemplate.css" media="screen"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
@@ -28,11 +28,9 @@
       <h1>Big Bend National Park</h1>
     </div>
 
-
     <div class="row">
       <div class="col-md-2"></div>              
       <div class="col-md-4">
-        
         <div class="card">
           <img class="card-img-top img-fluid" src="../../static/img/bigbend.jpg" alt="Card image cap">
           <div class="card-block">
@@ -46,96 +44,20 @@
             <li class="list-group-item">Zipcode: 79834</li>
           </ul>
         </div>        
-        
-        <!-- <img src="../../assets/texasMap.jpg" class="img-fluid"></img> -->
-      
       </div> 
-
       <div class="col-md-4"> 
-        
-        <!-- <row>
-          <div class="title">
-            <h1>Texas</h1>
-          </div> 
-        </row>   -->         
-
-
-        <!-- <row>
-          <div class="card card-block">
-            <h4 class="card-title">Upcoming Events</h4>
-            <br>
-            <div class = "row">
-              <div class = "col-md-4">
-                <a href="#" class="card-link">Name</a>
-              </div>
-              
-              <div class = "col-md-4">
-                <a href="#" class="card-link">Category</a>
-              </div>
-
-              <div class = "col-md-4">
-                <a href="#" class="card-link">Start Date</a>
-              </div>
-            </div>
-          <hr>
-            <div class = "row">
-              <div class = "col-md-4">
-                <a href="#" class="card-link">Name</a>
-              </div>
-              
-              <div class = "col-md-4">
-                <a href="#" class="card-link">Category</a>
-              </div>
-
-              <div class = "col-md-4">
-                <a href="#" class="card-link">Start Date</a>
-              </div>
-            </div>
-          <hr>
-            <div class = "row">
-              <div class = "col-md-4">
-                <a href="#" class="card-link">Name</a>
-              </div>
-              
-              <div class = "col-md-4">
-                <a href="#" class="card-link">Category</a>
-              </div>
-
-              <div class = "col-md-4">
-                <a href="#" class="card-link">Start Date</a>
-              </div>
-            </div>
-          </div>
-        </row> -->
-        
-
         <row>
-        <div class="card">
-          <br>
-          <a href="{{ url_for('texas') }}" class="card-link" id ="Texas Link">Explore Texas</a>
-          <br>
-          <img class="card-img-top img-fluid" src="../../static/img/texasMap.jpg" alt="Card image cap">
-          <div class="card-block">
-            <p class="card-text">Texas is the second largest state in the United States by both area and population. Geographically located in the south central part of the country, Texas shares borders with the other US states of Louisiana to the east, Arkansas to the northeast, Oklahoma to the north, New Mexico to the west, and the Mexican states of Chihuahua, Coahuila, Nuevo León, and Tamaulipas to the southwest, while the Gulf of Mexico is to the southeast.</p>
+          <div class="card">
+            <br>
+            <a href="{{ url_for('texas') }}" class="card-link" id ="StateLink">Explore Texas</a>
+            <br>
+            <img class="card-img-top img-fluid" src="../../static/img/texasMap.jpg" alt="Card image cap">
+            <div class="card-block">
+              <p class="card-text">Texas is the second largest state in the United States by both area and population. Geographically located in the south central part of the country, Texas shares borders with the other US states of Louisiana to the east, Arkansas to the northeast, Oklahoma to the north, New Mexico to the west, and the Mexican states of Chihuahua, Coahuila, Nuevo León, and Tamaulipas to the southwest, while the Gulf of Mexico is to the southeast.</p>
+            </div>
           </div>
-        </div>
-        </row>            
-      
-
-      </div> <!-- end of col-md-4--!>
-
-      <div class="col-md-3"></div>
-      
-      <!-- <div class="col-md-4">  -->
-      <!-- </div> -->
-
+        </row>  
+      </div> 
     </div> 
-    
-      
-      <!-- <div class="col-md-4"> -->
-      <!-- </div> -->
-    
-    </div>
-
   </body>
 </html>

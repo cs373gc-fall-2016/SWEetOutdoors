@@ -9,7 +9,7 @@
   margin-bottom: 5em;
 }
 
-.title h1 {
+#title1 {
   color: white;
   font-size: 4em;
 }
@@ -86,16 +86,27 @@ li {
   ------------------------
 */
 
-.title.title2 h1 {
+.stats.col-lg-4 .title {
+  margin-bottom: 2%;
+}
+
+.stats.col-lg-4 h1 {
 	margin-bottom: 0;
+  color: white;
 }
 
 .stats.col-lg-4 p {
   color: white;
   font-size: 1.5em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
-.stats.col-lg-4{
+.stats.col-lg-4 {
   margin-top: -2.5em;
 }
+
+/*#tools.stats.col-lg-4 {
+  padding-right: 0;
+}*/
 
