@@ -7,13 +7,15 @@
     <!-- stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../static/style/tablePages.css" media="screen">
     <!-- basic js files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- js files for table sorting -->
-    <script type="text/javascript" src="../static/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../static/js/jquery.tablesorter.min.js"></script>
+    <!-- js files for table sorting and pagination-->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>   
+    <!-- css for table pagination -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen">  
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
@@ -29,11 +31,9 @@
       <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>
     </ul>
 
-    <div class = "col-md-12">
-      <div class="title">
-        <h1>States</h1>
-      </div> <!-- end of title -->
-    </div> 
+    <div class="title">
+      <h1>States</h1>
+    </div> <!-- end of title -->
 
     <div class="col-md-1"></div>
 
@@ -85,9 +85,9 @@
       </div>
     </div>
     <script type="text/javascript">
-    $(function(){
-      $('#myTable').tablesorter(); 
-    });
+      $(document).ready(function(){
+        $('#myTable').DataTable(); 
+      });
     </script>
   </body>
 </html>
