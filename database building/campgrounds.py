@@ -18,8 +18,16 @@ while facility_offset < num_facilities:
         email = facility["FacilityEmail"]
         facility_id = facility["FacilityID"]
 
-        location_json = requests.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + str(latitude) + "," + str(longitude) + "&key=AIzaSyDzR-G-zjIEn4_YUalebfRGvdW2DszBQKg").json()
-        state = location_json["results"][0]["address_components"][3]["long_name"]
+        location_json = requests.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + str(latitude) + "," + str(longitude) + "&key=AIzaSyD6F3rB8GtFapIpn9YG-GmqW_aGisnY5s8").json()
+        # print("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + str(latitude) + "," + str(longitude) + "&key=AIzaSyDzR-G-zjIEn4_YUalebfRGvdW2DszBQKg")
+        for comp in location_json["results"][0]["address_components"]:
+            if(comp["types"][0] == "administrative_area_level_1"):
+                state = comp["long_name"]
+            elif(comp["types"][0] == "postal_code"):
+                zipcode = comp["long_name"]
 
-    print(facility_offset)
+        # campgroundInstance = Campground(name, description, cost, latitude, longitude, accessibility,
+                 # reservation_url, email, zipcode, state)     
+
+    # print(facility_offset)
     facility_offset += 50
