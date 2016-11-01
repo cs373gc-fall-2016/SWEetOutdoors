@@ -5,7 +5,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://sweetOutdoors:wearefine@sweetoutdoorsdb.ckneyrny5ckj.us-west-2.rds.amazonaws.com:5432/sweetOutdoors'
 db = SQLAlchemy(app)
 
 #pylint:disable=invalid-name, too-many-arguments, too-few-public-methods, too-many-instance-attributes
@@ -17,8 +17,8 @@ class Park(db.Model):
 
     idnum = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
-    latitude = db.Column(db.Float)
-    longitude = db.Column(db.Float)
+    latitude = db.Column(db.String(256))
+    longitude = db.Column(db.String(256))
     address = db.Column(db.String(256))
     phone = db.Column(db.String(256))
     rating = db.Column(db.Float)
@@ -55,8 +55,8 @@ class Event(db.Model):
 
     idnum = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
-    latitude = db.Column(db.Float)
-    longitude = db.Column(db.Float)
+    latitude = db.Column(db.String(256))
+    longitude = db.Column(db.String(256))
     category = db.Column(db.String(256))
     startDate = db.Column(db.String(256))
     endDate = db.Column(db.String(256))
@@ -125,8 +125,8 @@ class Campground(db.Model):
     name = db.Column(db.String(256))
     description = db.Column(db.String(2048))
     cost = db.Column(db.String(256))
-    latitude = db.Column(db.Float)
-    longitude = db.Column(db.Float)
+    latitude = db.Column(db.String(256))
+    longitude = db.Column(db.String(256))
     accessibilty = db.Column(db.Boolean)
     reservation_url = db.Column(db.String(256))
     email = db.Column(db.String(256))
