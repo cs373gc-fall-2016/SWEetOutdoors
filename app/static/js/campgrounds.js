@@ -13,8 +13,8 @@ app.controller("repeatController", function($scope) {
 		name: 'Yosemite',
 		description: 'In California',
 		cost: '10000',
-		latitude = '23'
 	    longitude = '123'
+		latitude = '23'
 	    accessibilty = true
 	    reservation_url = 'thisisaurl.com'
 	    email = 'thisisanemail@hotmail.com'
@@ -26,8 +26,8 @@ app.controller("repeatController", function($scope) {
 	  	name: 'BearCreek',
 		description: 'In Texas',
 		cost: '10000',
-		latitude = '23'
 	    longitude = '123'
+		latitude = '23'
 	    accessibilty = true
 	    reservation_url = 'thisisaurl.com'
 	    email = 'thisisanemail@hotmail.com'
@@ -39,8 +39,8 @@ app.controller("repeatController", function($scope) {
 	    name: 'notBearCreek',
 		description: 'In Texas',
 		cost: '10000',
-		latitude = '23'
 	    longitude = '123'
+		latitude = '23'
 	    accessibilty = true
 	    reservation_url = 'thisisaurl.com'
 	    email = 'thisisanemail@hotmail.com'
