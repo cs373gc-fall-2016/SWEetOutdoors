@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 import threading
-
 from models import db, Park
 
 states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", 
@@ -14,12 +13,14 @@ national_parks = ['Acadia National Park', 'Arches National Park', 'Badlands Nati
                   'Black Canyon of the Gunnison National Park', 'Bryce Canyon National Park', 'Canyonlands National Park', 'Capitol Reef National Park', 'Carlsbad Caverns National Park', 
                   'Channel Islands National Park', 'Congaree National Park', 'Crater Lake National Park', 'Cuyahoga Valley National Park', 'Death Valley National Park', 'Denali National Park', 
                   'Dry Tortugas National Park', 'Everglades National Park', 'Gates of the Arctic National Park', 'Glacier National Park', 'Glacier Bay National Park', 'Grand Canyon National Park', 
-                  'Grand Teton National Park', 'Great Basin National Park', 'Great Sand Dunes National Park', 'Great Smoky Mountains National Park', 'Guadalupe Mountains National Park', 'Haleakalā National Park', 
+                  'Grand Teton National Park', 'Great Basin National Park', 'Great Sand Dunes National Park', 'Great Smoky Mountains National Park', 'Guadalupe Mountains National Park', 'Haleakala National Park', 
                   'Hawaii Volcanoes National Park', 'Hot Springs National Park', 'Isle Royale National Park', 'Joshua Tree National Park', 'Katmai National Park', 'Kenai Fjords National Park', 
                   'Kings Canyon National Park', 'Kobuk Valley National Park', 'Lake Clark National Park', 'Lassen Volcanic National Park', 'Mammoth Cave National Park', 'Mesa Verde National Park', 
                   'Mount Rainier National Park', 'North Cascades National Park', 'Olympic National Park', 'Petrified Forest National Park', 'Pinnacles National Park', 'Redwood National Park', 
                   'Rocky Mountain National Park', 'Saguaro National Park', 'Sequoia National Park', 'Shenandoah National Park', 'Theodore Roosevelt National Park', 'Virgin Islands National Park', 
-                  'Voyageurs National Park', 'Wind Cave National Park', 'Wrangell–St. Elias National Park', 'Yellowstone National Park', 'Yosemite National Park', 'Zion National Park']
+                  'Voyageurs National Park', 'Wind Cave National Park', 'Wrangell St. Elias National Park', 'Yellowstone National Park', 'Yosemite National Park', 'Zion National Park']
+
+zipcodeset = set()
 
 az= ['a','b','c','d','e','f','g','h','i','j','k','l',
     'm','n','o','p','q','r','s','t','u','v','w','x','y','z']
@@ -36,7 +37,6 @@ photo_end = "&key=AIzaSyAtY7qDs17_pSmKFlkEY1v3ieq1jKpy9og"
 default_photo_url = "https://lh5.googleusercontent.com/xE0_qnkkeTcyG-02cl6MSxbojpcxUwKED2Hd5Aiu34aUL9UIrhC6bFCIPN1ov54dC9N1G1ahwzlV6A=w984-h755-rw"
 
 def national_scrape():
-
     for string in national_parks:
         park_name = string
         string = string.replace(" ", "+")
@@ -61,6 +61,8 @@ def national_scrape():
                 for add in result["address_components"]:
                     if add["types"] == ["postal_code"]:
                         zipcode = add["short_name"]
+                        
+                zipcodeset.add(zipcode)
 
                 address = result["formatted_address"]
                 try:
@@ -100,16 +102,21 @@ def national_scrape():
                 except KeyError:
                     photo_link = default_photo_url
 
-                latitude = result["geometry"]["location"]["lat"]
-                longitude = result["geometry"]["location"]["lng"]
+                latitude = str(result["geometry"]["location"]["lat"])
+                longitude = str(result["geometry"]["location"]["lng"])
                 #convert to STRING LATLONG
                 
+                park_obj = Park(park_name, latitude, longitude, address, phone,
+                                        rate, website, zipcode)
+                db.session.add(park_obj)
             if state_dict != {}:
                 print("done for %s" %park_name)
             state_dict = {}
         else:
             #NO RESULTS
             print(firstjson["status"])
+    db.session.commit()
+    db.session.close()
 
 def state_scrape(begin, end):
     d = {}
@@ -163,6 +170,8 @@ def state_scrape(begin, end):
                         for add in result["address_components"]:
                             if add["types"] == ["postal_code"]:
                                 zipcode = add["short_name"]
+     
+                        zipcodeset.add(zipcode)
 
                         address = result["formatted_address"]
                         try:
@@ -203,8 +212,11 @@ def state_scrape(begin, end):
                         except KeyError:
                             photo_link = default_photo_url
 
-                        latitude = result["geometry"]["location"]["lat"]
-                        longitude = result["geometry"]["location"]["lng"]
+                        latitude = str(result["geometry"]["location"]["lat"])
+                        longitude = str(result["geometry"]["location"]["lng"])
+                        park_obj = Park(park_name, latitude, longitude, address, phone,
+                                        rate, website, zipcode)
+                        db.session.add(park_obj)
 
                     if state_dict != {}:
                         print("done for %s" % park_name)
@@ -214,6 +226,8 @@ def state_scrape(begin, end):
                     print(firstjson["status"])
             else:
                 break
+    db.session.commit()
+    db.session.close()
 
 threads = []
 indexthreads = [0, 10, 20, 31, 41]
@@ -224,8 +238,12 @@ for i in range(0, 5):
     thread = threading.Thread(target=state_scrape, args=(start, end))
     threads.append(thread)
 
+
 national_scrape()
+
 for thread in threads:
     thread.start()
 for thread in threads:
     thread.join()
+
+print(zipcodeset)

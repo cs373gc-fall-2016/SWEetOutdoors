@@ -1,8 +1,8 @@
-
 import wptools 
 import wikipedia
 import re 
 from models import db, State
+
 #Louisiana, Kansas , Maine, Minnesota, 
 states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida',
     'Georgia (U.S. state)','Hawaii','Idaho','Illinois',
@@ -146,8 +146,8 @@ info = [
 
 c = 0
 for i in states2:
-    print(i)
-    print(c)
+    #print(i)
+    #print(c)
     url = "https://en.wikipedia.org/wiki/" + i + "#/media/File:" + i + "_in_United_States.svg" 
     url = url.replace(" ","_")
     info[c] += [url]
