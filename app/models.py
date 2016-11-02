@@ -53,34 +53,39 @@ class Event(db.Model):
     __tablename__ = 'Events'
 
     idnum = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(256))
     latitude = db.Column(db.String(256))
     longitude = db.Column(db.String(256))
-    category = db.Column(db.String(256))
+    topics = db.Column(db.String(256))
     startDate = db.Column(db.String(256))
     endDate = db.Column(db.String(256))
-    urlAdr = db.Column(db.String(256))
-    organizationName = db.Column(db.String(256))
-    homePageUrlAdr = db.Column(db.String(256)) #organization URL
-    cityName = db.Column(db.String(256))
+    picUrl = db.Column(db.String(256))
+    eventUrl = db.Column(db.String(256))
+    orgName = db.Column(db.String(256))
+    contactPhoneNum = db.Column(db.String(256))
+    orgUrl = db.Column(db.String(256)) #organization URL
+    city = db.Column(db.String(256))
     zipcode = db.Column(db.Integer)
+
+    # state = string
 
     park_id_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
     state_id_fk = db.Column(db.Integer, db.ForeignKey('States.idnum'), nullable=True)
 
-    def __init__(self, name, latitude, longitude, category, startDate, endDate, urlAdr, organizationName, 
-                 homePageUrlAdr, cityName, zipcode):
+    def __init__(self, latitude, longitude, topics, startDate, endDate, picUrl, eventUrl, orgName, 
+                 contactPhoneNum, orgUrl, zipcode, city):
 
-        self.name = name
-        selv.latitude = latitude
+        self.latitude = latitude
         self.longitude = longitude
-        self.category = category
+        self.topics = topics
         self.startDate = startDate
         self.endDate = endDate
-        self.urlAdr = urlAdr
-        self.organizationName = organizationName
+        self.picUrl = picUrl
+        self.eventUrl = eventUrl
+        self.orgName = orgName
+        self.contactPhoneNum = contactPhoneNum
+        self.orgUrl = orgUrl
+        self.city = city
         self.zipcode = zipcode
-        self.cityName = cityName
 
     def __repr__(self):
         return '<Event %r>' % self.name
