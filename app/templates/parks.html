@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app lang="en-us">
+<html>
   <head>
     <meta charset="UTF-8">
     <title>SWEet Outdoors</title>
@@ -11,12 +11,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- js files for table sorting and pagination-->
-    <!-- js files for angular-->
-    
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>    
+    <!-- js files for angular--> 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>    
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript" href="../static/js/parks.js"></script>   
     <!-- css for table pagination -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen">  
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
@@ -25,7 +23,8 @@
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
   </head>
 
-  <body>
+
+  <body ng-app="myApp" ng-controller="repeatController">
     <ul class="nav nav-pills">
       <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
       <li role="presentation" class="active"><a href="{{ url_for('parks') }}">Parks</a></li>
@@ -50,56 +49,26 @@
                 <thead>
                   <tr>
                     <th>Park</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Rating</th>
+                    <th>Price</th>
+                    <th>Hours</th>
+                    <th>Website</th>
                     <th>Upcoming Event</th>
-                    <th>Nearby Campground</th>
-                    <th>State</th>
+                    <th>Best Campground</th>
                   </tr>
                 </thead>
                 <tbody>
                   
-
-                  <tr>
-                    <th scope="row"><a ng-repeat="park in parks" href= "#" >{{park.parkUrl}}</a></th>
-                    <td ng-repeat="park in parks"> {{park.address}} </td>
-                    <td ng-repeat="park in parks"> {{park.phone}} </td>
-                    <td ng-repeat="park in parks"> {{park.rating}} </td>
-                    <td ng-repeat="park in parks">
-                      <a ng-repeat="park in parks" href = "#">http://austintexas.gov/department/zilker-metropolitan-park</a>
-                    </td>
-                    <th scope="row" ng-repeat="park in parks"><a href="#"></a></th>
-                    <th scope="row" ng-repeat="park in parks"><a href="#"></a></th>
-                  </tr>
-
-
-                  <!--<tr>
-                    <th scope="row"><a href="{{ url_for('deathValley') }}">Death Valley National Park</a></th>
-                    <td>$10</td>
-                    <td>5am - 10pm</td>
-                    <td>5am - 10pm</td>
-                    <td>
-                      <a href="https://www.nps.gov/deva/index.htm">https://www.nps.gov/deva/index.htm</a>
-                    </td>
-                    <th scope="row"><a href="{{ url_for('yellowStoneAnniversary') }}">Yellowstone Anniversary</a></th>
-                    <th scope="row"><a href="{{ url_for('everglades') }}">Everglades Campground</a></th>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="{{ url_for('bigBend') }}">Big Bend National Park</th>
-                    <td>$12</td>
-                    <td>All Day</td>
-                    <td>5am - 10pm</td>
-                    <td>
-                      <a href="https://www.nps.gov/bibe/index.htm">https://www.nps.gov/bibe/index.htm</a>
-                    </td>
-                    <th scope="row"><a href="{{ url_for('austinCityLimits') }}">Austin City Limits</a></th>
-                    <th scope="row"><a href="{{ url_for('yosemiteCampground') }}">Yosemite Campground</a></th>
-                  </tr> -->
-                    
+                  <tr ng-repeat="park in parks">
+                    <th scope="row"><a href= "#" >{{park.parkName}}</a></th>
+                    <td> {{park.price}} </td>
+                    <td> {{park.hours}} </td>
+                    <td> {{park.website}} </td>
+                    <td> {{park.upcomingEvent}} </td>
+                    <td> {{park.bestCamground}} </td>
+                  </tr>                    
                 </tbody>
-              </table>
-            </div> <!-- end of <div class = "repeatController">-->
+              </table> 
+            </div> <!-- end of <div class = "repeatController">--> 
           </div> <!-- end of <div class = "table-responsive"> -->
         </div> <!-- end of <div class = "table"> -->
       </div> <!-- end of <div class = "col-md-10"> -->
@@ -110,5 +79,20 @@
         $('#myTable').DataTable(); 
       });
     </script>
+
+    <script src="/Users/didicrous/Projects/SWEetOutdoors-dev/app/static/js/parks.js"></script>   
+
+<!--<script>
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+  $scope.records = [
+    "Alfreds Futterkiste",
+    "Berglunds snabbköp",
+    "Centro comercial Moctezuma",
+    "Ernst Handel",
+  ]
+});
+</script>-->
+
   </body>
 </html>
