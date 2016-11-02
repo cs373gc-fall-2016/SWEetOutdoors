@@ -48,6 +48,16 @@
       </div> 
       <div class="col-md-4"> 
         <row>
+          <div class="card">
+            <a href="{{ url_for('bigBend') }}" class="card-link" id ="bigBendLink">Explore "stateName"</a>
+            <img class="card-img-top img-fluid" src="../../static/img/texas.jpg" alt="Image of state that this park is in">
+            <div class="card-block">
+              <p class="card-text">"stateDescription"</p>
+            </div>
+          </div>
+        </row>  
+
+        <row>
           <div class="card card-block">
             <h4 class="card-title">Next Event</h4>
             <br>
@@ -66,16 +76,6 @@
             </div> <!-- end class row -->
           </div> <!-- end class card card-block -->
         </row>
-
-        <row>
-          <div class="card">
-            <img class="card-img-top img-fluid" src="../../static/img/texas.jpg" alt="Image of state that this park is in">
-            <a href="{{ url_for('bigBend') }}" class="card-link" id ="bigBendLink">Explore "stateName"</a>
-            <div class="card-block">
-              <p class="card-text">"stateDescription"</p>
-            </div>
-          </div>
-        </row>  
       </div> <!-- end col-md-4 -->
     </div> <!-- end class row -->
   </body>
