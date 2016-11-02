@@ -2,7 +2,7 @@
 import wptools 
 import wikipedia
 import re 
-
+from models import db, State
 #Louisiana, Kansas , Maine, Minnesota, 
 states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida',
     'Georgia (U.S. state)','Hawaii','Idaho','Illinois',
@@ -12,10 +12,9 @@ states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Conne
     'Rhode Island','South Carolina','Tennessee','Texas','Utah',
     'Virginia','Washington (state)','West Virginia','Wyoming']
 
-s = {}
+s = {}# can be removed but not going to just yet 
 
 for i in states:
-#do something 
 #fin
     state = wptools.page(i).get_parse()
     wikstate = wikipedia.page(i)
@@ -50,6 +49,8 @@ for i in states:
     url = url.replace(" ","_")
     
     s[i] = [landarea,pop,highestelev,url,shortenedSum]
+    s = State(i,shortenedSum,landarea,pop,highestelev)
+    db.session.add(s)
 
     #print[s]
     #print landarea
@@ -57,7 +58,6 @@ for i in states:
     #print highestpoint
     #print highestelev
     #print summary
-    
 
     """ Unaltered from internet
     ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware',
@@ -144,6 +144,9 @@ for i in states2:
     url = url.replace(" ","_")
     info[c] += [url]
     c+=1
+    s = State(i,info[c][4],info[c][0],info[c][1],info[c][2])
+    db.session.add(s)
+
 
 
 
@@ -152,9 +155,10 @@ d = {i:x for i,x in zip(states2,info)}
 
 #print d 
 
-z = s.copy()
-z.update(d)
+#z = s.copy()
+#z.update(d)
 
-print z 
-
+#print z 
+db.session.commit()
+db.session.close()    
 
