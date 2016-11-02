@@ -99,9 +99,10 @@ class State(db.Model):
     idnum = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
     description = db.Column(db.String(2048))
-    total_area = db.Column(db.Float)
-    population = db.Column(db.Integer)
+    total_area = db.Column(db.String(256))
+    population = db.Column(db.String(256))
     highestPoint = db.Column(db.String(256))
+   
 
     campgrounds_rel = db.relationship(
         'Campground', backref='State', lazy='dynamic')

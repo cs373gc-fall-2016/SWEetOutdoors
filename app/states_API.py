@@ -14,8 +14,11 @@ states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Conne
 
 s = {}# can be removed but not going to just yet 
 
+
+
 for i in states:
 #fin
+    
     state = wptools.page(i).get_parse()
     wikstate = wikipedia.page(i)
     summary = wikstate.content
@@ -30,10 +33,14 @@ for i in states:
 
 
     landarea = state.infobox["TotalAreaUS"]#number as string 
+
     pop = state.infobox["2010Pop"]
+
     highestpoint = state.infobox["HighestPoint"]#highest point for example Guadaluple Peak 
     highestpoint = highestpoint[2:len(highestpoint)-2]
+    
     highestelev = state.infobox["HighestElevUS"]
+    #highestelev = locale.atoi(pop)
     #d = {i:x for i,x in zip(states2,info)}
 
     if (i == "Georgia (U.S. state)"):
@@ -48,10 +55,10 @@ for i in states:
 
     url = url.replace(" ","_")
     
-    s[i] = [landarea,pop,highestelev,url,shortenedSum]
+    #s[i] = [landarea,pop,highestelev,url,shortenedSum]
     s = State(i,shortenedSum,landarea,pop,highestelev)
     db.session.add(s)
-
+    
     #print[s]
     #print landarea
     #print pop
@@ -139,13 +146,18 @@ info = [
 
 c = 0
 for i in states2:
-
+    print(i)
+    print(c)
     url = "https://en.wikipedia.org/wiki/" + i + "#/media/File:" + i + "_in_United_States.svg" 
     url = url.replace(" ","_")
     info[c] += [url]
-    c+=1
+    #print info[c][4]
+    #print info[c][0]
+    #print info[c][1]
+    #print info[c][2]
     s = State(i,info[c][4],info[c][0],info[c][1],info[c][2])
     db.session.add(s)
+    c+=1
 
 
 
