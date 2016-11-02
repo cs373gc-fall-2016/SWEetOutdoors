@@ -25,24 +25,23 @@ class Park(db.Model):
     website = db.Column(db.String(256))
     zipcode = db.Column(db.Integer)
 
-    state_id_fk = db.Column(db.Integer, db.ForeignKey('State.idnum'), nullable=True)
+    state_id_fk = db.Column(db.Integer, db.ForeignKey('States.idnum'), nullable=True)
 
     events = db.relationship('Event', backref='Park', lazy='dynamic')
     campgrounds_rel = db.relationship(
         'Campground', backref='Park', lazy='dynamic')
 
-    def __init__(self, name, latitude, longitude, address, phone, rating, closetime, website,
+    def __init__(self, name, latitude, longitude, address, phone, rating, website,
                  zipcode):
 
         self.name = name
-        selv.latitude = latitude
+        self.latitude = latitude
         self.longitude = longitude
         self.address = address
         self.phone = phone
         self.rating = rating
         self.website = website
         self.zipcode = zipcode
-        self.state_id_fk = state_id_fk
 
     def __repr__(self):
         return '<Park %r>' % self.name
@@ -54,34 +53,39 @@ class Event(db.Model):
     __tablename__ = 'Events'
 
     idnum = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(256))
     latitude = db.Column(db.String(256))
     longitude = db.Column(db.String(256))
-    category = db.Column(db.String(256))
+    topics = db.Column(db.String(256))
     startDate = db.Column(db.String(256))
     endDate = db.Column(db.String(256))
-    urlAdr = db.Column(db.String(256))
-    organizationName = db.Column(db.String(256))
-    homePageUrlAdr = db.Column(db.String(256)) #organization URL
-    cityName = db.Column(db.String(256))
+    picUrl = db.Column(db.String(256))
+    eventUrl = db.Column(db.String(256))
+    orgName = db.Column(db.String(256))
+    contactPhoneNum = db.Column(db.String(256))
+    orgUrl = db.Column(db.String(256)) #organization URL
+    city = db.Column(db.String(256))
     zipcode = db.Column(db.Integer)
 
-    park_id_fk = db.Column(db.Integer, db.ForeignKey('Park.idnum'), nullable=True)
-    state_id_fk = db.Column(db.Integer, db.ForeignKey('State.idnum'), nullable=True)
+    # state = string
 
-    def __init__(self, name, latitude, longitude, category, startDate, endDate, urlAdr, organizationName, 
-                 homePageUrlAdr, cityName, zipcode):
+    park_id_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
+    state_id_fk = db.Column(db.Integer, db.ForeignKey('States.idnum'), nullable=True)
 
-        self.name = name
-        selv.latitude = latitude
+    def __init__(self, latitude, longitude, topics, startDate, endDate, picUrl, eventUrl, orgName, 
+                 contactPhoneNum, orgUrl, zipcode, city):
+
+        self.latitude = latitude
         self.longitude = longitude
-        self.category = category
+        self.topics = topics
         self.startDate = startDate
         self.endDate = endDate
-        self.urlAdr = urlAdr
-        self.organizationName = organizationName
+        self.picUrl = picUrl
+        self.eventUrl = eventUrl
+        self.orgName = orgName
+        self.contactPhoneNum = contactPhoneNum
+        self.orgUrl = orgUrl
+        self.city = city
         self.zipcode = zipcode
-        self.cityName = cityName
 
     def __repr__(self):
         return '<Event %r>' % self.name
@@ -95,9 +99,10 @@ class State(db.Model):
     idnum = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
     description = db.Column(db.String(2048))
-    total_area = db.Column(db.Float)
-    population = db.Column(db.Integer)
+    total_area = db.Column(db.String(256))
+    population = db.Column(db.String(256))
     highestPoint = db.Column(db.String(256))
+   
 
     campgrounds_rel = db.relationship(
         'Campground', backref='State', lazy='dynamic')
@@ -133,7 +138,8 @@ class Campground(db.Model):
     zipcode = db.Column(db.Integer)
     state = db.Column(db.String(256))
 
-    park_id_fk = db.Column(db.Integer, db.ForeignKey('Park.idnum'), nullable=True)
+    park_id_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
+    state_id_fk = db.Column(db.Integer, db.ForeignKey('States.idnum'), nullable=True)
 
     def __init__(self, name, description, cost, latitude, longitude, accessibility,
                  reservation_url, email, zipcode, state):
@@ -147,7 +153,6 @@ class Campground(db.Model):
         self.email = email
         self.zipcode = zipcode
         self.state = state
-        self.park_id_fk = park_id_fk
 
     def __repr__(self):
         return '<Campgrounds %r>' % self.name
