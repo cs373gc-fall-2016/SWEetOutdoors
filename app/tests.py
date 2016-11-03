@@ -17,24 +17,20 @@ class TestModels(TestCase):
         """
 
     def create_app(self):
-        # pass in test configuration
-        # app.config['SQLALCHEMY_DATABASE_URI'] = "postresql://"
-        #app.config['TESTING'] = True
-        # db.create_all()
         return app
 
-   def setUp(self):
-       # db.create_all()
-            state = State("Texas","GuadalupePeak","big","10000000","1234567")
-            event = Event("Relay","Running","2/5/17","relay@gmail.com","relay.com","14553","23","12", "a", "b", "c", "d")
-            park = Park("Park","200","1000","2000","",12,"parkwebsite.com","65766","77712", "dkdk", "Texas")
-       	    campground = Campground("BearCreek","its a creek", "324.55","367.65","True","False","True",71832, "Texas")
-            self.test_group = []
+    def setUp(self):
+        # db.create_all()
+        state = State("Texas","GuadalupePeak","big","10000000","1234567")
+        event = Event("Relay","Running","2/5/17","relay@gmail.com","relay.com","14553","23","12", "a", "b", "c", "d")
+        park = Park("Park","200","1000","2000","",12,"parkwebsite.com","65766","77712", "dkdk", "Texas")
+   	    campground = Campground("BearCreek","its a creek", "324.55","367.65","True","False","True",71832, "Texas")
+        self.test_group = []
        # self.test_group += [{'event':event, 'park', park, 'state':state, 'campground':campground}]
-            self.event = event
-            self.park = park
-            self.state = state
-            self.campground = campground
+        self.event = event
+        self.park = park
+        self.state = state
+        self.campground = campground
         
         # park2 = Park("Park3",60,1200,2030,"park3website.com",61261,27)
         # event2 = Event("Bike Fest","Biking","11/3/16","bikefest@gmail.com","bikefest.com",54321,12,18)
@@ -56,9 +52,9 @@ class TestModels(TestCase):
         # # self.state3 = state3
         # # self.campground3 = campground3
 
-	def tearDown(self):
-            db.session.remove()
-            db.drop_all()
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
 
     # def test_add(self):
     #     try:
