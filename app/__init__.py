@@ -198,15 +198,15 @@ def campground_instance():
 # 	"""
 # 	return render_template('/campgroundInstances/YosemiteCampground.html')
 
-@app.route ( '/run_tests')
+@application.route ("/runtests")
 def tests ():
     try:
-        process = subprocess.Popen(['python', '/var/www/SWEetOutdoors-dev/app/tests.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process = subprocess.Popen(['python', 'var/www/SWEetOutdoors-dev/app/tests.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = process.communicate()
         
         return str(out) + str(err)
     except Exception as exc:
-return str(exc)
+	return str(exc)
 
 if __name__ == '__main__':
 	application.debug = True
