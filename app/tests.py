@@ -2,39 +2,39 @@
 Unit tests for our database
 """
 from models import Park, State, Campground, Event
-from unittest import assertEqual
-from __init__ import app, db
+import unittest
+from models import app
 from flask_testing import TestCase
 
 class TestModels(TestCase):
-    """ 
-    def __init__(self, name, price, opentime, closetime, website,
+	    """ 
+	    def __init__(self, name, price, opentime, closetime, website,
                  zipcode, state_id_fk):
-    def __init__(self, name, highestPoint, population, description,
+	    def __init__(self, name, highestPoint, population, description,
                  total_area)
-    def __init__(self, name, latitude, longitude, electricity, water,
+	    def __init__(self, name, latitude, longitude, electricity, water,
                  sewer, pets, park_id_fk, state_id_fk)
-    """
+	    """
 
-    def create_app(self):
-        # pass in test configuration
-        app.config['SQLALCHEMY_DATABASE_URI'] = "postresql://"
-        app.config['TESTING'] = True
-        db.create_all()
-        return app
+	def create_app(self):
+        	# pass in test configuration
+       		# app.config['SQLALCHEMY_DATABASE_URI'] = "postresql://"
+       		#app.config['TESTING'] = True
+       		# db.create_all()
+		return app
 
-    def setUp(self):
-        db.create_all()
-        state = State("Texas","GuadalupePeak","big","10000000","1234567")
-        event = Event("Relay","Running","2/5/17","relay@gmail.com","relay.com","14553","23","12", "a", "b", "c", "d")
-        park = Park("Park","200","1000","2000","",12,"parkwebsite.com","65766","77712", "dkdk", "Texas")
-        campground = Campground("BearCreek","its a creek", "324.55","367.65","True","False","True",71832, "Texas")
-        self.test_group = []
-        self.test_group += [dict('event':event, 'park', park, 'state':state, 'campground':campground)]
-        # self.event = event
-        # self.park = park
-        # self.state = state
-        # self.campground = campground
+	def setUp(self):
+       # db.create_all()
+        	state = State("Texas","GuadalupePeak","big","10000000","1234567")
+        	event = Event("Relay","Running","2/5/17","relay@gmail.com","relay.com","14553","23","12", "a", "b", "c", "d")
+        	park = Park("Park","200","1000","2000","",12,"parkwebsite.com","65766","77712", "dkdk", "Texas")
+       		 campground = Campground("BearCreek","its a creek", "324.55","367.65","True","False","True",71832, "Texas")
+        	self.test_group = []
+       # self.test_group += [{'event':event, 'park', park, 'state':state, 'campground':campground}]
+        	self.event = event
+        	self.park = park
+        	self.state = state
+        	self.campground = campground
         
         # park2 = Park("Park3",60,1200,2030,"park3website.com",61261,27)
         # event2 = Event("Bike Fest","Biking","11/3/16","bikefest@gmail.com","bikefest.com",54321,12,18)
@@ -56,9 +56,9 @@ class TestModels(TestCase):
         # # self.state3 = state3
         # # self.campground3 = campground3
 
-    def tearDown(self):
-            db.session.remove()
-            db.drop_all()
+	def tearDown(self):
+        	db.session.remove()
+        	db.drop_all()
 
     # def test_add(self):
     #     try:
@@ -116,9 +116,9 @@ class TestModels(TestCase):
     # 	'email':'relay@gmail.com','url':'relay.com','zipcode':'14553','park_id_fk':'23','state_id_fk':'12'}
     # 	self.assertEqual(self.event().dictionary(),edict)
 
-    def test_state(self):
-    	sdict = {'name':'Texas','highest_point':'GuadalupePeak','population':'10000000','description':'big','total_area':'1234567'}
-    	self.assertEqual(self.test_group[0]['state'].dictionary(),sdict)
+	def test_state(self):
+    		sdict = {'name':'Texas','highest_point':'GuadalupePeak','population':'10000000','description':'big','total_area':'1234567'}
+    		self.assertEqual(self.state.dictionary(),sdict)
 
     # def test_campground(self):
     # 	cdict = {name:'BearCreek','latitude':'324.55','longitude':'367.65','electricity':'True',
@@ -126,4 +126,4 @@ class TestModels(TestCase):
     # 	self.assertEqual(self.campground().dictionary(),cdict)
 
 if __name__ == "__main__":
-    unittest.main()
+	unittest.main()
