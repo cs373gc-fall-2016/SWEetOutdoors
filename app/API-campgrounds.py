@@ -93,22 +93,21 @@ while facility_offset < num_facilities:
 
             location_json = requests.get("http://dev.virtualearth.net/REST/v1/Locations/" + str(latitude) + "," + str(longitude) + "?key=AnVzFw_MvQU64BLJ6gJ4CBx0JSJUCnWom08V9AeBVcInE4caAJnazgcfPdN54J-0").json()
             #print(location_json)
-            if location_json["resourceSets"][0]["estimatedTotal"] > 0:
-                state = states[location_json["resourceSets"][0]["resources"][0]["address"]["adminDistrict"]]
-                try:
-                    zipcode = location_json["resourceSets"][0]["resources"][0]["address"]["postalCode"]
-                except KeyError:
-                    zipcode = 0
-                stringzip = str(zipcode)
-                stringzip = stringzip[0:3]
-                if stringzip in hellop:
-                    hellop2.add(stringzip)
-                if zipcode in zipset:
-                    sum += 1
-                    campgroundInstance = Campground(name, description, latitude, longitude, direction,
-                                                    phone, email, zipcode, state)  
-                    db.session.add(campgroundInstance)   
-
+            try:
+                if location_json["resourceSets"][0]["estimatedTotal"] > 0:
+	                state = states[location_json["resourceSets"][0]["resources"][0]["address"]["adminDistrict"]]
+	                zipcode = location_json["resourceSets"][0]["resources"][0]["address"]["postalCode"]
+	                stringzip = str(zipcode)
+	                stringzip = stringzip[0:3]
+	                if stringzip in hellop:
+	                    hellop2.add(stringzip)
+	                if zipcode in zipset:
+	                    sum += 1
+	                    campgroundInstance = Campground(name, description, latitude, longitude, direction,
+	                                                    phone, email, zipcode, state)  
+	                    db.session.add(campgroundInstance)   
+	        except:
+	        	pass
     print(facility_offset)
     print(sum)
     facility_offset += 50
