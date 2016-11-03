@@ -24,7 +24,7 @@ class TestModels(TestCase):
         state = State("Texas","GuadalupePeak","big","10000000","1234567")
         event = Event("Relay","Running","2/5/17","relay@gmail.com","relay.com","14553","23","12", "a", "b", "c", "d")
         park = Park("Park","200","1000","2000","",12,"parkwebsite.com","65766","77712", "dkdk", "Texas")
-   	    campground = Campground("BearCreek","its a creek", "324.55","367.65","True","False","True",71832, "Texas")
+        campground = Campground("BearCreek","its a creek", "324.55","367.65","True","False","True",71832, "Texas")
         self.test_group = []
        # self.test_group += [{'event':event, 'park', park, 'state':state, 'campground':campground}]
         self.event = event
