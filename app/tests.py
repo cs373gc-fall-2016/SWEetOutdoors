@@ -113,7 +113,7 @@ class TestModels(TestCase):
     # 	self.assertEqual(self.event().dictionary(),edict)
     def test_state(self):
         sdict = {'name':'Texas','highest_point':'GuadalupePeak','population':'10000000','description':'big','total_area':'1234567'}
-        self.assertEqual(self.state.name,dictionary,"Texas")
+        self.assertEqual(self.state.name,"Texas")
 
     # def test_campground(self):
     # 	cdict = {name:'BearCreek','latitude':'324.55','longitude':'367.65','electricity':'True',
