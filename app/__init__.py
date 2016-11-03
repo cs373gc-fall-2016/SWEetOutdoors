@@ -2,9 +2,12 @@
 Main page for routing URL 
 """
 
+import os
+import requests
 from flask import Flask, render_template, request
 from models import db, State, app as application
-from sqlalchemy import Table
+from sqlalchemy import Table, or_
+import subprocess
 
 # @route('/get/getallstates')
 @application.route("/")
@@ -194,6 +197,16 @@ def campground_instance():
 # 	routes to Yosemite campgrounds page
 # 	"""
 # 	return render_template('/campgroundInstances/YosemiteCampground.html')
+
+@app.route ( '/run_tests')
+def tests ():
+    try:
+        process = subprocess.Popen(['python', '/var/www/SWEetOutdoors-dev/app/tests.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = process.communicate()
+        
+        return str(out) + str(err)
+    except Exception as exc:
+return str(exc)
 
 if __name__ == '__main__':
 	application.debug = True
