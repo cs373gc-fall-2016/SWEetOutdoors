@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>SWEet Outdoors</title>
+    <title>Parks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,7 +23,6 @@
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
   </head>
 
-
   <body ng-app="myApp" ng-controller="repeatController">
     <ul class="nav nav-pills">
       <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
@@ -31,7 +30,7 @@
       <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
       <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
       <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
-      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>         
+      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>    
     </ul>
 
     <div class="title">
@@ -39,60 +38,45 @@
     </div> <!-- end of title -->
   
     <div class="row">
-      <div class="col-md-1"></div>  
       <div class="col-md-10">
         <div class="table" data-example-id="simple-responsive-table">
           <div class="table-responsive">
             <!-- Table -->
-            <div ng-controller = "repeatController"> 
-              <table class="table table-striped" id="myTable">
-                <thead>
-                  <tr>
-                    <th>Park</th>
-                    <th>Price</th>
-                    <th>Hours</th>
-                    <th>Website</th>
-                    <th>Upcoming Event</th>
-                    <th>Best Campground</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                  <tr ng-repeat="park in parks">
-                    <th scope="row"><a href= "#" >{{park.parkName}}</a></th>
-                    <td> {{park.price}} </td>
-                    <td> {{park.hours}} </td>
-                    <td> {{park.website}} </td>
-                    <td> {{park.upcomingEvent}} </td>
-                    <td> {{park.bestCamground}} </td>
-                  </tr>                    
-                </tbody>
-              </table> 
-            </div> <!-- end of <div class = "repeatController">--> 
+            <table class="table table-striped" id="myTable">
+              <thead>
+                <tr>
+                  <th>Park</th>
+                  <th>Phone</th>
+                  <th>Rating</th>
+                  <th>Website</th>
+                  <th>Zipcode</th>
+                  <th>Upcoming Event</th>
+                  <th>State</th>
+                </tr>
+              </thead>
+
+              {% for park in parks %}
+              <tbody>
+                <tr> 
+                  <th scope="row"><a href= "{{ url_for(/parks/{{park.idnum}}) }}" >{{park.name}}</a></th>
+                  <td> {{park.phone}} </td>
+                  <td> {{park.rating}} </td>
+                  <td> {{park.website}} </td>
+                  <td> {{park.zipcode}} </td>
+                  <td> <a href="#">{{park.upcomingEvent}}</a></td>
+                  <td> <a href="#">{{park.state.name}}</a></td>
+                </tr>                    
+              </tbody>
+              {% endfor %}
+            </table> 
           </div> <!-- end of <div class = "table-responsive"> -->
         </div> <!-- end of <div class = "table"> -->
       </div> <!-- end of <div class = "col-md-10"> -->
     </div> <!-- end of <div class = "row"> -->
-
     <script type="text/javascript">
       $(document).ready(function(){
         $('#myTable').DataTable(); 
       });
     </script>
-
-    <script src="/Users/didicrous/Projects/SWEetOutdoors-dev/app/static/js/parks.js"></script>   
-
-<!--<script>
-var app = angular.module("myApp", []);
-app.controller("myCtrl", function($scope) {
-  $scope.records = [
-    "Alfreds Futterkiste",
-    "Berglunds snabbköp",
-    "Centro comercial Moctezuma",
-    "Ernst Handel",
-  ]
-});
-</script>-->
-
   </body>
 </html>
