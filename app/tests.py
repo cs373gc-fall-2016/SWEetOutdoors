@@ -7,14 +7,14 @@ from models import app
 from flask_testing import TestCase
 
 class TestModels(TestCase):
-        """ 
-        def __init__(self, name, price, opentime, closetime, website,
-                 zipcode, state_id_fk):
-        def __init__(self, name, highestPoint, population, description,
-                 total_area)
-        def __init__(self, name, latitude, longitude, electricity, water,
-                 sewer, pets, park_id_fk, state_id_fk)
-        """
+    """ 
+    def __init__(self, name, price, opentime, closetime, website,
+             zipcode, state_id_fk):
+    def __init__(self, name, highestPoint, population, description,
+             total_area)
+    def __init__(self, name, latitude, longitude, electricity, water,
+             sewer, pets, park_id_fk, state_id_fk)
+    """
 
     def create_app(self):
         return app
