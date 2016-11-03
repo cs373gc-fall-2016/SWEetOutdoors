@@ -1,6 +1,7 @@
 import requests
 from models import db, Event
 
+#NEED TO GET PARK FOREIGN KEY AFTER QUEUEING UP
 # use ramboho virtual enviornment which is in top level directory
 # current page = offset
 # per_page = rows per page
@@ -19,6 +20,65 @@ zipset = set(['55616', '55614', '55612', '61517', '81403', '26378', '02109', '60
 zipregionset = set(['010', '012', '015', '016', '017', '018', '019', '344', '346', '347', '341', '342', '810', '811', '813', '814', '349', '737', '719', '718', '717', '716', '714', '712', '710', '423', '913', '195', '290', '591', '590', '593', '199', '198', '597', '596', '599', '598', '197', '196', '191', '190', '193', '270', '273', '275', '276', '277', '278', '279', '525', '526', '527', '520', '521', '522', '523', '448', '443', '442', '441', '440', '446', '444', '109', '105', '902', '904', '640', '644', '438', '439', '436', '437', '434', '435', '433', '430', '431', '339', '338', '335', '334', '337', '336', '331', '330', '333', '058', '054', '559', '056', '057', '050', '051', '052', '053', '855', '856', '857', '850', '851', '853', '859', '740', '743', '744', '745', '747', '749', '557', '556', '551', '550', '553', '238', '239', '234', '230', '231', '614', '146', '147', '144', '619', '143', '140', '141', '612', '613', '610', '611', '616', '617', '148', '615', '154', '949', '945', '940', '941', '688', '684', '687', '458', '133', '131', '130', '498', '499', '494', '496', '497', '490', '491', '492', '493', '407', '939', '404', '403', '402', '401', '400', '933', '932', '931', '930', '935', '934', '628', '027', '026', '021', '020', '023', '029', '028', '378', '370', '373', '821', '374', '377', '376', '704', '705', '706', '700', '618', '703', '393', '391', '145', '396', '395', '394', '797', '795', '790', '798', '170', '586', '587', '584', '585', '582', '583', '245', '244', '247', '241', '240', '243', '242', '249', '511', '510', '513', '515', '516', '623', '622', '620', '626', '625', '624', '450', '451', '629', '453', '454', '455', '456', '457', '179', '178', '177', '175', '174', '173', '172', '594', '977', '976', '975', '974', '973', '972', '971', '970', '180', '979', '978', '656', '183', '654', '655', '652', '653', '650', '194', '186', '188', '189', '060', '063', '062', '065', '184', '067', '068', '860', '863', '864', '882', '881', '880', '884', '064', '322', '323', '320', '321', '326', '327', '324', '325', '329', '201', '774', '563', '773', '779', '778', '359', '804', '669', '667', '666', '665', '664', '662', '660', '693', '691', '542', '543', '540', '541', '546', '547', '544', '545', '548', '549', '995', '994', '997', '996', '991', '990', '993', '998', '120', '121', '124', '125', '128', '129', '415', '416', '417', '410', '411', '412', '920', '137', '923', '925', '926', '136', '038', '039', '921', '032', '030', '037', '034', '035', '832', '833', '830', '836', '837', '834', '835', '838', '725', '368', '369', '367', '364', '365', '362', '363', '360', '380', '381', '382', '383', '384', '385', '386', '387', '388', '389', '785', '786', '780', '783', '788', '789', '150', '572', '570', '577', '574', '182', '258', '259', '601', '254', '255', '730', '735', '734', '508', '736', '506', '738', '504', '505', '502', '503', '500', '501', '630', '633', '634', '635', '636', '637', '638', '639', '467', '461', '460', '463', '462', '168', '169', '164', '165', '166', '167', '160', '161', '162', '163', '967', '960', '961', '409', '408', '879', '877', '874', '875', '870', '871', '890', '891', '893', '894', '897', '646', '008', '357', '356', '354', '351', '350', '800', '805', '358', '768', '763', '760', '766', '764', '765', '281', '280', '283', '285', '284', '287', '286', '678', '674', '676', '677', '670', '673', '263', '262', '260', '267', '266', '265', '268', '535', '531', '530', '539', '538', '775', '988', '989', '982', '983', '980', '981', '986', '985', '115', '117', '119', '421', '420', '917', '422', '425', '424', '427', '426', '049', '048', '047', '046', '045', '044', '043', '042', '041', '040', '847', '846', '845', '844', '843', '841', '840', '750', '757', '756', '755', '754', '560', '561', '562', '758', '564', '565', '566', '567', '739', '228', '225', '224', '221', '220', '726', '727', '724', '390', '723', '720', '721', '728', '729', '604', '153', '152', '155', '600', '157', '156', '158', '609', '469', '959', '950', '953', '952', '955', '954', '956', '465', '488', '487', '486', '484', '483', '481', '480', '472', '473', '470', '471', '476', '474', '475', '478', '479'])
 foundset = set()
 
+states = {
+        'AK': 'Alaska',
+        'AL': 'Alabama',
+        'AR': 'Arkansas',
+        'AS': 'American Samoa',
+        'AZ': 'Arizona',
+        'CA': 'California',
+        'CO': 'Colorado',
+        'CT': 'Connecticut',
+        'DC': 'District of Columbia',
+        'DE': 'Delaware',
+        'FL': 'Florida',
+        'GA': 'Georgia',
+        'GU': 'Guam',
+        'HI': 'Hawaii',
+        'IA': 'Iowa',
+        'ID': 'Idaho',
+        'IL': 'Illinois',
+        'IN': 'Indiana',
+        'KS': 'Kansas',
+        'KY': 'Kentucky',
+        'LA': 'Louisiana',
+        'MA': 'Massachusetts',
+        'MD': 'Maryland',
+        'ME': 'Maine',
+        'MI': 'Michigan',
+        'MN': 'Minnesota',
+        'MO': 'Missouri',
+        'MP': 'Northern Mariana Islands',
+        'MS': 'Mississippi',
+        'MT': 'Montana',
+        'NA': 'National',
+        'NC': 'North Carolina',
+        'ND': 'North Dakota',
+        'NE': 'Nebraska',
+        'NH': 'New Hampshire',
+        'NJ': 'New Jersey',
+        'NM': 'New Mexico',
+        'NV': 'Nevada',
+        'NY': 'New York',
+        'OH': 'Ohio',
+        'OK': 'Oklahoma',
+        'OR': 'Oregon',
+        'PA': 'Pennsylvania',
+        'PR': 'Puerto Rico',
+        'RI': 'Rhode Island',
+        'SC': 'South Carolina',
+        'SD': 'South Dakota',
+        'TN': 'Tennessee',
+        'TX': 'Texas',
+        'UT': 'Utah',
+        'VA': 'Virginia',
+        'VI': 'Virgin Islands',
+        'VT': 'Vermont',
+        'WA': 'Washington',
+        'WI': 'Wisconsin',
+        'WV': 'West Virginia',
+        'WY': 'Wyoming'
+}
 numResponses = 0
 numResponses = int(data["total_results"])
 print(numResponses)
@@ -60,9 +120,11 @@ while current_page < numPages:
 			# 		zipcode = comp["long_name"]
 			orgName = event["organization"]["organizationName"]
 			zipcode = event["organization"]["addressPostalCd"]
-
+			state = event["place"]["stateProvinceCode"]
+			if state not in states:
+				raise KeyError
 			if orgName == "" or zipcode == "":
-				invalidEvent = True
+				raise KeyError
 		except KeyError:
 			invalidEvent = True
 			# print("KeyError: {0}".format(err))
@@ -83,44 +145,40 @@ while current_page < numPages:
 			endDate = event["activityEndDate"]
 			startDate = event["activityStartDate"]
 			picUrl = event["logoUrlAdr"]
-			eventUrl = event["urlAdr"]
 			contactPhoneNum = event["organization"]["primaryContactPhone"]
 			orgUrl = event["homePageUrlAdr"]
 			city = event["place"]["cityName"]
-
-			if endDate == "":
-				print("FUCKALI--1")
-			if startDate == "":
-				print("FUCKALI--2")
-			if picUrl == "":
-				print("FUCKALI--3")
-			#if eventUrl == "":
-				#print("FUCKALI--4")
-			if orgName == "":
-				print("FUCKALI--5")
-			if zipcode == "":
-				print("FUCKALI--6")
-			if contactPhoneNum == "":
-				print("FUCKALI--7")
-			if city == "":
-				print("FUCKALI--9")
-
-			if zipcode[0:3] in zipregionset:
+			zipregion = zipcode[0:3]
+			if zipregion in zipregionset:
 				summ += 1
-				#foundset.add(zipcode[0:3])
-			#add to database <---------
-			#eventInstance = Event(latitude, longitude, topics, startDate, endDate, picUrl, eventUrl, orgName, 
-            #     contactPhoneNum, orgUrl, zipcode, city)
-			#print(eventInstance)
-			#print("***********************did it print?")
-			#db.session.add(eventInstance)
-			# print("begin commit")
-			#db.session.commit()
-			# print("  end commit")
+				if latitude == "":
+					print("no lat")
+				if longitude == "":
+					print("no long")
+				if topics == "":
+					print("no topic")
+				if startDate == "":
+					print("no start")
+				if endDate == "":
+					print("no end")
+				if picUrl == "":
+					print("no pic")
+				if orgName == "":
+					print("no orgname")
+				if contactPhoneNum == "":
+					print("no phone")
+				if city == "":
+					print("no city")
+				if zipcode == "":
+					print("no zoip")
+				if zipregion == "":
+					print("no zipregion")
+				print(states[state])
+				#add to database <---------
+				#eventInstance = Event(latitude, longitude, topics, startDate, endDate, picUrl, orgName, 
+            	#     contactPhoneNum, zipcode, city, zipregion, states[state])
+				#db.session.add(eventInstance)
 	print(summ)
 	current_page += 1
-print(foundset)
+#db.session.commit()
 #db.session.close()
-
-# print(topics)
-# print(categories)

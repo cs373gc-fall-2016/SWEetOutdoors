@@ -114,12 +114,14 @@ def national_scrape():
 
 
                 result = secondjson["result"]
+                state = ""
                 for add in result["address_components"]:
                     if add["types"] == ["postal_code"]:
                         zipcode = add["short_name"]
-                        
-                zipcodeset.add(zipcode)
-
+                    if add["short_name"] in states:
+                        state = add["long_name"]
+                #zipcodeset.add(zipcode)
+                print(state)
                 address = result["formatted_address"]
                 try:
                     phone = result["formatted_phone_number"]
@@ -144,6 +146,7 @@ def national_scrape():
                         rate = 3.0
 
                 photo_link = photo_url
+                zipregion = zipcode[0:3]
 
                 try:
                     website = result["website"]
@@ -163,7 +166,7 @@ def national_scrape():
                 #convert to STRING LATLONG
                 
                 park_obj = Park(park_name, latitude, longitude, address, phone,
-                                        rate, website, zipcode)
+                                        rate, website, zipcode, photo_link, zipregion, state)
                 db.session.add(park_obj)
             if state_dict != {}:
                 print("done for %s" %park_name)

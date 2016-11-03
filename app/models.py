@@ -25,7 +25,7 @@ class Park(db.Model):
     website = db.Column(db.String(256))
     zipcode = db.Column(db.String(256))
     zipregion = db.Column(db.String(256))
-    photo = db.Column(db.String(256))
+    photo_url = db.Column(db.String(1024))
 
     state_id_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
 
@@ -44,7 +44,7 @@ class Park(db.Model):
         self.rating = rating
         self.website = website
         self.zipcode = zipcode
-        self.photo = photo
+        self.photo_url = photo
         self.zipregion = zipregion
         self.state_id_fk = state
 
@@ -62,13 +62,13 @@ class Event(db.Model):
     longitude = db.Column(db.String(256))
     topics = db.Column(db.String(256))
 
-    startDate = db.Column(db.String(256))
-    endDate = db.Column(db.String(256))
-    picUrl = db.Column(db.String(256))
+    start_date = db.Column(db.String(256))
+    end_date = db.Column(db.String(256))
+    pic_url = db.Column(db.String(1024))
     
-    orgName = db.Column(db.String(256))
+    org_name = db.Column(db.String(256))
     
-    contactPhoneNum = db.Column(db.String(256))
+    contact_phone_num = db.Column(db.String(256))
     city = db.Column(db.String(256))
     zipcode = db.Column(db.String(256))
     zipregion = db.Column(db.String(256))
@@ -77,17 +77,17 @@ class Event(db.Model):
     park_id_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
     state_id_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
 
-    def __init__(self, latitude, longitude, topics, startDate, endDate, picUrl, orgName, 
-                 contactPhoneNum, zipcode, city, zipregion, state_id_fk):
+    def __init__(self, latitude, longitude, topics, start_date, end_date, pic_url, org_name, 
+                 contact_phone_num, zipcode, city, zipregion, state_id_fk):
 
         self.latitude = latitude
         self.longitude = longitude
         self.topics = topics
-        self.startDate = startDate
-        self.endDate = endDate
-        self.picUrl = picUrl
-        self.orgName = orgName
-        self.contactPhoneNum = contactPhoneNum
+        self.start_date = startDate
+        self.end_date = endDate
+        self.pic_url = picUrl
+        self.org_name = orgName
+        self.contact_phone_num = contact_phone_num
         if contactPhoneNum == "":
             self.contactPhoneNum = "(555) 555-5555"
         self.city = city
@@ -108,7 +108,7 @@ class State(db.Model):
     description = db.Column(db.String(2048))
     total_area = db.Column(db.String(256))
     population = db.Column(db.String(256))
-    highestPoint = db.Column(db.String(256))
+    highest_point = db.Column(db.String(256))
    
 
     campgrounds_rel = db.relationship(
@@ -117,12 +117,12 @@ class State(db.Model):
     events_rel = db.relationship(
         'Event', backref='State', lazy='dynamic')
 
-    def __init__(self, name, description, total_area, population, highestPoint):
+    def __init__(self, name, description, total_area, population, highest_point):
         self.name = name
         self.description = description
         self.total_area = total_area
         self.population = population
-        self.highestPoint = highestPoint
+        self.highest_point = highest_point
 
     def __repr__(self):
         return '<State %r>' % self.name
