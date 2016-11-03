@@ -3,8 +3,11 @@ Unit tests for our database
 """
 from models import Park, State, Campground, Event
 import unittest
-from models import app
 from flask_testing import TestCase
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/pre-registration'
+db = SQLAlchemy(app)
 
 class TestModels(TestCase):
     """ 
@@ -16,8 +19,8 @@ class TestModels(TestCase):
              sewer, pets, park_id_fk, state_id_fk)
     """
 
-    def create_app(self):
-        return app
+    #def create_app(self):
+        #return app
 
     def setUp(self):
         # db.create_all()
