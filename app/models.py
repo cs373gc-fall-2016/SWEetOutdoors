@@ -86,7 +86,7 @@ class Event(db.Model):
         self.start_date = start_date
         self.end_date = end_date
         self.pic_url = pic_url
-        self.org_name = org_name
+        self.org_name = org_name + "'s Event"
         self.contact_phone_num = contact_phone_num
         if contact_phone_num == "":
             self.contact_phone_num = "(555) 555-5555"
@@ -96,7 +96,7 @@ class Event(db.Model):
         self.state_fk = state_fk
 
     def __repr__(self):
-        return '<Event %r>' % self.name
+        return '<Event %r>' % self.org_name
 
 
 class State(db.Model):
