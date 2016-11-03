@@ -3,3 +3,4 @@
 .DS_Store
 /sweapplication/__pycache__
 /sweapplication/.DS_Store
+app/models.pyc
