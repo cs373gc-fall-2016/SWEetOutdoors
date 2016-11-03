@@ -27,7 +27,7 @@ class Park(db.Model):
     zipregion = db.Column(db.String(256))
     photo_url = db.Column(db.String(1024))
 
-    state_id_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
+    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
 
     events = db.relationship('Event', backref='Park', lazy='dynamic')
     campgrounds_rel = db.relationship(
@@ -46,7 +46,7 @@ class Park(db.Model):
         self.zipcode = zipcode
         self.photo_url = photo
         self.zipregion = zipregion
-        self.state_id_fk = state
+        self.state_fk = state
 
     def __repr__(self):
         return '<Park %r>' % self.name
@@ -64,9 +64,9 @@ class Event(db.Model):
 
     start_date = db.Column(db.String(256))
     end_date = db.Column(db.String(256))
-    pic_url = db.Column(db.String(1024))
+    pic_url = db.Column(db.String(2048))
     
-    org_name = db.Column(db.String(256))
+    org_name = db.Column(db.String(512))
     
     contact_phone_num = db.Column(db.String(256))
     city = db.Column(db.String(256))
@@ -74,26 +74,26 @@ class Event(db.Model):
     zipregion = db.Column(db.String(256))
     # state = string
 
-    park_id_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
-    state_id_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
+    park_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
+    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
 
     def __init__(self, latitude, longitude, topics, start_date, end_date, pic_url, org_name, 
-                 contact_phone_num, zipcode, city, zipregion, state_id_fk):
+                 contact_phone_num, zipcode, city, zipregion, state_fk):
 
         self.latitude = latitude
         self.longitude = longitude
         self.topics = topics
-        self.start_date = startDate
-        self.end_date = endDate
-        self.pic_url = picUrl
-        self.org_name = orgName
+        self.start_date = start_date
+        self.end_date = end_date
+        self.pic_url = pic_url
+        self.org_name = org_name
         self.contact_phone_num = contact_phone_num
         if contact_phone_num == "":
             self.contact_phone_num = "(555) 555-5555"
         self.city = city
         self.zipcode = zipcode
         self.zipregion = zipregion
-        self.state_id_fk = state_id_fk
+        self.state_fk = state_fk
 
     def __repr__(self):
         return '<Event %r>' % self.name
@@ -135,16 +135,16 @@ class Campground(db.Model):
 
     idnum = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
-    description = db.Column(db.String(2048))
+    description = db.Column(db.String(4096))
     latitude = db.Column(db.String(256))
     longitude = db.Column(db.String(256))
-    direction = db.Column(db.String(2048))
+    direction = db.Column(db.String(4096))
     phone = db.Column(db.String(256))
     email = db.Column(db.String(256))
     zipcode = db.Column(db.Integer)
 
-    park_id_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
-    state_id_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
+    park_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
+    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
 
     def __init__(self, name, description, latitude, longitude, direction, phone, email, zipcode, state):
         self.name = name
@@ -163,7 +163,7 @@ class Campground(db.Model):
         if email == "":
             self.email == "No Email Available. "
         self.zipcode = zipcode
-        self.state_id_fk = state
+        self.state_fk = state
 
     def __repr__(self):
         return '<Campgrounds %r>' % self.name

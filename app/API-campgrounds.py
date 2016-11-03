@@ -105,13 +105,13 @@ while facility_offset < num_facilities:
                     hellop2.add(stringzip)
                 if zipcode in zipset:
                     sum += 1
-                    #campgroundInstance = Campground(name, description, latitude, longitude, direction,
-                    #                                phone, email, zipcode, state)  
-                    #db.session.add(campgroundInstance)   
+                    campgroundInstance = Campground(name, description, latitude, longitude, direction,
+                                                    phone, email, zipcode, state)  
+                    db.session.add(campgroundInstance)   
 
     print(facility_offset)
     print(sum)
     facility_offset += 50
     
-#db.session.commit()
-#db.session.close()
+db.session.commit()
+db.session.close()

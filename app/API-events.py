@@ -175,10 +175,11 @@ while current_page < numPages:
 					print("no zipregion")
 				print(states[state])
 				#add to database <---------
-				#eventInstance = Event(latitude, longitude, topics, startDate, endDate, picUrl, orgName, 
-            	#     contactPhoneNum, zipcode, city, zipregion, states[state])
-				#db.session.add(eventInstance)
+				if states[state] != "District of Columbia":
+					eventInstance = Event(latitude, longitude, topics, startDate, endDate, picUrl, orgName, 
+            					     contactPhoneNum, zipcode, city, zipregion, states[state])
+					db.session.add(eventInstance)
 	print(summ)
 	current_page += 1
-#db.session.commit()
-#db.session.close()
+db.session.commit()
+db.session.close()

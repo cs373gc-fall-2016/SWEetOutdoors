@@ -121,7 +121,7 @@ for i in states:
 
 
 
-states2 = ["Kansas","Lousiana","Maine","Minnesota","Montana","Nevada","New Mexico",
+states2 = ["Kansas","Louisiana","Maine","Minnesota","Montana","Nevada","New Mexico",
 "North Carolina","North Dakota","Oklahoma","South Dakota","Vermont","Wisconsin"]
 
 for i in states2:

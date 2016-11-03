@@ -75,7 +75,7 @@ national_parks = ['Acadia National Park', 'Arches National Park', 'Badlands Nati
                   'Hawaii Volcanoes National Park', 'Hot Springs National Park', 'Isle Royale National Park', 'Joshua Tree National Park', 'Katmai National Park', 'Kenai Fjords National Park', 
                   'Kings Canyon National Park', 'Kobuk Valley National Park', 'Lake Clark National Park', 'Lassen Volcanic National Park', 'Mammoth Cave National Park', 'Mesa Verde National Park', 
                   'Mount Rainier National Park', 'North Cascades National Park', 'Olympic National Park', 'Petrified Forest National Park', 'Pinnacles National Park', 'Redwood National Park', 
-                  'Rocky Mountain National Park', 'Saguaro National Park', 'Sequoia National Park', 'Shenandoah National Park', 'Theodore Roosevelt National Park', 'Virgin Islands National Park', 
+                  'Rocky Mountain National Park', 'Saguaro National Park', 'Sequoia National Park', 'Shenandoah National Park', 'Theodore Roosevelt National Park', 
                   'Voyageurs National Park', 'Wind Cave National Park', 'Wrangell St. Elias National Park', 'Yellowstone National Park', 'Yosemite National Park', 'Zion National Park']
 
 az= ['a','b','c','d','e','f','g','h','i','j','k','l',
