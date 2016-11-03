@@ -46,9 +46,11 @@ for i in states:
     if (i == "Georgia (U.S. state)"):
         url = "https://en.wikipedia.org/wiki/" + i + "#/media/File:" + i + "_in_United_States.svg" 
         shortenedSum = "Georgia" + shortenedSum
+        i = "Georgia"
     elif i == "Washington (state)":
         url  =  url = "https://en.wikipedia.org/wiki/" + i + "#/media/File:" + i + "_in_United_States.svg" 
         shortenedSum = "Washington" + shortenedSum
+        i = "Washington"
     else :
         url = "https://en.wikipedia.org/wiki/" + i + "#/media/File:" + i + "_in_United_States.svg" 
         shortenedSum = i + shortenedSum
@@ -158,7 +160,6 @@ for i in states2:
     s = State(i,info[c][4],info[c][0],info[c][1],info[c][2])
     db.session.add(s)
     c+=1
-
 
 
 

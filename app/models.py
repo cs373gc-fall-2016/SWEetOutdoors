@@ -88,8 +88,8 @@ class Event(db.Model):
         self.pic_url = picUrl
         self.org_name = orgName
         self.contact_phone_num = contact_phone_num
-        if contactPhoneNum == "":
-            self.contactPhoneNum = "(555) 555-5555"
+        if contact_phone_num == "":
+            self.contact_phone_num = "(555) 555-5555"
         self.city = city
         self.zipcode = zipcode
         self.zipregion = zipregion
