@@ -8,7 +8,65 @@ states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
           "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
           "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
-
+statestran = {
+        'AK': 'Alaska',
+        'AL': 'Alabama',
+        'AR': 'Arkansas',
+        'AS': 'American Samoa',
+        'AZ': 'Arizona',
+        'CA': 'California',
+        'CO': 'Colorado',
+        'CT': 'Connecticut',
+        'DC': 'District of Columbia',
+        'DE': 'Delaware',
+        'FL': 'Florida',
+        'GA': 'Georgia',
+        'GU': 'Guam',
+        'HI': 'Hawaii',
+        'IA': 'Iowa',
+        'ID': 'Idaho',
+        'IL': 'Illinois',
+        'IN': 'Indiana',
+        'KS': 'Kansas',
+        'KY': 'Kentucky',
+        'LA': 'Louisiana',
+        'MA': 'Massachusetts',
+        'MD': 'Maryland',
+        'ME': 'Maine',
+        'MI': 'Michigan',
+        'MN': 'Minnesota',
+        'MO': 'Missouri',
+        'MP': 'Northern Mariana Islands',
+        'MS': 'Mississippi',
+        'MT': 'Montana',
+        'NA': 'National',
+        'NC': 'North Carolina',
+        'ND': 'North Dakota',
+        'NE': 'Nebraska',
+        'NH': 'New Hampshire',
+        'NJ': 'New Jersey',
+        'NM': 'New Mexico',
+        'NV': 'Nevada',
+        'NY': 'New York',
+        'OH': 'Ohio',
+        'OK': 'Oklahoma',
+        'OR': 'Oregon',
+        'PA': 'Pennsylvania',
+        'PR': 'Puerto Rico',
+        'RI': 'Rhode Island',
+        'SC': 'South Carolina',
+        'SD': 'South Dakota',
+        'TN': 'Tennessee',
+        'TX': 'Texas',
+        'UT': 'Utah',
+        'VA': 'Virginia',
+        'VI': 'Virgin Islands',
+        'VT': 'Vermont',
+        'WA': 'Washington',
+        'WI': 'Wisconsin',
+        'WV': 'West Virginia',
+        'WY': 'Wyoming'
+        }
 national_parks = ['Acadia National Park', 'Arches National Park', 'Badlands National Park', 'Big Bend National Park', 'Biscayne National Park', 
                   'Black Canyon of the Gunnison National Park', 'Bryce Canyon National Park', 'Canyonlands National Park', 'Capitol Reef National Park', 'Carlsbad Caverns National Park', 
                   'Channel Islands National Park', 'Congaree National Park', 'Crater Lake National Park', 'Cuyahoga Valley National Park', 'Death Valley National Park', 'Denali National Park', 
@@ -19,8 +77,6 @@ national_parks = ['Acadia National Park', 'Arches National Park', 'Badlands Nati
                   'Mount Rainier National Park', 'North Cascades National Park', 'Olympic National Park', 'Petrified Forest National Park', 'Pinnacles National Park', 'Redwood National Park', 
                   'Rocky Mountain National Park', 'Saguaro National Park', 'Sequoia National Park', 'Shenandoah National Park', 'Theodore Roosevelt National Park', 'Virgin Islands National Park', 
                   'Voyageurs National Park', 'Wind Cave National Park', 'Wrangell St. Elias National Park', 'Yellowstone National Park', 'Yosemite National Park', 'Zion National Park']
-
-zipcodeset = set()
 
 az= ['a','b','c','d','e','f','g','h','i','j','k','l',
     'm','n','o','p','q','r','s','t','u','v','w','x','y','z']
@@ -170,8 +226,9 @@ def state_scrape(begin, end):
                         for add in result["address_components"]:
                             if add["types"] == ["postal_code"]:
                                 zipcode = add["short_name"]
-     
-                        zipcodeset.add(zipcode)
+                        
+                        zipregion = zipcode[0:3]
+
 
                         address = result["formatted_address"]
                         try:
@@ -214,8 +271,9 @@ def state_scrape(begin, end):
 
                         latitude = str(result["geometry"]["location"]["lat"])
                         longitude = str(result["geometry"]["location"]["lng"])
+
                         park_obj = Park(park_name, latitude, longitude, address, phone,
-                                        rate, website, zipcode)
+                                        rate, website, zipcode, photo_link, zipregion, statestran[state])
                         db.session.add(park_obj)
 
                     if state_dict != {}:
@@ -245,5 +303,3 @@ for thread in threads:
     thread.start()
 for thread in threads:
     thread.join()
-
-print(zipcodeset)

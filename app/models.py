@@ -23,16 +23,18 @@ class Park(db.Model):
     phone = db.Column(db.String(256))
     rating = db.Column(db.Float)
     website = db.Column(db.String(256))
-    zipcode = db.Column(db.Integer)
+    zipcode = db.Column(db.String(256))
+    zipregion = db.Column(db.String(256))
+    photo = db.Column(db.String(256))
 
-    state_id_fk = db.Column(db.Integer, db.ForeignKey('States.idnum'), nullable=True)
+    state_id_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
 
     events = db.relationship('Event', backref='Park', lazy='dynamic')
     campgrounds_rel = db.relationship(
         'Campground', backref='Park', lazy='dynamic')
 
     def __init__(self, name, latitude, longitude, address, phone, rating, website,
-                 zipcode):
+                 zipcode, photo, zipregion, state):
 
         self.name = name
         self.latitude = latitude
@@ -42,6 +44,9 @@ class Park(db.Model):
         self.rating = rating
         self.website = website
         self.zipcode = zipcode
+        self.photo = photo
+        self.zipregion = zipregion
+        self.state_id_fk = state
 
     def __repr__(self):
         return '<Park %r>' % self.name
@@ -56,13 +61,13 @@ class Event(db.Model):
     latitude = db.Column(db.String(256))
     longitude = db.Column(db.String(256))
     topics = db.Column(db.String(256))
+    
     startDate = db.Column(db.String(256))
     endDate = db.Column(db.String(256))
     picUrl = db.Column(db.String(256))
     eventUrl = db.Column(db.String(256))
     orgName = db.Column(db.String(256))
     contactPhoneNum = db.Column(db.String(256))
-    orgUrl = db.Column(db.String(256)) #organization URL
     city = db.Column(db.String(256))
     zipcode = db.Column(db.Integer)
 
@@ -72,7 +77,7 @@ class Event(db.Model):
     state_id_fk = db.Column(db.Integer, db.ForeignKey('States.idnum'), nullable=True)
 
     def __init__(self, latitude, longitude, topics, startDate, endDate, picUrl, eventUrl, orgName, 
-                 contactPhoneNum, orgUrl, zipcode, city):
+                 contactPhoneNum, zipcode, city):
 
         self.latitude = latitude
         self.longitude = longitude
@@ -83,7 +88,6 @@ class Event(db.Model):
         self.eventUrl = eventUrl
         self.orgName = orgName
         self.contactPhoneNum = contactPhoneNum
-        self.orgUrl = orgUrl
         self.city = city
         self.zipcode = zipcode
 
@@ -96,8 +100,7 @@ class State(db.Model):
     """State class with initializer to document models"""
     __tablename__ = 'States'
 
-    idnum = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(256))
+    name = db.Column(db.String(256), primary_key = True)
     description = db.Column(db.String(2048))
     total_area = db.Column(db.String(256))
     population = db.Column(db.String(256))
@@ -129,30 +132,34 @@ class Campground(db.Model):
     idnum = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256))
     description = db.Column(db.String(2048))
-    cost = db.Column(db.String(256))
     latitude = db.Column(db.String(256))
     longitude = db.Column(db.String(256))
-    accessibilty = db.Column(db.Boolean)
-    reservation_url = db.Column(db.String(256))
+    direction = db.Column(db.String(2048))
+    phone = db.Column(db.String(256))
     email = db.Column(db.String(256))
     zipcode = db.Column(db.Integer)
-    state = db.Column(db.String(256))
 
     park_id_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
-    state_id_fk = db.Column(db.Integer, db.ForeignKey('States.idnum'), nullable=True)
+    state_id_fk = db.Column(db.String(256), db.ForeignKey('States.idnum'), nullable=True)
 
-    def __init__(self, name, description, cost, latitude, longitude, accessibility,
-                 reservation_url, email, zipcode, state):
+    def __init__(self, name, description, latitude, longitude, direction, phone, email, zipcode, state):
         self.name = name
         self.description = description
-        self.cost = cost
+        if description == "":
+            self.description == "No Description Available."
         self.longitude = longitude
         self.latitude = latitude
-        self.accessibility = accessibility
-        self.reservation_url = reservation_url
+        self.direction = direction
+        if direction == "":
+            self.direction = "No Directions Available. Go Google It."
+        self.phone = phone
+        if phone == "":
+            self.phone == "(555) 555-5555"
         self.email = email
+        if email == "":
+            self.email == "No Email Available. "
         self.zipcode = zipcode
-        self.state = state
+        self.state_id_fk = state
 
     def __repr__(self):
         return '<Campgrounds %r>' % self.name
