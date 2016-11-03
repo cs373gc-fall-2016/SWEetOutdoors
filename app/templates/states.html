@@ -46,39 +46,26 @@
               <thead>
                 <tr>
                   <th>State</th>
-                  <th>Highest Point</th>
+                  <th>Highest Point (ft)</th>
                   <th>Population</th>
-                  <th>Total Area</th>
+                  <th>Total Area (sq mi)</th>
                   <th>Biggest Park</th>
                   <th>Upcoming Event</th>
                 </tr>
               </thead>
+              
+              {% for state in states %}
               <tbody>
                 <tr>
-                  <th scope="row"><a href="{{ url_for('texas') }}">Texas</a></th>
-                  <td>8,751 ft</td>
-                  <td>27,469,114</td>
-                  <td>268,581</td>
+                  <th scope="row"><a href="{{ url_for('texas') }}">{{state.name}}</a></th> <!-- turn into route to state -->
+                  <td>{{state.highest_point}}</td>
+                  <td>{{state.population}}</td>
+                  <td>{{state.total_area}}</td>
                   <th><a href="{{ url_for('bigBend') }}">Big Bend</a></th>
                   <th scope="row"><a href="{{ url_for('austinCityLimits') }}">Austin City Limits</a></th>
                 </tr>
-                <tr>
-                  <th scope="row"><a href="{{ url_for('california') }}">California</a></td>
-                  <td>14,505 ft</td>
-                  <td>39,144,818</td>
-                  <td>163,696</td>
-                  <th><a href="{{ url_for('zilker') }}">Zilker</a></th>
-                  <th scope="row"><a href="{{ url_for('runForTheHungry') }}">Run For The Hungry</a></th>
-                </tr>
-                <tr>
-                  <th scope="row"><a href="{{ url_for('florida') }}">Florida</a></th>
-                  <td>345 ft</td>
-                  <td>20,271,272</td>
-                  <td>65,755</td>
-                  <th><a href="{{ url_for('deathValley') }}">Death Valley</a></th>
-                  <th scope="row"><a href="{{ url_for('yellowStoneAnniversary') }}">Yellowstone Anniversary</a></th>
-                </tr>
               </tbody>
+              {% endfor %}
             </table>
           </div>
         </div>
