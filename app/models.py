@@ -93,6 +93,7 @@ class Event(db.Model):
         self.city = city
         self.zipcode = zipcode
         self.zipregion = zipregion
+        self.state_id_fk = state_id_fk
 
     def __repr__(self):
         return '<Event %r>' % self.name
