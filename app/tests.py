@@ -52,7 +52,7 @@ class TestModels(TestCase):
         # # self.state3 = state3
         # # self.campground3 = campground3
 
-    def tearDown(self):
+    #def tearDown(self):
         #db.session.remove()
         #db.drop_all()
 
@@ -111,7 +111,6 @@ class TestModels(TestCase):
     # 	edict = {'name':'Relay','category':'Running','date':'2/5/17',
     # 	'email':'relay@gmail.com','url':'relay.com','zipcode':'14553','park_id_fk':'23','state_id_fk':'12'}
     # 	self.assertEqual(self.event().dictionary(),edict)
-
     def test_state(self):
         sdict = {'name':'Texas','highest_point':'GuadalupePeak','population':'10000000','description':'big','total_area':'1234567'}
         self.assertEqual(self.state().dictionary(),sdict)
