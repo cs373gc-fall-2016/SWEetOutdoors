@@ -4,6 +4,7 @@ Main page for routing URL
 
 from flask import Flask, render_template, request
 from models import db, State, app as application
+from sqlalchemy import Table
 
 # @route('/get/getallstates')
 @application.route("/")
@@ -26,7 +27,7 @@ def states():
 	routes to states table page
 	"""
 	states = State.query.all()
-	cur = db.session.execute('select * from States order by id desc')
+	# cur = db.session.execute('select * from States order by name desc')
 	# states = cur.fetchall()
 	return render_template('states.html', states=states)
 
