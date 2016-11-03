@@ -21,9 +21,9 @@ class TestModels(TestCase):
         # app.config['SQLALCHEMY_DATABASE_URI'] = "postresql://"
         #app.config['TESTING'] = True
         # db.create_all()
-            return app
+        return app
 
-	def setUp(self):
+   def setUp(self):
        # db.create_all()
             state = State("Texas","GuadalupePeak","big","10000000","1234567")
             event = Event("Relay","Running","2/5/17","relay@gmail.com","relay.com","14553","23","12", "a", "b", "c", "d")
