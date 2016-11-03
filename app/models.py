@@ -61,23 +61,24 @@ class Event(db.Model):
     latitude = db.Column(db.String(256))
     longitude = db.Column(db.String(256))
     topics = db.Column(db.String(256))
-    
+
     startDate = db.Column(db.String(256))
     endDate = db.Column(db.String(256))
     picUrl = db.Column(db.String(256))
-    eventUrl = db.Column(db.String(256))
+    
     orgName = db.Column(db.String(256))
+    
     contactPhoneNum = db.Column(db.String(256))
     city = db.Column(db.String(256))
-    zipcode = db.Column(db.Integer)
-
+    zipcode = db.Column(db.String(256))
+    zipregion = db.Column(db.String(256))
     # state = string
 
     park_id_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
-    state_id_fk = db.Column(db.Integer, db.ForeignKey('States.idnum'), nullable=True)
+    state_id_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
 
-    def __init__(self, latitude, longitude, topics, startDate, endDate, picUrl, eventUrl, orgName, 
-                 contactPhoneNum, zipcode, city):
+    def __init__(self, latitude, longitude, topics, startDate, endDate, picUrl, orgName, 
+                 contactPhoneNum, zipcode, city, zipregion, state_id_fk):
 
         self.latitude = latitude
         self.longitude = longitude
@@ -85,11 +86,13 @@ class Event(db.Model):
         self.startDate = startDate
         self.endDate = endDate
         self.picUrl = picUrl
-        self.eventUrl = eventUrl
         self.orgName = orgName
         self.contactPhoneNum = contactPhoneNum
+        if contactPhoneNum == "":
+            self.contactPhoneNum = "(555) 555-5555"
         self.city = city
         self.zipcode = zipcode
+        self.zipregion = zipregion
 
     def __repr__(self):
         return '<Event %r>' % self.name
@@ -140,7 +143,7 @@ class Campground(db.Model):
     zipcode = db.Column(db.Integer)
 
     park_id_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
-    state_id_fk = db.Column(db.String(256), db.ForeignKey('States.idnum'), nullable=True)
+    state_id_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
 
     def __init__(self, name, description, latitude, longitude, direction, phone, email, zipcode, state):
         self.name = name
