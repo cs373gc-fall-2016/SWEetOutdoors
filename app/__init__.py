@@ -29,23 +29,39 @@ def states():
 	states = State.query.all()
 	return render_template('states.html', states=states)
 
-@application.route("/states/:idnum")
-def state_instance(idnum):
+@application.route("/states/<name>")
+def state_instance(name):
 	"""
 	routes to a specific state page
 	"""
-	state_instance = State.query.filter(State.idnum == idnum)
+	state_instance = State.query.filter_by(name = name)
+
 	return render_template('stateInstance.html', state_instance=state_instance)
 
-@application.route("/parks/:idnum")
-def park_for_state(stateID):
+# @application.route("/parks/:idnum")
+# def state_to_other(primary_key, table_name):
+# 	"""
+# 	routes to a specific park page from a state
+# 	"""
+# 	if (tablename == 'Parks'):
+# 		# state_instance = State.query.filter(State.name == stateID)
+# 		park_instance = Park.query.filter_by(state_fk == name).one()
+# 		# park_idnum = state
+# 		return render_template('parkInstance.html', park_instance=park_instance)
+# 	if (tablename == 'campgrounds')
+
+@application.route("/parks/<park_id>")
+def park_instance(key, table_name):
 	"""
-	routes to a specific park page from a state
+	routes to a specific state page
 	"""
-	# state_instance = State.query.filter(State.name == stateID)
-	park_instance = Park.query.filter(Park.state_fk == stateID).one()
-	# park_idnum = state
+	park_instance = none
+	if(table_name == 'States'):
+		park_instance = Park.query.filter_by(state_fk = key).one()
+	else:
+		park_instance = Park.query.filter_by(idnum = key)
 	return render_template('parkInstance.html', park_instance=park_instance)
+
 
 # @application.route("/states/texas")
 # def texas():
@@ -68,21 +84,21 @@ def park_for_state(stateID):
 # 	"""
 # 	return render_template('/stateInstances/Florida.html')
 
-@application.route("/parks")
-def parks():
-	"""
-	routes to parks table page
-	"""
-	parks = Park.query.all()
-	return render_template('parks.html', parks=parks)
+# @application.route("/parks")
+# def parks():
+# 	"""
+# 	routes to parks table page
+# 	"""
+# 	parks = Park.query.all()
+# 	return render_template('parks.html', parks=parks)
 
-@application.route("/parks/:idnum")
-def park_instance():
-	"""
-	routes to a specific park page
-	"""
-	park_instance = Park.query.filter(Park.idnum == idnum)
-	return render_template('parkInstance.html', park_instance=park_instance)
+# @application.route("/parks/:idnum")
+# def park_instance():
+# 	"""
+# 	routes to a specific park page
+# 	"""
+# 	park_instance = Park.query.filter(Park.idnum == idnum)
+# 	return render_template('parkInstance.html', park_instance=park_instance)
 
 # @application.route("/parks/BigBend")
 # def bigBend():
@@ -105,21 +121,21 @@ def park_instance():
 # 	"""
 # 	return render_template('/parkInstances/Zilker.html')
 
-@application.route("/events")
-def events():
-	"""
-	routes to events table page
-	"""
-	events = event.query.all()
-	return render_template('events.html', events=events)
+# @application.route("/events")
+# def events():
+# 	"""
+# 	routes to events table page
+# 	"""
+# 	events = event.query.all()
+# 	return render_template('events.html', events=events)
 
-@application.route("/events/:idnum")
-def event_instance():
-	"""
-	routes to a specific event page
-	"""
-	event_instance = event.query.filter(event.idnum == idnum)
-	return render_template('eventInstance.html', event_instance=event_instance)
+# @application.route("/events/:idnum")
+# def event_instance():
+# 	"""
+# 	routes to a specific event page
+# 	"""
+# 	event_instance = event.query.filter(event.idnum == idnum)
+# 	return render_template('eventInstance.html', event_instance=event_instance)
 
 # @application.route("/events/AustinCityLimits")
 # def austinCityLimits():

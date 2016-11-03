@@ -57,12 +57,11 @@
               {% for state in states %}
               <tbody>
                 <tr>
-                  <!-- /states/{{state.idnum}} -->
-                  <th scope="row"><a href="{{ url_for('state_instance', idnum=state.idnum ) }}">{{state.name}}</a></th> <!-- turn into route to state -->
+                  <th scope="row"><a href="{{ url_for('state_instance', state.name) }}">{{state.name}}</a></th>
                   <td>{{state.highest_point}}</td>
                   <td>{{state.population}}</td>
                   <td>{{state.total_area}}</td>
-                  <th><a href="{{ url_for('park_for_state', stateID == state.name ) }}">Big Bend</a></th>
+                  <th><a href="{{ url_for('park_for_state', state.name, 'Parks') }}">Big Bend</a></th>
                   <th scope="row"><a href="{{ url_for('austinCityLimits') }}">Austin City Limits</a></th>
                 </tr>
               </tbody>
