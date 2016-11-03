@@ -5,6 +5,8 @@ from models import Park, State, Campground, Event
 import unittest
 from flask import Flask 
 from flask_testing import TestCase
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/pre-registration'
