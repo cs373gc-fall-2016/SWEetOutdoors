@@ -25,20 +25,20 @@
     </ul>
        
     <div class="title">
-      <h1>Park Name</h1>
+      <h1> {{ park_instance.name }}</h1>
     </div>
 
     <div class="row">
       <div class="col-md-2"></div>              
       <div class="col-md-4">
         <div class="card">
-          <img class="card-img-top img-fluid" src="../../static/img/bigbend.jpg" alt="Photo of state park">
+          <img class="card-img-top img-fluid" src="{{ park_instance.photo_url }}" alt="Photo of state park">
 <!--           <div class="card-block">
             <p class="card-text">"description"</p>
           </div> -->
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Address: "address"</li>
-            <li class="list-group-item">Phone Number: "phone"</li>
+            <li class="list-group-item">Address: {{ park_instance.address }}</li>
+            <li class="list-group-item">Phone Number: {{ park_instance.phone }}</li>
             <li class="list-group-item">Rating: "rating"</li>
             <li class="list-group-item"><a href="website">Website</a></li>
             <li class="list-group-item">Zipcode: "zipcode"</li>
