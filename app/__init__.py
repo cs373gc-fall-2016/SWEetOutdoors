@@ -3,8 +3,9 @@ Main page for routing URL
 """
 
 from flask import Flask, render_template, request
-application = Flask(__name__)
+from models import db, State, app as application
 
+# @route('/get/getallstates')
 @application.route("/")
 def index():
 	"""
@@ -24,7 +25,10 @@ def states():
 	"""
 	routes to states table page
 	"""
-	return render_template('states.html')
+	states = State.query.all()
+	cur = db.session.execute('select * from States order by id desc')
+	# states = cur.fetchall()
+	return render_template('states.html', states=states)
 
 @application.route("/states/texas")
 def texas():
@@ -130,3 +134,7 @@ def yosemiteCampground():
 	routes to Yosemite campgrounds page
 	"""
 	return render_template('/campgroundInstances/YosemiteCampground.html')
+
+if __name__ == '__main__':
+	application.debug = True
+	application.run()
