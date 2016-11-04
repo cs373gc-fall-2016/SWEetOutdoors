@@ -49,7 +49,6 @@
                   <th>Phone</th>
                   <th>City</th>
                   <th>State</th>
-                  <th>Park</th>                  
                 </tr>
               </thead>
               <tbody>
@@ -62,9 +61,6 @@
                   <td>{{event.city}}</td>
                   <th>
                     <a href="{{ url_for('state_instance', name=event.state_fk)}}">{{event.state_fk}}</a>
-                  </th>                    
-                  <th>
-                    <a href="{{ url_for('bigBend')}}">Big Bend</a>
                   </th>
                 </tr>
                 {% endfor %}
