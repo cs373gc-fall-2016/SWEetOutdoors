@@ -1,0 +1,152 @@
+/* 
+  ------------------------
+  GENERAL 
+  ------------------------
+*/
+
+html {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  /*overflow-x: hidden;*/
+}   
+
+li {
+  color: black;
+  font-size: 1.5em;
+}
+
+/* 
+  ------------------------
+  HEADER 
+  ------------------------
+*/
+
+.page-header {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.nav.nav-pills {
+  background-color: #666666; /* bar */
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+.nav.nav-pills a{
+  font-weight: bold;
+  font-size: 15px;
+  color: #95afd0; /* non-active text */
+  display: block;
+}
+
+.nav.nav-pills a:hover{
+  background-color: #dedede;
+}
+
+.nav.nav-pills .active a {
+  background-color: #4d4d4d; /* background of active */
+}
+
+.nav.nav-pills .active a:hover {
+  background-color: #4e79b1; /* background of active on hover */
+}
+
+.nav.nav-pills li {
+  display: inline-block;
+  float: none;
+  vertical-align: middle;
+  list-style: none;
+}
+
+ul {
+  text-align: center;
+  margin-top: 0;  
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 
+  ------------------------
+  MAIN BODY 
+  ------------------------
+*/
+
+body {
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh; 
+}
+
+.main-content {
+  margin: 0;
+  padding: 0;
+}   
+
+/* 
+  ------------------------
+  TITLES
+  ------------------------
+*/
+
+.title h1 {
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  color: #4d4d4d; /* -currently- dark gray */
+}
+
+#main {
+  padding-top: 3em;
+}
+#main h1 {
+  font-size: 72px;
+}
+
+/* 
+  ------------------------
+  SPLASH PAGE - CAROUSEL
+  ------------------------
+*/
+
+.col-md-12 {
+  margin: 0;
+  padding-top: 12em;
+}
+
+#myCarousel {
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  vertical-align: middle;
+  width: 75vw;
+  height: 50vh;
+}
+
+.carousel,.item,.active {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.carousel-inner {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.item .carousel-caption{
+  vertical-align: top;
+  height: 100%;
+}
+
+.carousel-caption h1 a{
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 50px;
+  color: white;
+}
+

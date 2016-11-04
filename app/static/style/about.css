@@ -1,0 +1,112 @@
+/* 
+  ------------------------
+  TITLE 
+  ------------------------
+*/
+
+.title {
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+#title1 {
+  color: white;
+  font-size: 4em;
+}
+
+/* 
+  ------------------------
+  TEAM MEMBERS 
+  ------------------------
+*/
+
+#row1.row {
+	background-color: #95afd0; 
+	margin-bottom: 2.5em;
+}
+
+#row2.row {
+	margin-top: 2.5em;
+	background-color: white; 
+}
+
+#row2 img {
+	margin-top: 2.5em;
+  background: #95afd0;
+}
+
+.member {
+	width: 200px;
+	height: 200px;
+	-moz-border-radius: 50em;
+	-webkit-border-radius: 50em;
+	border-radius: 50em;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#row1 img {
+	background: white;
+}
+
+#row1 h2 {
+  color: white;
+}
+
+#row2 h2 {
+  color: #95afd0;
+}
+
+/* 
+  ------------------------
+  GENERAL 
+  ------------------------
+*/
+
+.row h2, p {
+  text-align: center;
+}
+
+ul {
+  text-align: center;
+  margin-top: 0;  
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li {
+  color:white;
+  font-size:1.5em;
+}
+
+/* 
+  ------------------------
+  INFO AND STATS 
+  ------------------------
+*/
+
+.stats.col-lg-4 .title {
+  margin-bottom: 2%;
+}
+
+.stats.col-lg-4 h1 {
+	margin-bottom: 0;
+  color: white;
+}
+
+.stats.col-lg-4 p {
+  color: white;
+  font-size: 1.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.stats.col-lg-4 {
+  margin-top: -2.5em;
+}
+
+/*#tools.stats.col-lg-4 {
+  padding-right: 0;
+}*/
+

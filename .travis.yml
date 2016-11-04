@@ -8,7 +8,6 @@ before_install:
   - pip install --upgrade pip
 
 install:
-  - pip install -r requirements.txt
   - pip install pylint
   - pip install coverage
   

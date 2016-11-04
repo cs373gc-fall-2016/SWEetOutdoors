@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../static/style/about.css" media="screen">   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+  </head>
+  
+  <body>
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
+      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
+      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
+      <li role="presentation" class="active"><a href="{{ url_for('about') }}">About</a></li>       
+    </ul>
+
+    <div id="row1" class="row">
+      <div class="title">
+        <h1 id="title1">Meet SWEet Outdoors</h1>
+      </div> 
+      <div class="container marketing">
+        <div class="row">
+          <div class="col-lg-3">
+            <img class="member" src="../static/img/Didi.jpeg">
+            <h2>Didi Crous</h2>
+            <p>I'm a senior computer science student. I like singing, tacos and spending time outside when I'm not coding. I am currently looking forward to graduating so that I can spend a few months running around Europe.</p>
+            <p><b>Front end</b></p>
+            <p><b>Commits:</b> 41</p>
+            <p><b>Issues:</b> 1</p>
+            <p><b>Unit tests:</b> 0</p>
+            </div>
+          <div class="col-lg-3">
+            <img class="member"  src="../static/img/Ali.jpg">
+            <h2>Ali Darwiche</h2>
+            <p>I'm a senior double majoring in computer science and business, and want to be a technical project manager after graduation. I can hit a C7 vocally.</p>
+            <p><b>Back end</b></p>
+            <p><b>Commits:</b> 21</p>
+            <p><b>Issues:</b> 0</p>
+            <p><b>Unit tests:</b> 0</p>
+          </div>
+          <div class="col-lg-3">
+            <img class="member"  src="../static/img/Elizabeth.jpg">
+            <h2>Elizabeth Haynes</h2>
+            <p>I'm a junior computer science student. I'm the head of the UTCS (WiCS) Makers Club, and I'm currently interning for Hewlett Packard Enterprise. I enjoy crafting, specifically crochet. </p>
+            <p><b>Front end</b></p>
+            <p><b>Commits:</b> 39</p>
+            <p><b>Issues:</b> 25</p>
+            <p><b>Unit tests:</b> 0</p>
+          </div>
+          <div class="col-lg-3">
+            <img class="member"  src="../static/img/Asad.jpg">
+            <h2>Asad Mahdi</h2>
+            <p>I'm a senior computer science student. I like gaming, NBA, Netflix - basically not being physically active.</p>
+            <p><b>Back end</b></p>
+            <p><b>Commits:</b> 26</p>
+            <p><b>Issues:</b> 0</p>
+            <p><b>Unit tests:</b> 1</p>
+        </div>
+      </div>
+    </div>
+    <div id="row2" class="row">
+      <div class="container marketing">
+        <div class="row">
+          <div class="col-lg-4">
+            <img class="member"  src="../static/img/Matthew.jpeg">
+            <h2>Matthew Rosenbaum</h2>
+            <p>I'm a junior computer science student. I like Android development, and I currently work part time. I'm involved with
+            Ignite, a Christian camp for freshman students.</p>
+            <p><b>Front end</b></p>
+            <p><b>Commits:</b> 23</p>
+            <p><b>Issues:</b> 2</p>
+            <p><b>Unit tests:</b> 0</p>
+            <br>
+            </div>
+          <div class="col-lg-4">
+            <img class="member"  src="../static/img/Kirsten.jpg">
+            <h2>Kirsten Thomas</h2>
+            <p>I'm a junior computer science student. I'm interested in human computer interaction and usability, specifically for
+            people with visual impairment. I volunteer with the Texas School for the Blind and Visually Impaired with my sorority,
+            Delta Gamma, in a weekly coding club.</p>
+            <p><b>Front end</b></p>
+            <p><b>Commits:</b> 50</p>
+            <p><b>Issues:</b> 19</p>
+            <p><b>Unit tests:</b> 11</p>
+            </div>          
+          <div class="col-lg-4">
+            <img class="member"  src="../static/img/Rambo.jpg">
+            <h2>Rambo Wu</h2>
+            <p>I'm a senior computer science student. I like dogs and iced coffee.</p>
+            <p><b>Back end</b></p>
+            <p><b>Commits:</b> 96</p>
+            <p><b>Issues:</b> 3</p>
+            <p><b>Unit tests:</b> 0</p>
+            <br>
+          </div>
+    </div>
+    </div>
+    </div>   
+
+    <div id="row3" class="row">
+      <div class="row">
+        <div class="col-lg-4 stats"> 
+          <div class="title">
+            <h1>Stats</h1>
+          </div>
+          <p>No. of commits: 250</p>
+          <p>No. of issues: 53</p>
+          <p>No. of unit tests: 12</p>
+          <p>Apiary API: <a href ="https://app.apiary.io/sweetoutdoors/">Apiary API</a></p>
+          <p>GitHub Issue Tracker: <a href="https://github.com/cs373gc-fall-2016/SWEetOutdoors/issues">Issues</a></p>
+          <p>GitHub Repo: <a href="https://github.com/cs373gc-fall-2016/SWEetOutdoors">GitHub Repo</a></p>
+          <p>GitHub Wiki: <a href="https://github.com/cs373gc-fall-2016/SWEetOutdoors/wiki">GitHub Wiki</a></p>                        
+        </div>                 
+
+        <div class="col-lg-4 stats">
+          <div class="title">
+            <h1>Data</h1>
+          </div>
+          <p>API: <a href ="https://developers.google.com/places/">Google Places</a></p>
+          <p>API: <a href ="http://developer.active.com/docs/v2_Activity_API_Search">Activity Search</a></p>
+          <p>API: <a href ="http://developer.active.com/docs/read/Campground_Search_API">Campground Search</a></p>
+          <p>API: <a href ="https://www.mediawiki.org/wiki/API:Main_page">MediaWiki</a></p>                       
+       </div>
+
+       <div class="col-lg-4 stats" id="tools">
+          <div class="title">
+            <h1>Tools</h1>
+          </div>
+          <p>Bootstrap: An HTML, CSS, and JavaScript framework used heavily to design and style all of the pages of the site.</p>
+          <p>Flask: A Python web framework powering this web application.</p>   
+          <p>Slack: A messaging application used for communication, with integration to our GitHub repositories.</p>
+          <p>GitHub: A web-based git repository hosting service that hosts the repository for this project.</p>
+          <p>Apiary: An API documentation tool.</p>
+       </div>
+     </div> <!-- end of row for info -->
+
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="{{ url_for('tests') }}">Run Unit Tests</a></li>
+    </ul>
+
+     </div> 
+    </div>  
+
+  </body>
+</html>

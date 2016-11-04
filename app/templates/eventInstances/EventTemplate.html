@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{event_instance.name}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../static/style/instancePage.css" media="screen">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+  </head>
+
+  <body>
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
+      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
+      <li role="presentation" class="active"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
+      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>     
+    </ul>
+       
+    <div class="title">
+      <h1>{{event_instance.org_name}}</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"></div>              
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="{{event_instance.pic_url}}" alt="provided event photo">
+<!--           <div class="card-block">
+            <p class="card-text">"description"</p>
+          </div> -->
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Categories: {{event_instance.topics}}</li>
+            <li class="list-group-item">Dates: {{event_instance.start_date}} - {{event_instance.end_date}}</li>
+            <li class="list-group-item">Organization: {{event_instance.org_name}}</li>
+            <li class="list-group-item">Phone: {{event_instance.contact_phone_num}}</li>
+            <li class="list-group-item">City: {{event_instance.city}}</li>
+            <li class="list-group-item">Zipcode: {{event_instance.zipcode}}</li>
+            <li class="list-group-item">State: <a href="{{ url_for('state_instance', name = event_instance.state_fk) }}">{{event_instance.state_fk}}</a></li>
+          </ul>
+        </div>        
+      </div> 
+      <div class="col-md-4"> 
+        <row>
+          <div class="card">
+            <a href="{{ url_for('texas') }}" class="card-link" id ="ParkLink">Explore "stateParkName"</a>
+            <img class="card-img-top img-fluid" src="../../static/img/bigBend.jpg" alt="Image of nearby state park">
+          </div>
+        </row>  
+      </div> 
+    </div> 
+  </body>
+</html>

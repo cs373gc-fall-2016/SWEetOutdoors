@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>"ParkName"</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../static/style/instancePage.css" media="screen">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+  </head>
+
+  <body>
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
+      <li role="presentation" class="active"><a href="{{ url_for('parks') }}">Parks</a></li>
+      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
+      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
+      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>     
+    </ul>
+       
+    <div class="title">
+      <h1> {{ park_instance.name }}</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"></div>              
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="{{ park_instance.photo_url }}" alt="Photo of state park">
+<!--           <div class="card-block">
+            <p class="card-text">"description"</p>
+          </div> -->
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Address: {{ park_instance.address }}</li>
+            <li class="list-group-item">Phone Number: {{ park_instance.phone }}</li>
+            <li class="list-group-item">Rating: {{ park_instance.rating }}</li>
+            <li class="list-group-item"><a href="{{ park_instance.website }}">{{ park_instance.website }}</a></li>
+            <li class="list-group-item">Zipcode: {{ park_instance.zipcode }}</li>
+            <li class="list-group-item">State: <a href="{{ url_for('state_instance', name = park_instance.state) }}">{{park_instance.state}}</a></li>
+          </ul>
+        </div>        
+      </div> 
+      <div class="col-md-4"> 
+        <row>
+          <div class="card">
+            <a href="{{ url_for('state_instance', name = park_instance.state) }}" class="card-link" id ="bigBendLink">Explore {{park_instance.state}}</a>
+            <img class="card-img-top img-fluid" src="../../static/img/texas.jpg" alt="Image of state that this park is in">
+            <div class="card-block">
+              <p class="card-text">{{ url_for('state_row', key = {{park_instance.state}}, tablename = {{park_instance.tablename}}) }}</p>
+            </div>
+          </div>
+        </row>  
+
+        <row>
+          <div class="card card-block">
+            <h4 class="card-title">Next Event</h4>
+            <br>
+            <div class = "row">
+              <div class = "col-md-4">
+                <a href="{{ url_for('runForTheHungry') }}" class="card-link">Event Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <a href="../eventInstances/EventTemplate.html" class="card-link">Category</a>
+              </div>
+
+              <div class = "col-md-4">
+                <a href="../eventInstances/EventTemplate.html" class="card-link">Start Date</a>
+              </div>
+            </div> <!-- end class row -->
+          </div> <!-- end class card card-block -->
+        </row>
+      </div> <!-- end col-md-4 -->
+    </div> <!-- end class row -->
+  </body>
+</html>
