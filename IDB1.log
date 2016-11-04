@@ -1,3 +1,724 @@
+commit 14e60bbd564111b9e3ac116ca3053921ffeec7e0
+Merge: 6bde07f 68510c7
+Author: wurambo <wurambo@utexas.edu>
+Date:   Thu Nov 3 21:56:05 2016 -0500
+
+    Merge pull request #55 from kethomas/master
+    
+    merge to master
+
+commit 68510c7c2382230d7a87f4b7f6f5b6442f2f2f1d
+Author: alidarwiche <alidarwiche@users.noreply.github.com>
+Date:   Thu Nov 3 21:54:32 2016 -0500
+
+    Update __init__.py
+
+commit 0847e4f6681d3ac99d39f00812d55eec7c5772f9
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 21:51:47 2016 -0500
+
+    fuck me
+
+commit 8883b1236ba23a18d7fcff6dd406722a912dc30e
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 21:40:51 2016 -0500
+
+    fixing columns
+
+commit 3f3a6a0973d5ac8f42ba4ce8fb79f75a80c27900
+Merge: 4e8d687 80c3fa2
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 21:38:50 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 80c3fa232bfb09c94bb567cd42d6ad01fc80e94c
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 21:38:04 2016 -0500
+
+    aslkjfd
+
+commit 425e2e96bf396394ad2600f76ce053609b9fc14a
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 21:35:42 2016 -0500
+
+    campgrounds table works
+
+commit 4e8d687714189827d0451850929604b4807e940f
+Merge: e152bab 844c8ef
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Thu Nov 3 21:32:35 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit e152bab39989e3a134790b2feb99a1d22ffcf03c
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Thu Nov 3 21:32:08 2016 -0500
+
+    modified events table to have state, modified event instance to get data from database
+
+commit 844c8eff23370506c4e4e537f8c05b981c355102
+Merge: 9682bbf 5424cc1
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 21:29:36 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 9682bbf27dfb55254e1cde9ed6f1bae3d62e43ee
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 21:29:23 2016 -0500
+
+    editing templates
+
+commit 5424cc194aa6886ef686d460b1b4028fb3aad684
+Merge: f8985bf 2bfad78
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 21:15:29 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit f8985bfb6c489400558b04e6f7baf723564f224b
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 21:15:11 2016 -0500
+
+    hello events table
+
+commit 2bfad78fe7e5b4e3e24fb4039f3fcc130fe6c44a
+Merge: 1e8d315 5a69c16
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 21:11:44 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 1e8d3152a3d6a209ab3186194b1493a3fad42a1e
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 21:11:27 2016 -0500
+
+    adding way to run unit tests
+
+commit 5a69c169f747f30a989db5e6e6703476874d5ec1
+Author: Asad <syed.asad.mahdi@utexas.edu>
+Date:   Thu Nov 3 21:08:00 2016 -0500
+
+    something
+
+commit 0f6749390097ac854ef368dafeb188ed1b46349a
+Author: Asad <syed.asad.mahdi@utexas.edu>
+Date:   Thu Nov 3 21:06:37 2016 -0500
+
+    asdsa
+
+commit 8662a683fd3eb490964c6803068f7ac6f1104b3a
+Merge: f3a3ed7 0a03afc
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Thu Nov 3 20:53:57 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit f3a3ed71a756014ae081466edbdfc510b95ae4f7
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Thu Nov 3 20:53:41 2016 -0500
+
+    updated event table page to pull from database
+
+commit 0a03afc5e662bd5ac3895ffbcfbdeb6bbf6113fc
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 20:51:01 2016 -0500
+
+    adding stuff in html for dynamic loading
+
+commit f5400c1fff484ba2d4bd5c3aa9b5e0e0ac693772
+Merge: 1f7927f 9cf80d9
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 20:30:23 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 1f7927f96edbba651c629c29b0d7674735a05c77
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 20:29:48 2016 -0500
+
+    crying
+
+commit 9cf80d9d0f66128720ee19952de3d32d5a6b2f88
+Merge: 97819f0 0d20baa
+Author: Rambo Wu <RamboWu@wireless-10-147-134-50.public.utexas.edu>
+Date:   Thu Nov 3 19:40:19 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 97819f0e0aa7c4c9375b5e6d60c0d1258b9dc9a9
+Author: Rambo Wu <RamboWu@wireless-10-147-134-50.public.utexas.edu>
+Date:   Thu Nov 3 19:39:46 2016 -0500
+
+    changed api and models
+
+commit 0d20baa1be3926a45b9bba4fd3153e2bf7db9d30
+Author: Asad <syed.asad.mahdi@utexas.edu>
+Date:   Thu Nov 3 19:33:32 2016 -0500
+
+    mod yml
+
+commit 0594ecf3e1f80af8b1f1e397efa961052b328012
+Merge: c50bd28 f6223aa
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 19:25:27 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit c50bd285b98bd4e3b80062cd828f59315325a822
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 19:23:20 2016 -0500
+
+    tried to route hyperlinks
+
+commit f6223aa1669176d02c8b8f7ff0644519abda4845
+Merge: 1449800 5eea0e1
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 18:45:34 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+    unit tests
+
+commit 1449800c274399fd50873ec3dd33378fc9886c8a
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 18:45:05 2016 -0500
+
+    wrote unit testsgit status!
+
+commit 5eea0e1ea7df279bdd7f5a7b65220e1d9bac9136
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 18:24:41 2016 -0500
+
+    working on routing?
+
+commit d4e896ad2b958dbb6851db940d4198138511fd98
+Merge: fe38ac5 4565f0b
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 18:22:42 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 4565f0b539f34f8d28a6820955dc22ad3e60186f
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 17:25:11 2016 -0500
+
+    sadsad
+
+commit 5c1872d9f4a3e38a7df9ec4c02a930bd848fd138
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 17:24:08 2016 -0500
+
+    sdff
+
+commit eb755d4e2ba7af40ccef6b1607788c093f47c846
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 17:22:39 2016 -0500
+
+    sdfsd
+
+commit 6fd1cd60c60bb6b6662584adb3bca90f7830d035
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 17:01:48 2016 -0500
+
+    f
+
+commit ea639f0dc911b70d70e8a4f711286094fa8117b8
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 17:00:32 2016 -0500
+
+    fsdffgd
+
+commit a6f5a333d4f4d3c363faa281c90c720b9e6079e3
+Author: Ubuntu <ubuntu@ip-172-31-0-146.us-west-2.compute.internal>
+Date:   Thu Nov 3 21:51:14 2016 +0000
+
+    fsu9fs
+
+commit aae8d95e6941f3de72206c31de200900e91b8a95
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 16:42:23 2016 -0500
+
+    sdfdfgsdfgvs
+
+commit ed1e4f19791c6df8a217799da87bd39f20e65a89
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 16:39:28 2016 -0500
+
+    j
+
+commit d932e8861e13cf17ea994256805a49f1d7c67ea9
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 16:36:55 2016 -0500
+
+    fds
+
+commit af8ce685cb7ec3e1cb38421aaa85f9e2dc1de7de
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 16:34:38 2016 -0500
+
+    fsdfsffsd
+
+commit fefb6f62c9160ce5cec46c0c12a6c299a9ee7a8b
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 16:27:48 2016 -0500
+
+    stupid
+
+commit 0e638e3e423b29d378abaa45521becea36b8bd52
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 16:24:36 2016 -0500
+
+    tabbing sucks, python sucks
+
+commit b4ddd8b71b5c48454330cd4472311ed5fe6f291e
+Author: Ubuntu <ubuntu@ip-172-31-0-146.us-west-2.compute.internal>
+Date:   Thu Nov 3 21:16:50 2016 +0000
+
+    update tests
+
+commit fe38ac5dd1fc3f8c1fa685420fe89e8c93067185
+Merge: 72e0daa 18cf0e7
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 16:02:12 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 18cf0e7e707f5b5707360b784c5733733a878580
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Thu Nov 3 15:29:35 2016 -0500
+
+    tests, routing for tests, and updated gitignore
+
+commit 9c28e45de684b6a9c20f56fcabeacd6963b52826
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 15:23:52 2016 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit 72e0daabd9e3702c30e4a0c56c9ae03608703ffc
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 15:20:45 2016 -0500
+
+    pushing for matthew
+
+commit bbaf65fb006487e44d8d1382a9683fdd5b5c8e0c
+Author: Rambo Wu <RamboWu@wireless-10-147-134-50.public.utexas.edu>
+Date:   Thu Nov 3 15:15:18 2016 -0500
+
+    modified requirements.txt
+
+commit 79f0bb31d364fe186eb6af6a612667b2da49c05b
+Merge: 4d807e3 cf5c5a1
+Author: Rambo Wu <RamboWu@wireless-10-147-134-50.public.utexas.edu>
+Date:   Thu Nov 3 15:08:15 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 4d807e3578dbd7d58cd0f73c1857d74eafde30d6
+Merge: 5bf11e1 16525c1
+Author: Rambo Wu <RamboWu@wireless-10-147-134-50.public.utexas.edu>
+Date:   Thu Nov 3 15:08:12 2016 -0500
+
+    hello
+
+commit cf5c5a1a3882d08b3c928882b147ddc9feb44aea
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 15:07:57 2016 -0500
+
+    minor text fix on about page
+
+commit 5bf11e1422756243a78a85259a5920b65d6ccf3b
+Author: Rambo Wu <RamboWu@wireless-10-147-134-50.public.utexas.edu>
+Date:   Thu Nov 3 15:06:54 2016 -0500
+
+    fixed all scrapers and models like 99.9999% sure now
+
+commit 16525c1e8d495edf1d9f8023b1db18f784eebedf
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Thu Nov 3 15:05:51 2016 -0500
+
+    updating commits and issues, still need to update unit tests
+
+commit fb9fd26ee6b56e7ef70c1a3b740017930d013b44
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Thu Nov 3 13:47:07 2016 -0500
+
+    may or may not have helped with anything, attempted to work with routing- states and parks and __init__
+
+commit bf3c1b18fd0defa5ea63eb8cc041efc04b64c1e8
+Author: Rambo Wu <RamboWu@Rambos-MacBook-Air.local>
+Date:   Thu Nov 3 13:28:41 2016 -0500
+
+    campgrounds code change
+
+commit 4fc92e43a2201f2393a5a023e739d97188c9ab8c
+Merge: c37bfed 4f96bf6
+Author: Rambo Wu <RamboWu@Rambos-MacBook-Air.local>
+Date:   Thu Nov 3 13:21:33 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit c37bfed592c7602edb41c5e3d92822263b9eda03
+Author: Rambo Wu <RamboWu@Rambos-MacBook-Air.local>
+Date:   Thu Nov 3 13:21:12 2016 -0500
+
+    fixed scrapers
+
+commit 4f96bf67e8af2fc6e5e5dbdc3224a2dae831f01d
+Merge: aebd0b0 432d502
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 00:41:14 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit aebd0b05947d686859da07ad9068f80287b1fe3d
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Nov 3 00:38:07 2016 -0500
+
+    States template mostly up
+
+commit 432d50296b7e8ac521d357b850ea79958877c2d2
+Author: Rambo Wu <RamboWu@Rambos-MacBook-Air.local>
+Date:   Thu Nov 3 00:10:17 2016 -0500
+
+    fixed wisconsin
+
+commit 1da43bf34a196a59b87d07bc3871e11d23d23489
+Merge: 3eae240 576a636
+Author: Rambo Wu <RamboWu@Rambos-MacBook-Air.local>
+Date:   Thu Nov 3 00:01:30 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 3eae240fcfa3f261f8f65fb3f254208b53253465
+Author: Rambo Wu <RamboWu@Rambos-MacBook-Air.local>
+Date:   Thu Nov 3 00:01:17 2016 -0500
+
+    fixed models and api-states
+
+commit 576a636dde4ea0b9775704a22f5a9a0b3643d4e8
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Wed Nov 2 23:20:03 2016 -0500
+
+    Rambo left me and i'm sad: working on states routing
+
+commit 0b8b1f3fda1c510829859f7ee0fed2d7e0555199
+Author: Matthew Rosenbaum <matthew.rosenbaum@utexas.edu>
+Date:   Wed Nov 2 22:33:59 2016 -0500
+
+    uncomment lines
+
+commit 358e354a16d09f6630869ea96de7b9b8d5c52e72
+Author: Elizabeth Haynes <ejjhaynes@users.noreply.github.com>
+Date:   Wed Nov 2 21:27:05 2016 -0500
+
+    FINAL finalized models
+
+commit 5f98f346c339929c2564b3921594b6277c4730b2
+Merge: 14f9ae4 a95eb5d
+Author: Rambo Wu <RamboWu@wireless-10-147-65-175.public.utexas.edu>
+Date:   Wed Nov 2 21:04:50 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 14f9ae4b7e7d47dfbbd434dc9d8376e51fc460a5
+Author: Rambo Wu <RamboWu@wireless-10-147-65-175.public.utexas.edu>
+Date:   Wed Nov 2 21:04:45 2016 -0500
+
+    fixed stuff
+
+commit a95eb5df4664c4bf49c9bcdb0851c49b0384aa83
+Author: Elizabeth Haynes <ejjhaynes@users.noreply.github.com>
+Date:   Wed Nov 2 20:51:56 2016 -0500
+
+    updated yUML with phase 2 finalized models
+
+commit 2234c40e9cce0474033516c7c026483c342c36fa
+Author: Rambo Wu <RamboWu@wireless-10-147-65-175.public.utexas.edu>
+Date:   Wed Nov 2 20:30:02 2016 -0500
+
+    changed models.py
+
+commit 5517320dfb73e35d0b8070df93184791522d8b16
+Author: Rambo Wu <RamboWu@wireless-10-147-65-175.public.utexas.edu>
+Date:   Wed Nov 2 20:23:08 2016 -0500
+
+    finished models.py FINALLY OMG
+
+commit f17baf614594f928d58d14fd1b5449c172590667
+Author: Rambo Wu <RamboWu@wireless-10-147-65-175.public.utexas.edu>
+Date:   Wed Nov 2 19:31:39 2016 -0500
+
+    fixed scrapers
+
+commit 7324870f75b547b1ce94006a8c4e8cd0a08afbd3
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Wed Nov 2 18:08:25 2016 -0500
+
+    cleaned up a bit, commented out in init.py everything other than home page routing
+
+commit 07eb21c0cb0582d8898d391feff09ab89b85bfd8
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Wed Nov 2 16:54:19 2016 -0500
+
+    trying to change color
+
+commit ad12d1ed50f381b49ad6e473c470889de0e264f5
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Wed Nov 2 16:39:01 2016 -0500
+
+    changing carousel link area
+
+commit f222ca5f0990ff5ed0bda68b1f3c27e73ab724b2
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Wed Nov 2 16:21:36 2016 -0500
+
+    changing carousel text color
+
+commit 409c416b230968872c7c468035461599e095bd47
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Wed Nov 2 16:09:49 2016 -0500
+
+    adding links in carousel
+
+commit 9dff4c43f174ab10666abc290ec1990ecf76ae83
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Wed Nov 2 14:37:44 2016 -0500
+
+    updating templates with events to be at bottom of second column
+
+commit e2ee7ab6a1fe5e101c71567de2b0a1f3f029fb9c
+Author: Asad <syed.asad.mahdi@utexas.edu>
+Date:   Wed Nov 2 13:23:20 2016 -0500
+
+    small change
+
+commit 85986c2760c1eae2a6cc7a782d2fd61b04e65509
+Author: Asad <syed.asad.mahdi@utexas.edu>
+Date:   Wed Nov 2 13:17:05 2016 -0500
+
+    Added js files mimicing the parks one
+
+commit 715c939b90f24634bcaf1e1b18b98292d798316d
+Merge: 8ff7a5a b1e67c2
+Author: Rambo Wu <RamboWu@wireless-10-147-6-157.public.utexas.edu>
+Date:   Tue Nov 1 23:38:15 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+    
+    k
+
+commit 8ff7a5a839aa5993572ac2407a98bea0aa541546
+Merge: 254b372 d6705dd
+Author: Rambo Wu <RamboWu@wireless-10-147-6-157.public.utexas.edu>
+Date:   Tue Nov 1 23:38:03 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 254b372af6d7a8a43c49b22022439e1a5a683a5e
+Author: Rambo Wu <RamboWu@wireless-10-147-6-157.public.utexas.edu>
+Date:   Tue Nov 1 23:37:56 2016 -0500
+
+    got states and parks added, need 2 do campgrounds
+
+commit b1e67c23d2772e98fe85252b1c7205fd22f3d191
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Tue Nov 1 23:37:18 2016 -0500
+
+    updated events API db filling
+
+commit d6705ddc961ab6f6f15a0647897eb88d125d6452
+Merge: 198880c 4be7935
+Author: Didi Crous <didicrous@example.com>
+Date:   Tue Nov 1 23:35:44 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 198880ce219710f90e8eaeb07599c59cd85c4104
+Author: Didi Crous <didicrous@example.com>
+Date:   Tue Nov 1 23:35:37 2016 -0500
+
+    dynamically loading in hardcoded data in parks.html
+
+commit 4be7935e491b54aba40012dba15e9f5a022065fb
+Author: Rambo Wu <RamboWu@wireless-10-147-6-157.public.utexas.edu>
+Date:   Tue Nov 1 22:06:15 2016 -0500
+
+    removed stuff
+
+commit 3e61082fa3a24023b79d18973113fd847202609f
+Author: Asad <syed.asad.mahdi@utexas.edu>
+Date:   Tue Nov 1 21:59:38 2016 -0500
+
+    Changed models to strings
+
+commit 4d3c188742974204d1d77318b7800aa96e18f440
+Merge: e54c71b 92cda29
+Author: Asad <syed.asad.mahdi@utexas.edu>
+Date:   Tue Nov 1 21:58:25 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit 92cda290a17c86d6d3e753f046150c7a9c38bf8b
+Merge: 3f2ff5d 2616cd3
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Tue Nov 1 21:56:02 2016 -0500
+
+    trying to merge
+
+commit 3f2ff5d38ecdab9462ebe8c1bab0043552e7fbb2
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Tue Nov 1 21:50:52 2016 -0500
+
+    campgrounds api file modified with bing for zipcode
+
+commit e54c71b932c129a143a0b5c49ed7807696879cbb
+Author: Asad <syed.asad.mahdi@utexas.edu>
+Date:   Tue Nov 1 20:57:20 2016 -0500
+
+    adding to the right place
+
+commit 2616cd34f4d16f11a3a7193bba67de2a2628d934
+Author: Ubuntu <ubuntu@ip-172-31-0-146.us-west-2.compute.internal>
+Date:   Wed Nov 2 01:54:48 2016 +0000
+
+    added statesAPI.py
+
+commit cf89161aa4e1329166a678a362cadb9aca8aea24
+Author: Asad <syed.asad.mahdi@utexas.edu>
+Date:   Tue Nov 1 20:30:41 2016 -0500
+
+    db functionality
+
+commit c70c5d11edc148b22d411a8956bdfa749c821f17
+Author: alidarwiche <alidarwiche@users.noreply.github.com>
+Date:   Tue Nov 1 20:25:44 2016 -0500
+
+    update events model
+
+commit 741d32995229bac9ce0482173b2d2070c18730e8
+Author: Rambo Wu <RamboWu@wireless-10-147-6-157.public.utexas.edu>
+Date:   Tue Nov 1 20:20:58 2016 -0500
+
+    fixed models
+
+commit 333a5bbe67d7f3bf772a2caaf130917e7f1ae50e
+Author: Asad <syed.asad.mahdi@utexas.edu>
+Date:   Tue Nov 1 19:37:11 2016 -0500
+
+    States is done hopefully
+
+commit a7b2aefbb8b5995304208f5978acb2bfc0c62be4
+Author: Didi Crous <didicrous@example.com>
+Date:   Tue Nov 1 12:41:38 2016 -0500
+
+    setting up structure to dynamically load in data with angular
+
+commit 4d21d92ebf54c3dce27d3f748bd8847acb98f263
+Merge: afda07a d35cb8f
+Author: Rambo Wu <RamboWu@wireless-10-147-215-116.public.utexas.edu>
+Date:   Mon Oct 31 22:23:58 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit afda07aae92fd4594a0cf73afb2f3d57e9368dfd
+Author: Rambo Wu <RamboWu@wireless-10-147-215-116.public.utexas.edu>
+Date:   Mon Oct 31 22:23:22 2016 -0500
+
+    hi I am rambo from burman
+
+commit d35cb8f584c8d15bc27cdd74f563d29924296afb
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Mon Oct 31 21:59:46 2016 -0500
+
+    Finished events API
+
+commit c2ff0d2dbcd621851131b20dd53baf10b2e46907
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Mon Oct 31 21:02:27 2016 -0500
+
+    creating static template pages, modified table pages, updated models.py, settled on attributes
+
+commit 7eb57f215aa7e242b0e4b340d8052ca1075336d1
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Mon Oct 31 15:27:27 2016 -0500
+
+    extracting list of national parks
+
+commit 063daefea50b4dd73fc3042e6a8553735d3da4fa
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Sun Oct 30 22:09:34 2016 -0500
+
+    using BeautifulSoup to get Alabama state parks list from Wikipedia
+
+commit aa3d73a86aa05474c0a84d8da54138f76ad4f0b5
+Author: Kirsten Thomas <kirsten.thomas@utexas.edu>
+Date:   Sun Oct 30 21:31:25 2016 -0500
+
+    adding initial parks API python file, going to use Wikipedia
+
+commit 4891e961ac13b9c4fc22ff454250c4d7d7b016ba
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Sun Oct 30 18:46:46 2016 -0500
+
+    fixing some stuff on the About page
+
+commit 06c9553c0042dd47c28d0f28372774a1aea42bb8
+Merge: ee6ffb5 52749c4
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Sun Oct 30 16:41:45 2016 -0500
+
+    Merge branch 'master' of https://github.com/kethomas/SWEetOutdoors-dev
+
+commit ee6ffb51749a537b7019ef0f964efdde25cb8b7b
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Sun Oct 30 16:41:27 2016 -0500
+
+    changed table sorting and added pagination
+
+commit 52749c4a33a46aafdd9f5f42cc296e77a67fe4e8
+Author: Asad <syed.asad.mahdi@utexas.edu>
+Date:   Sun Oct 30 15:26:09 2016 -0500
+
+    Media wiki file
+
+commit cde92fd7948d38ba47bb13cb2c9f3ef3a45fe7de
+Author: Elizabeth Haynes <ej2h@cs.utexas.edu>
+Date:   Thu Oct 27 22:37:53 2016 -0500
+
+    pulling campgrounds data from the api
+
+commit 80b8c476c64926503f86a0e7cdab3284dc53fd22
+Author: kethomas <kirsten.thomas@utexas.edu>
+Date:   Mon Oct 24 15:25:03 2016 -0500
+
+    fixed nav bar to be centered on all pages, added comments and organization to CSS, and hopefully fixed linking problem from campground instances
+
+commit fbfd7973c4ffd606b052b8484805169ac084d833
+Author: Rambo Wu <RamboWu@wireless-10-145-39-148.public.utexas.edu>
+Date:   Fri Oct 21 13:19:22 2016 -0500
+
+    added requirements.txt
+
+commit 92d37fa1e6902d327107af8e89098ba94684c032
+Author: Rambo Wu <RamboWu@wireless-10-145-39-148.public.utexas.edu>
+Date:   Fri Oct 21 13:17:32 2016 -0500
+
+    changing folder structure to work with aws
+
+commit 40f4ff491f4710da8356854176695c61011c40c7
+Author: Rambo Wu <RamboWu@wireless-10-145-39-148.public.utexas.edu>
+Date:   Fri Oct 21 13:15:05 2016 -0500
+
+    im just fixin sum stuffs
+
+commit 6bde07f75c5762bab1e6365c5804392fc7789eef
+Author: Ali Darwiche <darwiche2005@utexas.edu>
+Date:   Thu Oct 20 21:57:48 2016 -0500
+
+    log
+
 commit c0571ab40e7967f909a90687e30c9f0436c01c0f
 Merge: 6e3a867 ba24b43
 Author: wurambo <wurambo@utexas.edu>
