@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>"CampgroundName"</title>
+    <title>"{{ campground_instance.name }}"</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -25,7 +25,7 @@
     </ul>
        
     <div class="title">
-      <h1>Campground Name</h1>
+      <h1>{{ campground_instance.name }}</h1>
     </div>
 
     <div class="row">
@@ -34,22 +34,21 @@
         <div class="card">
           <img class="card-img-top img-fluid" src="../../static/img/bearcreek.jpg" alt="Photo of campground">
           <div class="card-block">
-            <p class="card-text">"description"</p>
+            <p class="card-text">"{{ campground_instance.description }}"</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cost: "cost"</li>
-            <li class="list-group-item">Built for Accessibility: "accessibilty"</li>
-            <li class="list-group-item"><a href="reservation_url">Reserve a site</a></li>
-            <li class="list-group-item">Email: "email"</li>
-            <li class="list-group-item">Zipcode: "zipcode"</li>
-            <li class="list-group-item">State: <a href="{{ url_for('state') }}">"state"</a></li>
+            <li class="list-group-item">Directions: {{campground_instance.direction}}</li>
+            <li class="list-group-item">Phone: {{campground_instance.phone}}</li>
+            <li class="list-group-item">Email: {{campground_instance.email}}</li>
+            <li class="list-group-item">Zipcode: {{campground_instance.zipcode}} </li>
+            <li class="list-group-item">State: <a href="{{ url_for('state') }}">{{campground_instance.state_fk}}</a></li>
           </ul>
         </div>        
       </div> 
       <div class="col-md-4"> 
         <row>
           <div class="card">
-            <a href="{{ url_for('texas') }}" class="card-link" id ="ParkLink">Explore "stateParkName"</a>
+            <a href="{{ url_for('park') }}" class="card-link" id ="ParkLink">Explore {{campground_instance.park_fk}}</a>
             <img class="card-img-top img-fluid" src="../../static/img/bigBend.jpg" alt="Image of nearby state park">
 <!--             <div class="card-block">
               <p class="card-text">"stateParkDescription"</p>
