@@ -58,7 +58,7 @@ for i in states:
     url = url.replace(" ","_")
     
     #s[i] = [landarea,pop,highestelev,url,shortenedSum]
-    s = State(i,shortenedSum,landarea,pop,highestelev)
+    s = State(i,shortenedSum,landarea,pop,highestelev,url)
     db.session.add(s)
     
     #print[s]
@@ -157,7 +157,7 @@ for i in states2:
     #print info[c][0]
     #print info[c][1]
     #print info[c][2]
-    s = State(i,info[c][4],info[c][0],info[c][1],info[c][2])
+    s = State(i,info[c][4],info[c][0],info[c][1],info[c][2],url)
     db.session.add(s)
     c+=1
 

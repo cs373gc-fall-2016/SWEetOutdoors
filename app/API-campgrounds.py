@@ -88,7 +88,7 @@ while facility_offset < num_facilities:
         direction = facility["FacilityDirections"]
         phone = facility["FacilityPhone"]
 
-        print("http://dev.virtualearth.net/REST/v1/Locations/" + str(latitude) + "," + str(longitude) + "?o=xml&key=AnVzFw_MvQU64BLJ6gJ4CBx0JSJUCnWom08V9AeBVcInE4caAJnazgcfPdN54J-0")
+        #print("http://dev.virtualearth.net/REST/v1/Locations/" + str(latitude) + "," + str(longitude) + "?o=xml&key=AnVzFw_MvQU64BLJ6gJ4CBx0JSJUCnWom08V9AeBVcInE4caAJnazgcfPdN54J-0")
         if len(str(latitude)) != 0 or len(str(longitude)) != 0:   
 
             location_json = requests.get("http://dev.virtualearth.net/REST/v1/Locations/" + str(latitude) + "," + str(longitude) + "?key=AnVzFw_MvQU64BLJ6gJ4CBx0JSJUCnWom08V9AeBVcInE4caAJnazgcfPdN54J-0").json()
@@ -96,7 +96,9 @@ while facility_offset < num_facilities:
             try:
                 if location_json["resourceSets"][0]["estimatedTotal"] > 0:
                     state = states[location_json["resourceSets"][0]["resources"][0]["address"]["adminDistrict"]]
-                    zipcode = location_json["resourceSets"][0]["resources"][0]["address"]["postalCode"]
+                    zipcode = str(location_json["resourceSets"][0]["resources"][0]["address"]["postalCode"])
+                    if len(zipcode) < 5:
+                        print("hello" + zipcode)
                     stringzip = str(zipcode)
                     stringzip = stringzip[0:3]
                     if stringzip in hellop:
