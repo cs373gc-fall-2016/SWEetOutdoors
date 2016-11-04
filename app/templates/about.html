@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>SWEet Outdoors</title>
+    <title>About</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css" media="screen">
@@ -112,9 +112,9 @@
           <div class="title">
             <h1>Stats</h1>
           </div>
-          <p>No. of commits: 99</p>
-          <p>No. of issues: 26</p>
-          <p>No. of unit tests: 898989</p>
+          <p>No. of commits: 250</p>
+          <p>No. of issues: 53</p>
+          <p>No. of unit tests: 12</p>
           <p>Apiary API: <a href ="https://app.apiary.io/sweetoutdoors/">Apiary API</a></p>
           <p>GitHub Issue Tracker: <a href="https://github.com/cs373gc-fall-2016/SWEetOutdoors/issues">Issues</a></p>
           <p>GitHub Repo: <a href="https://github.com/cs373gc-fall-2016/SWEetOutdoors">GitHub Repo</a></p>
@@ -142,6 +142,10 @@
           <p>Apiary: An API documentation tool.</p>
        </div>
      </div> <!-- end of row for info -->
+
+    <ul class="nav nav-pills">
+      <li role="presentation"><a href="{{ url_for('tests') }}">Run Unit Tests</a></li>
+    </ul>
 
      </div> 
     </div>  
