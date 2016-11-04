@@ -76,7 +76,7 @@ def florida():
 	return render_template('/stateInstances/Florida.html')
 
 
- # PARKS-------------------------
+# PARKS-------------------------
 @application.route("/parks", methods=['GET'])
 def parks():
 	"""
@@ -91,7 +91,7 @@ def parks_instance(idnum):
 	routes to specific park page
 	"""
 	park_instance = Park.query.filter_by(idnum = idnum).first()
-	return render_template('parkInstances/ParkTemplate.html', park_instance=park_instance)
+	return render_template('parkInstances/ParksTemplate.html', park_instance=park_instance)
 
 @application.route("/park_row?key=<key>&tablename=<tablename>")
 def park_row(key, tablename):
@@ -204,14 +204,18 @@ def yosemiteCampground():
 
 @application.route ( '/run_tests')
 def tests ():
-	try:
-		process = subprocess.Popen(['python3', '/var/www/SWEetOutdoors-dev/app/tests.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-		out, err = process.communicate()
-		return str(out) + str(err)
-	except Exception as exc:
-		return str(exc)
+	
+	return render_template("textFile.html")
+	#return render_template('tests.out')
+	#try:
+	#	process = subprocess.Popen(['python', '/var/www/SWEetOutdoors-dev/app/tests.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	#	out, err = process.communicate()
+	#	return str(out) + str(err)
+	#except Exception as exc:
+	#	return str(exc)
+
 @application.route ( '/api/parks')
-def tests ():
+def tests1 ():
     dicty = {}
     for i in Park.query.all():
         dicty["idnum"] = i.idnum
@@ -229,7 +233,7 @@ def tests ():
     return jsonify(**dicty)
  
 @application.route ( '/api/parks/')
-def tests ():
+def tests2 ():
     dicty = {}
     i = Park.query.filter_by(idnum = 0).first()
     dicty["idnum"] = i.idnum
@@ -247,7 +251,7 @@ def tests ():
     return jsonify(**dicty)
  
 @application.route ( '/api/states')
-def tests ():
+def tests3 ():
     dicty = {}
     for i in State.query.all():
         dicty["name"] = i.name
@@ -259,9 +263,9 @@ def tests ():
     return jsonify(**dicty)
  
 @application.route ( '/api/states/')
-def tests ():
+def tests4 ():
     dicty = {}
-    i = State.query.filter_by(idnum = 0).first():
+    i = State.query.filter_by(idnum = 0).first()
     dicty["name"] = i.name
     dicty["description"] = i.description
     dicty["total_area"] = i.total_area
@@ -271,7 +275,7 @@ def tests ():
     return jsonify(**dicty)
  
 @application.route ( '/api/campgrounds')
-def tests ():
+def tests5 ():
     dicty = {}
     for i in Campground.query.all():
         dicty["idnum"] = i.idnum
@@ -288,7 +292,7 @@ def tests ():
     return jsonify(**dicty)
  
 @application.route ( '/api/campgrounds/')
-def tests ():
+def tests6 ():
     dicty = {}
     i = Campground.query.filter_by(idnum = 0).first()
     dicty["idnum"] = i.idnum
@@ -305,7 +309,7 @@ def tests ():
     return jsonify(**dicty)
  
 @application.route ( '/api/events')
-def tests ():
+def tests7 ():
     dicty = {}
     for i in Event.query.all():
         dicty["idnum"] = i.idnum
@@ -322,7 +326,7 @@ def tests ():
     return jsonify(**dicty)
  
 @application.route ( '/api/events')
-def tests ():
+def tests8 ():
     dicty = {}
     i = Event.query.filter_by(idnum = 0).first()
     dicty["idnum"] = i.idnum

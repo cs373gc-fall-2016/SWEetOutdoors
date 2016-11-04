@@ -52,7 +52,7 @@
             <a href="{{ url_for('state_instance', name = park_instance.state) }}" class="card-link" id ="bigBendLink">Explore {{park_instance.state}}</a>
             <img class="card-img-top img-fluid" src="../../static/img/texas.jpg" alt="Image of state that this park is in">
             <div class="card-block">
-              <p class="card-text">{{ url_for('state_row', key = {{park_instance.state}}, tablename = {{park_instance.tablename}}) }}</p>
+              <p class="card-text">{{ url_for('state_row', key = park_instance.state, tablename = park_instance.tablename) }}</p>
             </div>
           </div>
         </row>  
