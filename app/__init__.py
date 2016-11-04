@@ -170,7 +170,16 @@ def campgrounds():
 	"""
 	routes to campgrounds table page
 	"""
-	return render_template('campgrounds.html')
+	campgrounds = Campground.query.all()
+	return render_template('campgrounds.html', campgrounds=campgrounds)
+
+@application.route("/campgrounds/<idnum>")
+def campground_instance(idnum):
+	"""
+	routes to specific campground page
+	"""
+	campground_instance = Campground.query.filter_by(idnum = idnum).first()
+	return render_template('campgroundInstances/CampgroundTemplate.html', campground_instance=campground_instance)
 
 @application.route("/campgrounds/BearCreek")
 def bearCreek():
