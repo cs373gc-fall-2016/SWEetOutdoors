@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>"StateName"</title>
+    <title>{{ state_instance.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
   </head>
-
   <body>
     <ul class="nav nav-pills">
       <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
@@ -27,13 +26,12 @@
     <div class="title">
       <h1>{{ state_instance.name }}</h1>
     </div>
-
     <div class="row">
       <div class="col-md-2">
       </div>              
       <div class="col-md-4">
         <div class="card">
-          <img class="card-img-top img-fluid" src="{{ state_instance.url }}" alt="Card image cap">
+          <img class="card-img-top img-fluid" src="{{ state_instance.url }}" alt="Map of {{ state_instance.name }} within the United States.">
           <div class="card-block">
             <p class="card-text">{{ state_instance.description }}</p>
           </div>
@@ -44,7 +42,6 @@
           </ul>
         </div>        
       </div> <!-- end col-md-4 -->
-
       <div class="col-md-4"> 
         <row>
           <div class="card">
@@ -55,7 +52,6 @@
             </div>
           </div>
         </row>  
-
         <row>
           <div class="card card-block">
             <h4 class="card-title">Next Event</h4>
@@ -68,7 +64,6 @@
               <div class = "col-md-4">
                 <a href="../eventInstances/EventTemplate.html" class="card-link">Category</a>
               </div>
-
               <div class = "col-md-4">
                 <a href="../eventInstances/EventTemplate.html" class="card-link">Start Date</a>
               </div>
