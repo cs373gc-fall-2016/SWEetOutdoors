@@ -35,7 +35,7 @@ def states():
 	# states = cur.fetchall()
 	return render_template('states.html', states=states)
 
-@application.route("/state_row")
+@application.route("/state_row", methods =['GET', 'POST'])
 def state_row(key, tablename):
 	"""
 	routes to specific state page
@@ -93,7 +93,7 @@ def parks_instance(idnum):
 	park_instance = Park.query.filter_by(idnum = idnum).first()
 	return render_template('parkInstances/ParkTemplate.html', park_instance=park_instance)
 
-@application.route("/park_row")
+@application.route("/park_row?key=<key>&tablename=<tablename>")
 def park_row(key, tablename):
 	"""
 	routes to specific park page
@@ -101,7 +101,7 @@ def park_row(key, tablename):
 	park_instance = none
 	if(tablename == 'States'):
 		park_instance = Park.query.filter_by(state_fk = key).first()
-	return park_instance
+	return "asdf"
 
 @application.route("/parks/BigBend")
 def bigBend():
