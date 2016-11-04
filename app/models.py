@@ -109,7 +109,7 @@ class State(db.Model):
     total_area = db.Column(db.String(256))
     population = db.Column(db.String(256))
     highest_point = db.Column(db.String(256))
-   
+    url = db.Column(db.String(512))
 
     campgrounds_rel = db.relationship(
         'Campground', backref='State', lazy='dynamic')
@@ -117,12 +117,13 @@ class State(db.Model):
     events_rel = db.relationship(
         'Event', backref='State', lazy='dynamic')
 
-    def __init__(self, name, description, total_area, population, highest_point):
+    def __init__(self, name, description, total_area, population, highest_point, url):
         self.name = name
         self.description = description
         self.total_area = total_area
         self.population = population
         self.highest_point = highest_point
+        self.url = url
 
     def __repr__(self):
         return '<State %r>' % self.name
@@ -141,7 +142,7 @@ class Campground(db.Model):
     direction = db.Column(db.String(4096))
     phone = db.Column(db.String(256))
     email = db.Column(db.String(256))
-    zipcode = db.Column(db.Integer)
+    zipcode = db.Column(db.String(256))
 
     park_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
     state_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
