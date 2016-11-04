@@ -27,7 +27,7 @@ class TestModels(TestCase):
         return app
 
     def setUp(self):
-        pass
+        db.create_all()
 
     def tearDown(self):
         db.session.remove()
