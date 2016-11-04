@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>SWEet Outdoors</title>
+    <title>Events</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -36,30 +36,30 @@
     </div> <!-- end of title -->
 
     <div class="row">
-      <div class="col-md-1"></div>  
       <div class="col-md-10">
         <div class="table" data-example-id="simple-responsive-table"
           <div class ="table-responsive">
             <!-- Table -->
-            <table class="table table-striped" id="myTable">
+            <table class="table table-striped sortable" id="myTable">
               <thead>
                 <tr> 
                   <th>Event</th>
                   <th>Category</th>
                   <th>Dates</th>
-                  <th>Organization</th>
+                  <th>Phone</th>
                   <th>City</th>
                   <th>State</th>
                   <th>Park</th>                  
                 </tr>
               </thead>
               <tbody>
+                {% for event in events %}
                 <tr>
-                  <th scope="row"><a href="{{ url_for('austinCityLimits') }}">Austin City Limits</a></th>
-                  <td>Music</td>
-                  <td>2016-11-28</td>
-                  <td>2016-11-28</td>
-                  <td>mark@purefitness.cc</td>
+                  <th scope="row"><a href="{{ url_for('austinCityLimits') }}">{{event.org_name}}</a></th>
+                  <td>{{event.topics}}</td>
+                  <td>{{event.start_date}} - {{event.end_date}}</td>
+                  <td>{{event.contact_phone_num}}</td>
+                  <td>{{event.city}}</td>
                   <th>
                     <a href="{{ url_for('texas')}}">Texas</a>
                   </th>                    
@@ -67,34 +67,7 @@
                     <a href="{{ url_for('bigBend')}}">Big Bend</a>
                   </th>
                 </tr>
-
-                <tr>
-                  <th scope="row"><a href="{{ url_for('runForTheHungry') }}">Run For The Hungry</a></th>
-                  <td>Races</td>
-                  <td>2013-11-28</td>
-                  <td>2016-11-28</td>
-                  <td>run@hungry.com</td>
-                  <th>
-                    <a href="{{ url_for('california')}}">California</a>
-                  </th>                     
-                  <th>
-                    <a href="{{ url_for('zilker')}}">Zilker</a>
-                  </th>
-                </tr>
-                
-                <tr>
-                  <th scope="row"><a href="{{ url_for('yellowStoneAnniversary') }}">Yellowstone Anniversary</a></th>
-                  <td>Outdoors</td>
-                  <td>2016-11-28</td>
-                  <td>2016-11-28</td>
-                  <td>yellowstone@gmail.com</td>
-                  <th>
-                    <a href="{{ url_for('florida')}}">Florida</a>
-                  </th>                    
-                  <th>
-                    <a href="{{ url_for('deathValley')}}">Death Valley</a>
-                  </th>
-                </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>
