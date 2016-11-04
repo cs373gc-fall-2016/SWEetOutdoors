@@ -61,9 +61,7 @@
                   <td>{{campground.email}}</td>
                   <td><a href= "{{campground.website}}">{{campground.website}}</a></td>
                   <td>{{campground.zipcode}}</td>
-                  <th>
-                    
-                  </th>
+                  <th>{{ }}</th>
                   <th>
                     <a href="{{ url_for('state_instance', name = campground.state_fk) }}">{{campground.state_fk}}</a>
                   </th>                      
