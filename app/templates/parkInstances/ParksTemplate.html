@@ -39,20 +39,20 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Address: {{ park_instance.address }}</li>
             <li class="list-group-item">Phone Number: {{ park_instance.phone }}</li>
-            <li class="list-group-item">Rating: "rating"</li>
-            <li class="list-group-item"><a href="website">Website</a></li>
-            <li class="list-group-item">Zipcode: "zipcode"</li>
-            <li class="list-group-item">State: <a href="{{ url_for('state') }}">"state"</a></li>
+            <li class="list-group-item">Rating: {{ park_instance.rating }}</li>
+            <li class="list-group-item"><a href="{{ park_instance.website }}">{{ park_instance.website }}</a></li>
+            <li class="list-group-item">Zipcode: {{ park_instance.zipcode }}</li>
+            <li class="list-group-item">State: <a href="{{ url_for('state_instance', name = park_instance.state) }}">{{park_instance.state}}</a></li>
           </ul>
         </div>        
       </div> 
       <div class="col-md-4"> 
         <row>
           <div class="card">
-            <a href="{{ url_for('bigBend') }}" class="card-link" id ="bigBendLink">Explore "stateName"</a>
+            <a href="{{ url_for('state_instance', name = park_instance.state) }}" class="card-link" id ="bigBendLink">Explore {{park_instance.state}}</a>
             <img class="card-img-top img-fluid" src="../../static/img/texas.jpg" alt="Image of state that this park is in">
             <div class="card-block">
-              <p class="card-text">"stateDescription"</p>
+              <p class="card-text">{{ url_for('state_row', key = {{park_instance.state}}, tablename = {{park_instance.tablename}}) }}</p>
             </div>
           </div>
         </row>  

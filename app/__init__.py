@@ -23,6 +23,8 @@ def about():
 	"""
 	return render_template('about.html')
 
+ # STATES-------------------------
+
 @application.route("/states")
 def states():
 	"""
@@ -32,6 +34,17 @@ def states():
 	# cur = db.session.execute('select * from States order by name desc')
 	# states = cur.fetchall()
 	return render_template('states.html', states=states)
+
+@application.route("/state_row")
+def state_row(key, tablename):
+	"""
+	routes to specific state page
+	"""
+	state_instance = none
+	if(tablename == 'Parks'):
+		state_instance = State.query.filter_by(name = key).first()
+	return state_instance
+
 
 @application.route("/states/<name>")
 def state_instance(name):
@@ -62,7 +75,9 @@ def florida():
 	"""
 	return render_template('/stateInstances/Florida.html')
 
-@application.route("/parks")
+
+ # PARKS-------------------------
+@application.route("/parks", methods=['GET'])
 def parks():
 	"""
 	routes to parks table page
@@ -77,6 +92,16 @@ def parks_instance(idnum):
 	"""
 	park_instance = Park.query.filter_by(idnum = idnum).first()
 	return render_template('parkInstances/ParkTemplate.html', park_instance=park_instance)
+
+@application.route("/park_row")
+def park_row(key, tablename):
+	"""
+	routes to specific park page
+	"""
+	park_instance = none
+	if(tablename == 'States'):
+		park_instance = Park.query.filter_by(state_fk = key).first()
+	return park_instance
 
 @application.route("/parks/BigBend")
 def bigBend():
