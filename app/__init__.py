@@ -4,7 +4,7 @@ Main page for routing URL
 import os
 import requests
 from flask import Flask, render_template, request
-from models import db, State, app as application
+from models import db, State, Event, Campground, Park, app as application
 from sqlalchemy import Table, or_
 import subprocess
 
@@ -124,12 +124,23 @@ def zilker():
 	"""
 	return render_template('/parkInstances/Zilker.html')
 
+# Event----------------------------------
+
 @application.route("/events")
 def events():
 	"""
 	routes to events table page
 	"""
-	return render_template('events.html')
+	events = Event.query.all()
+	return render_template('events.html', events=events)
+
+@application.route("/events/<idnum>")
+def event_instance(idnum):
+	"""
+	routes to specific state page
+	"""
+	event_instance = Event.query.filter_by(idnum = idnum).first()
+	return render_template('eventInstances/EventTemplate.html', event_instance=event_instance)
 
 @application.route("/events/AustinCityLimits")
 def austinCityLimits():
@@ -151,6 +162,8 @@ def runForTheHungry():
 	routes to run for the hungry page
 	"""
 	return render_template('/eventInstances/RunForTheHungry.html')
+
+# Campgrounds-----------------------------------------
 
 @application.route("/campgrounds")
 def campgrounds():
