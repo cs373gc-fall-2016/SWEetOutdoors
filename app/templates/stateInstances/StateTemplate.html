@@ -23,9 +23,9 @@
       <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
       <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>        
     </ul>
-       
+     
     <div class="title">
-      <h1>State Name</h1>
+      <h1>{{ state_instance.name }}</h1>
     </div>
 
     <div class="row">
@@ -33,14 +33,14 @@
       </div>              
       <div class="col-md-4">
         <div class="card">
-          <img class="card-img-top img-fluid" src="../../static/img/texasMap.jpg" alt="Card image cap">
+          <img class="card-img-top img-fluid" src="{{ state_instance.url }}" alt="Card image cap">
           <div class="card-block">
-            <p class="card-text">"description"</p>
+            <p class="card-text">{{ state_instance.description }}</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Area: "area"</li>
-            <li class="list-group-item">Population: "population"</li>
-            <li class="list-group-item">Highest Point: "highestPoint"</li>
+            <li class="list-group-item">Area: {{ state_instance.total_area }}</li>
+            <li class="list-group-item">Population: {{ state_instance.population }}</li>
+            <li class="list-group-item">Highest Point: {{ state_instance.highest_point }}</li>
           </ul>
         </div>        
       </div> <!-- end col-md-4 -->
