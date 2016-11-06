@@ -214,133 +214,136 @@ def tests ():
 	#except Exception as exc:
 	#	return str(exc)
 
+# API calls
 @application.route ( '/api/parks')
-def tests1 ():
-    dicty = {}
+def api_parks ():
+	park_lst = list()
+    dict_obj = {}
     for i in Park.query.all():
-        dicty["idnum"] = i.idnum
-        dicty["name"] = i.name
-        dicty["latitude"] = i.latitude
-        dicty["longitude"] = i.longitude
-        dicty["address"] = i.address
-        dicty["phone"] = i.phone
-        dicty["rating"] = i.rating
-        dicty["website"] = i.website
-        dicty["zipcode"] = i.zipcode
-        dicty["zipregion"] = i.zipregion
-        dicty["photo_url"] = i.photo_url
-        dicty["state_fk"] = i.state_fk
-    return jsonify(**dicty)
+        dict_obj["id"] = i.idnum
+        dict_obj["Name"] = i.name
+        dict_obj["Latitude"] = i.latitude
+        dict_obj["Longitude"] = i.longitude
+        dict_obj["Address"] = i.address
+        dict_obj["Phone"] = i.phone
+        dict_obj["Rating"] = i.rating
+        dict_obj["Website"] = i.website
+        dict_obj["Zipcode"] = i.zipcode
+        dict_obj["Zipcode Region"] = i.zipregion
+        dict_obj["Photo Url"] = i.photo_url
+        dict_obj["State"] = i.state_fk
+        park_lst += dict_obj
+    return jsonify({"success:" : True, "list of parks" : park_lst})
  
 @application.route ( '/api/parks/')
 def tests2 ():
-    dicty = {}
+    dict_obj = {}
     i = Park.query.filter_by(idnum = 0).first()
-    dicty["idnum"] = i.idnum
-    dicty["name"] = i.name
-    dicty["latitude"] = i.latitude
-    dicty["longitude"] = i.longitude
-    dicty["address"] = i.address
-    dicty["phone"] = i.phone
-    dicty["rating"] = i.rating
-    dicty["website"] = i.website
-    dicty["zipcode"] = i.zipcode
-    dicty["zipregion"] = i.zipregion
-    dicty["photo_url"] = i.photo_url
-    dicty["state_fk"] = i.state_fk
-    return jsonify(**dicty)
+    dict_obj["idnum"] = i.idnum
+    dict_obj["name"] = i.name
+    dict_obj["latitude"] = i.latitude
+    dict_obj["longitude"] = i.longitude
+    dict_obj["address"] = i.address
+    dict_obj["phone"] = i.phone
+    dict_obj["rating"] = i.rating
+    dict_obj["website"] = i.website
+    dict_obj["zipcode"] = i.zipcode
+    dict_obj["zipregion"] = i.zipregion
+    dict_obj["photo_url"] = i.photo_url
+    dict_obj["state_fk"] = i.state_fk
+    return jsonify(**dict_obj)
  
 @application.route ( '/api/states')
 def tests3 ():
-    dicty = {}
+    dict_obj = {}
     for i in State.query.all():
-        dicty["name"] = i.name
-        dicty["description"] = i.description
-        dicty["total_area"] = i.total_area
-        dicty["population"] = i.population
-        dicty["highest_point"] = i.highest_point
-        dicty["url"] = i.url
-    return jsonify(**dicty)
+        dict_obj["name"] = i.name
+        dict_obj["description"] = i.description
+        dict_obj["total_area"] = i.total_area
+        dict_obj["population"] = i.population
+        dict_obj["highest_point"] = i.highest_point
+        dict_obj["url"] = i.url
+    return jsonify(**dict_obj)
  
 @application.route ( '/api/states/')
 def tests4 ():
-    dicty = {}
+    dict_obj = {}
     i = State.query.filter_by(idnum = 0).first()
-    dicty["name"] = i.name
-    dicty["description"] = i.description
-    dicty["total_area"] = i.total_area
-    dicty["population"] = i.population
-    dicty["highest_point"] = i.highest_point
-    dicty["url"] = i.url
-    return jsonify(**dicty)
+    dict_obj["name"] = i.name
+    dict_obj["description"] = i.description
+    dict_obj["total_area"] = i.total_area
+    dict_obj["population"] = i.population
+    dict_obj["highest_point"] = i.highest_point
+    dict_obj["url"] = i.url
+    return jsonify(**dict_obj)
  
 @application.route ( '/api/campgrounds')
 def tests5 ():
-    dicty = {}
+    dict_obj = {}
     for i in Campground.query.all():
-        dicty["idnum"] = i.idnum
-        dicty["name"] = i.name
-        dicty["description"] = i.description
-        dicty["latitude"] = i.latitude
-        dicty["longitude"] = i.longitude
-        dicty["direction"] = i.direction
-        dicty["phone"] = i.phone
-        dicty["email"] = i.email
-        dicty["zipcode"] = i.zipcode
-        dicty["park_fk"] = i.park_fk
-        dicty["state_fk"] = i.state_fk
-    return jsonify(**dicty)
+        dict_obj["idnum"] = i.idnum
+        dict_obj["name"] = i.name
+        dict_obj["description"] = i.description
+        dict_obj["latitude"] = i.latitude
+        dict_obj["longitude"] = i.longitude
+        dict_obj["direction"] = i.direction
+        dict_obj["phone"] = i.phone
+        dict_obj["email"] = i.email
+        dict_obj["zipcode"] = i.zipcode
+        dict_obj["park_fk"] = i.park_fk
+        dict_obj["state_fk"] = i.state_fk
+    return jsonify(**dict_obj)
  
 @application.route ( '/api/campgrounds/')
 def tests6 ():
-    dicty = {}
+    dict_obj = {}
     i = Campground.query.filter_by(idnum = 0).first()
-    dicty["idnum"] = i.idnum
-    dicty["name"] = i.name
-    dicty["description"] = i.description
-    dicty["latitude"] = i.latitude
-    dicty["longitude"] = i.longitude
-    dicty["direction"] = i.direction
-    dicty["phone"] = i.phone
-    dicty["email"] = i.email
-    dicty["zipcode"] = i.zipcode
-    dicty["park_fk"] = i.park_fk
-    dicty["state_fk"] = i.state_fk
-    return jsonify(**dicty)
+    dict_obj["idnum"] = i.idnum
+    dict_obj["name"] = i.name
+    dict_obj["description"] = i.description
+    dict_obj["latitude"] = i.latitude
+    dict_obj["longitude"] = i.longitude
+    dict_obj["direction"] = i.direction
+    dict_obj["phone"] = i.phone
+    dict_obj["email"] = i.email
+    dict_obj["zipcode"] = i.zipcode
+    dict_obj["park_fk"] = i.park_fk
+    dict_obj["state_fk"] = i.state_fk
+    return jsonify(**dict_obj)
  
 @application.route ( '/api/events')
 def tests7 ():
-    dicty = {}
+    dict_obj = {}
     for i in Event.query.all():
-        dicty["idnum"] = i.idnum
-        dicty["latitude"] = i.latitude
-        dicty["longitude"] = i.longitude
-        dicty["topics"] = i.topics
-        dicty["start_date"] = i.start_date
-        dicty["end_date"] = i.end_date
-        dicty["pic_url"] = i.pic_url
-        dicty["org_name"] = i.org_name
-        dicty["contact_phone_num"] = i.contact_phone_num
-        dicty["park_fk"] = i.park_fk
-        dicty["state_fk"] = i.state_fk
-    return jsonify(**dicty)
+        dict_obj["idnum"] = i.idnum
+        dict_obj["latitude"] = i.latitude
+        dict_obj["longitude"] = i.longitude
+        dict_obj["topics"] = i.topics
+        dict_obj["start_date"] = i.start_date
+        dict_obj["end_date"] = i.end_date
+        dict_obj["pic_url"] = i.pic_url
+        dict_obj["org_name"] = i.org_name
+        dict_obj["contact_phone_num"] = i.contact_phone_num
+        dict_obj["park_fk"] = i.park_fk
+        dict_obj["state_fk"] = i.state_fk
+    return jsonify(**dict_obj)
  
 @application.route ( '/api/events')
 def tests8 ():
-    dicty = {}
+    dict_obj = {}
     i = Event.query.filter_by(idnum = 0).first()
-    dicty["idnum"] = i.idnum
-    dicty["latitude"] = i.latitude
-    dicty["longitude"] = i.longitude
-    dicty["topics"] = i.topics
-    dicty["start_date"] = i.start_date
-    dicty["end_date"] = i.end_date
-    dicty["pic_url"] = i.pic_url
-    dicty["org_name"] = i.org_name
-    dicty["contact_phone_num"] = i.contact_phone_num
-    dicty["park_fk"] = i.park_fk
-    dicty["state_fk"] = i.state_fk
-    return jsonify(**dicty)
+    dict_obj["idnum"] = i.idnum
+    dict_obj["latitude"] = i.latitude
+    dict_obj["longitude"] = i.longitude
+    dict_obj["topics"] = i.topics
+    dict_obj["start_date"] = i.start_date
+    dict_obj["end_date"] = i.end_date
+    dict_obj["pic_url"] = i.pic_url
+    dict_obj["org_name"] = i.org_name
+    dict_obj["contact_phone_num"] = i.contact_phone_num
+    dict_obj["park_fk"] = i.park_fk
+    dict_obj["state_fk"] = i.state_fk
+    return jsonify(**dict_obj)
 	
 if __name__ == '__main__':
 	application.debug = True
