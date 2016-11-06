@@ -225,7 +225,7 @@ def api_parks():
         park_lst += [dict_obj]
     return jsonify({"Success:" : True, "List Of Parks" : park_lst})
  
-@application.route('/api/parks/id=<id>')
+@application.route('/api/parks/<id>')
 def api_park_details(id):
     dict_obj = {}
     try:
@@ -255,7 +255,7 @@ def api_states():
         states_lst += [dict_obj]
     return jsonify({"Success:" : True, "List Of States" : states_lst})
  
-@application.route('/api/states/name=<name>')
+@application.route('/api/states/<name>')
 def api_state_detail(name):
     dict_obj = {}
     try:
@@ -280,7 +280,7 @@ def api_campgrounds():
         camp_lst += [dict_obj]
     return jsonify({"Success" : True, "List Of Campgrounds" : camp_lst})
  
-@application.route('/api/campgrounds/id=<id>')
+@application.route('/api/campgrounds/<id>')
 def api_campground_detail(id):
     dict_obj = {}
     try:
@@ -310,7 +310,7 @@ def api_events():
         events_lst += [dict_obj]
     return jsonify({"Success" : True, "List Of Events" : events_lst})
  
-@application.route('/api/events/id=<id>')
+@application.route('/api/events/<id>')
 def api_event_details(id):
     dict_obj = {}
     try:
