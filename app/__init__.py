@@ -202,8 +202,8 @@ def yosemiteCampground():
 	"""
 	return render_template('/campgroundInstances/YosemiteCampground.html')
 
-@application.route ( '/run_tests')
-def tests ():
+@application.route('/run_tests')
+def tests():
 	
 	return render_template("textFile.html")
 	#return render_template('tests.out')
@@ -215,12 +215,22 @@ def tests ():
 	#	return str(exc)
 
 # API calls
-@application.route ( '/api/parks')
-def api_parks ():
+@application.route('/api/parks')
+def api_parks():
     park_lst = list()
-    dict_obj = {}
     for i in Park.query.all():
-        dict_obj["id"] = i.idnum
+        dict_obj = {}
+        dict_obj["ID"] = i.idnum
+        dict_obj["Name"] = i.name
+        park_lst += [dict_obj]
+    return jsonify({"Success:" : True, "List Of Parks" : park_lst})
+ 
+@application.route('/api/parks/id=<id>')
+def api_park_details(id):
+    dict_obj = {}
+    try:
+        i = Park.query.filter_by(idnum = id).first()
+        dict_obj["ID"] = i.idnum
         dict_obj["Name"] = i.name
         dict_obj["Latitude"] = i.latitude
         dict_obj["Longitude"] = i.longitude
@@ -230,120 +240,95 @@ def api_parks ():
         dict_obj["Website"] = i.website
         dict_obj["Zipcode"] = i.zipcode
         dict_obj["Zipcode Region"] = i.zipregion
-        dict_obj["Photo Url"] = i.photo_url
+        dict_obj["Photo URL"] = i.photo_url
         dict_obj["State"] = i.state_fk
-        park_lst += [dict_obj]
-    return jsonify({"success:" : True, "list of parks" : park_lst})
+    except AttributeError:
+        return jsonify({"Success" : False})
+    return jsonify({"Details" : dict_obj, "Success" : True})
  
-@application.route ( '/api/parks/')
-def tests2 ():
-    dict_obj = {}
-    i = Park.query.filter_by(idnum = 0).first()
-    dict_obj["idnum"] = i.idnum
-    dict_obj["name"] = i.name
-    dict_obj["latitude"] = i.latitude
-    dict_obj["longitude"] = i.longitude
-    dict_obj["address"] = i.address
-    dict_obj["phone"] = i.phone
-    dict_obj["rating"] = i.rating
-    dict_obj["website"] = i.website
-    dict_obj["zipcode"] = i.zipcode
-    dict_obj["zipregion"] = i.zipregion
-    dict_obj["photo_url"] = i.photo_url
-    dict_obj["state_fk"] = i.state_fk
-    return jsonify(**dict_obj)
- 
-@application.route ( '/api/states')
-def tests3 ():
-    dict_obj = {}
+@application.route('/api/states')
+def api_states():
+    states_lst = list()
     for i in State.query.all():
-        dict_obj["name"] = i.name
-        dict_obj["description"] = i.description
-        dict_obj["total_area"] = i.total_area
-        dict_obj["population"] = i.population
-        dict_obj["highest_point"] = i.highest_point
-        dict_obj["url"] = i.url
-    return jsonify(**dict_obj)
+        dict_obj = {}
+        dict_obj["Name"] = i.name
+        states_lst += [dict_obj]
+    return jsonify({"Success:" : True, "List Of States" : states_lst})
  
-@application.route ( '/api/states/')
-def tests4 ():
+@application.route('/api/states/name=<name>')
+def api_state_detail(name):
     dict_obj = {}
-    i = State.query.filter_by(idnum = 0).first()
-    dict_obj["name"] = i.name
-    dict_obj["description"] = i.description
-    dict_obj["total_area"] = i.total_area
-    dict_obj["population"] = i.population
-    dict_obj["highest_point"] = i.highest_point
-    dict_obj["url"] = i.url
-    return jsonify(**dict_obj)
+    try:
+        i = State.query.filter_by(name = name).first()
+        dict_obj["Name"] = i.name
+        dict_obj["Description"] = i.description
+        dict_obj["Total Area"] = i.total_area
+        dict_obj["Population"] = i.population
+        dict_obj["Highest Point"] = i.highest_point
+        dict_obj["Map URL"] = i.url
+    except AttributeError:
+        return jsonify({"Success" : False})
+    return jsonify({"Details" : dict_obj, "Success" : True})
  
-@application.route ( '/api/campgrounds')
-def tests5 ():
-    dict_obj = {}
+@application.route('/api/campgrounds')
+def api_campgrounds():
+    camp_lst = list()
     for i in Campground.query.all():
-        dict_obj["idnum"] = i.idnum
-        dict_obj["name"] = i.name
-        dict_obj["description"] = i.description
-        dict_obj["latitude"] = i.latitude
-        dict_obj["longitude"] = i.longitude
-        dict_obj["direction"] = i.direction
-        dict_obj["phone"] = i.phone
-        dict_obj["email"] = i.email
-        dict_obj["zipcode"] = i.zipcode
-        dict_obj["park_fk"] = i.park_fk
-        dict_obj["state_fk"] = i.state_fk
-    return jsonify(**dict_obj)
+        dict_obj = {}
+        dict_obj["ID"] = i.idnum
+        dict_obj["Name"] = i.name
+        camp_lst += [dict_obj]
+    return jsonify({"Success" : True, "List Of Campgrounds" : camp_lst})
  
-@application.route ( '/api/campgrounds/')
-def tests6 ():
+@application.route('/api/campgrounds/id=<id>')
+def api_campground_detail(id):
     dict_obj = {}
-    i = Campground.query.filter_by(idnum = 0).first()
-    dict_obj["idnum"] = i.idnum
-    dict_obj["name"] = i.name
-    dict_obj["description"] = i.description
-    dict_obj["latitude"] = i.latitude
-    dict_obj["longitude"] = i.longitude
-    dict_obj["direction"] = i.direction
-    dict_obj["phone"] = i.phone
-    dict_obj["email"] = i.email
-    dict_obj["zipcode"] = i.zipcode
-    dict_obj["park_fk"] = i.park_fk
-    dict_obj["state_fk"] = i.state_fk
-    return jsonify(**dict_obj)
+    try:
+        i = Campground.query.filter_by(idnum = id).first()
+        dict_obj["ID"] = i.idnum
+        dict_obj["Name"] = i.name
+        dict_obj["Description"] = i.description
+        dict_obj["Latitude"] = i.latitude
+        dict_obj["Longitude"] = i.longitude
+        dict_obj["Direction"] = i.direction
+        dict_obj["Phone"] = i.phone
+        dict_obj["Email"] = i.email
+        dict_obj["Zipcode"] = i.zipcode
+        dict_obj["Park ID"] = i.park_fk
+        dict_obj["State Name"] = i.state_fk
+    except AttributeError:
+        return jsonify({"Success" : False})
+    return jsonify({"Success" : True, "Details" : dict_obj})
  
-@application.route ( '/api/events')
-def tests7 ():
-    dict_obj = {}
+@application.route('/api/events')
+def api_events():
+    events_lst = list()
     for i in Event.query.all():
-        dict_obj["idnum"] = i.idnum
-        dict_obj["latitude"] = i.latitude
-        dict_obj["longitude"] = i.longitude
-        dict_obj["topics"] = i.topics
-        dict_obj["start_date"] = i.start_date
-        dict_obj["end_date"] = i.end_date
-        dict_obj["pic_url"] = i.pic_url
+        dict_obj = {}
+        dict_obj["ID"] = i.idnum
         dict_obj["org_name"] = i.org_name
-        dict_obj["contact_phone_num"] = i.contact_phone_num
-        dict_obj["park_fk"] = i.park_fk
-        dict_obj["state_fk"] = i.state_fk
-    return jsonify(**dict_obj)
+        events_lst += [dict_obj]
+    return jsonify({"Success" : True, "List Of Events" : events_lst})
  
-@application.route ( '/api/events')
-def tests8 ():
+@application.route('/api/events/id=<id>')
+def api_event_details(id):
     dict_obj = {}
-    i = Event.query.filter_by(idnum = 0).first()
-    dict_obj["idnum"] = i.idnum
-    dict_obj["latitude"] = i.latitude
-    dict_obj["longitude"] = i.longitude
-    dict_obj["topics"] = i.topics
-    dict_obj["start_date"] = i.start_date
-    dict_obj["end_date"] = i.end_date
-    dict_obj["pic_url"] = i.pic_url
-    dict_obj["org_name"] = i.org_name
-    dict_obj["contact_phone_num"] = i.contact_phone_num
-    dict_obj["park_fk"] = i.park_fk
-    dict_obj["state_fk"] = i.state_fk
-    return jsonify(**dict_obj)
+    try:
+        i = Event.query.filter_by(idnum = id).first()
+        dict_obj["ID"] = i.idnum
+        dict_obj["Latitude"] = i.latitude
+        dict_obj["Longitude"] = i.longitude
+        dict_obj["Topics"] = i.topics
+        dict_obj["Start Date"] = i.start_date
+        dict_obj["End Date"] = i.end_date
+        dict_obj["Pic URL"] = i.pic_url
+        dict_obj["Name"] = i.org_name
+        dict_obj["Phone"] = i.contact_phone_num
+        dict_obj["Closest Park ID"] = i.park_fk
+        dict_obj["State Name"] = i.state_fk
+    except AttributeError:
+        return jsonify({"Success" : False})
+    return jsonify({"Success" : True, "Details" : dict_obj})
 	
 if __name__ == '__main__':
 	application.debug = True
