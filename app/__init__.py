@@ -3,7 +3,7 @@ Main page for routing URL
 """
 import os
 import requests
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from models import db, State, Event, Campground, Park, app as application
 from sqlalchemy import Table, or_
 import subprocess
@@ -217,7 +217,7 @@ def tests ():
 # API calls
 @application.route ( '/api/parks')
 def api_parks ():
-	park_lst = list()
+    park_lst = list()
     dict_obj = {}
     for i in Park.query.all():
         dict_obj["id"] = i.idnum
@@ -232,7 +232,7 @@ def api_parks ():
         dict_obj["Zipcode Region"] = i.zipregion
         dict_obj["Photo Url"] = i.photo_url
         dict_obj["State"] = i.state_fk
-        park_lst += dict_obj
+        park_lst += [dict_obj]
     return jsonify({"success:" : True, "list of parks" : park_lst})
  
 @application.route ( '/api/parks/')
