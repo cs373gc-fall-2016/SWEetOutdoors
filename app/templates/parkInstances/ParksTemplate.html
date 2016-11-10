@@ -42,7 +42,7 @@
             <li class="list-group-item">Rating: {{ park_instance.rating }}</li>
             <li class="list-group-item"><a href="{{ park_instance.website }}">{{ park_instance.website }}</a></li>
             <li class="list-group-item">Zipcode: {{ park_instance.zipcode }}</li>
-            <li class="list-group-item">State: <a href="{{ url_for('state_instance', name = park_instance.state) }}">{{park_instance.state}}</a></li>
+            <li class="list-group-item">State: <a href="{{ url_for('state_instance', name = park_instance.state_fk) }}">{{park_instance.state_fk}}</a></li>
           </ul>
         </div>        
       </div> 

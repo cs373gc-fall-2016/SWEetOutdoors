@@ -61,8 +61,8 @@
                   <td>{{state.population}}</td>
                   <td>{{state.total_area}}</td>
 
-                  <th><a href="{{ url_for('park_row', key = state.name, tablename = state.__tablename__) }}"> {{ url_for('park_row', key = state.name, tablename = state.tablename) }} </a></th>
-                  <th scope="row"><a href="{{ url_for('austinCityLimits') }}">Austin City Limits</a></th>
+                  <th><a href="{{ url_for('park_instance', idnum = state.park_fk) }}"> {{ url_for('park_instance', idnum = state.park_fk) }} </a></th>
+                  <th scope="row"><a href="{{ url_for('event_instance', idnum = state.event_fk) }}">Event Name</a></th>
                 </tr>
               {% endfor %}
               </tbody>
