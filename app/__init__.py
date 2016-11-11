@@ -308,7 +308,7 @@ def api_campground_detail(id):
         return jsonify({"Success" : False})
     return jsonify({"Success" : True, "Details" : dict_obj})
  
-@application.route('/api/events')
+@application.route('/api/events/')
 def api_events():
     events_lst = list()
     if 'park_id' in request.args:
@@ -321,7 +321,8 @@ def api_events():
         dict_obj["ID"] = i.idnum
         dict_obj["org_name"] = i.org_name
         events_lst += [dict_obj]
-    return jsonify({"Success" : True, "List Of Events" : events_lst})
+    return jsonify({"Success" : True, "List_of_events" : events_lst})
+
  
 @application.route('/api/events/<id>')
 def api_event_details(id):
