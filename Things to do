@@ -33,13 +33,10 @@ Phase 2:
 		remove email column
 
 	Campgrounds page:
-		Make description work: convert HTML
-		Make directions work:
-			convert HTML
-			account for correct string scenario
+		directions:
 			change default answer
 		Remove email value
-		add explore for:
+		update explore with corret values for:
 			state
 			park
 
@@ -51,7 +48,7 @@ Phase 2:
 
 
 	State page:
-		Fix explore for:
+		update explore with corret values for:
 			park
 			event
 
