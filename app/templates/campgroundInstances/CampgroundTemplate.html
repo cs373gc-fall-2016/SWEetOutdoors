@@ -34,7 +34,7 @@
         <div class="card">
           <img class="card-img-top img-fluid" src="../../static/img/bearcreek.jpg" alt="Photo of campground">
           <div class="card-block">
-            <p class="card-text">"{{ campground_instance.description }}"</p>
+            <p class="card-text">"{{ campground_instance.description|safe }}"</p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Directions: {{campground_instance.direction}}</li>
