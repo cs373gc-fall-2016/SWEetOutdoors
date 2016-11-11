@@ -9,6 +9,7 @@ Phase 2:
 		add fake phone number to campgrounds table
 		States table: fix the state description
 			add a space between "state name" and "is" in first word
+		Parks ratings get it fixed!!!
 
 	Parks table: - Elizabeth
 		Fix column widths
