@@ -18,9 +18,9 @@
     <ul class="nav nav-pills">
       <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
       <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
-      <li role="presentation" class="active"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
       <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
-      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
+      <li role="presentation" class="active"><a href="{{ url_for('events') }}">Events</a></li> 
       <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>     
     </ul>
        
@@ -50,8 +50,14 @@
       <div class="col-md-4"> 
         <row>
           <div class="card">
-            <a class="card-link" id ="ParkLink">Explore "stateParkName"</a>
-            <img class="card-img-top img-fluid" src="../../static/img/bigBend.jpg" alt="Image of nearby state park">
+            <a class="card-link" id ="ParkLink" href="{{url_for('park_instance', idnum = event_instance.park_fk)}}"></a>
+            <img class="card-img-top img-fluid" id="ParkImg" alt="Image of nearby state park">
+            <script>
+              $.get( "{{url_for('api_park_details', id=event_instance.park_fk)}}", function( data ) {
+                 $("#ParkLink").html("Explore " + data.Details.Name);
+                 $('#ParkImg').attr('src', data.Details["Photo URL"]);
+                 }, "json" );
+            </script>
           </div>
         </row>  
       </div> 

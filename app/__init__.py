@@ -320,8 +320,10 @@ def api_events():
         dict_obj = {}
         dict_obj["ID"] = i.idnum
         dict_obj["org_name"] = i.org_name
+        dict_obj["Topics"] = i.topics
+        dict_obj["Start Date"] = i.start_date
         events_lst += [dict_obj]
-    return jsonify({"Success" : True, "List_of_events" : events_lst})
+    return jsonify({"Success" : True, "List Of Events" : events_lst})
 
  
 @application.route('/api/events/<id>')
