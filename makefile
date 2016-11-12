@@ -1,8 +1,57 @@
+.DEFAULT_GOAL := test
+
+# FILES :=                              \
+#     Netflix.html                      \
+#     Netflix.log                       \
+#     Netflix.py                        \
+#     RunNetflix.in                     \
+#     RunNetflix.out                    \
+#     RunNetflix.py                     \
+#     TestNetflix.out                   \
+#     TestNetflix.py                     
+
+ifeq ($(CI), true)                # Travis CI
+    PYTHON   := python3.5
+    PIP      := pip3.5
+    PYLINT   := pylint
+    COVERAGE := coverage-3.5
+    PYDOC    := pydoc3
+    AUTOPEP8 := autopep8
+else                                   # UTCS
+    PYTHON   := python3.5
+    PIP      := pip3.5
+    PYLINT   := pylint3.5
+    COVERAGE := coverage-3.5
+    PYDOC    := pydoc3.4
+    AUTOPEP8 := autopep8
+endif
+
+venv:
+	bash -c "source ./swe_env/bin/activate";
+
 format:
-	find . -type f \( -name "*.py" \) | xargs autopep8 -i
+	$(AUTOPEP8) -i app/tests.py 
+	$(AUTOPEP8) -i app/__init__.py
+	$(AUTOPEP8) -i application.py
 
-lint:
-	find . -type f \( -name "*.py" -and -not -name "*_test.py" \) | xargs pylint -r n
+IDB3.log:
+	git log > IDB3.log
 
-run:
-	python sweapplication/application.py
+IDB3.html: venv
+	$(PYDOC) -w app/models.py > IDB3.html
+
+test: format venv
+	$(PYTHON) app/tests.py > app/tests.out
+
+clean:
+	rm -f app/tests.out
+	rm -f *.pyc app/*.pyc
+	rm -f IDB3.html
+
+
+
+# lint:
+# 	find . -type f \( -name "*.py" -and -not -name "*_test.py" \) | xargs pylint -r n
+
+# run:
+# 	python sweapplication/application.py

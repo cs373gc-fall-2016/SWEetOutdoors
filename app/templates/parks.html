@@ -61,13 +61,14 @@
                   <td> {{park.rating}} </td>
                   <td> <a href= "{{park.website}}">{{park.name}}'s site</a></td>
                   <td> {{park.zipcode}} </td>
-                  <td id="park_event"> <a href="{{url_for('api_park_details', id = park.idnum)}}">                
-                    <script>
-                    document.getElementById('myTable').getElementsByTagName('park_event').innerHTML = "<a href=\"brokenlink\">{{park.idnum}}</a>xvbcfdz";
-                    console.log("{{park.idnum}}");
-                    // document.getElementById('park_event').innerHTML = "<a href=\"brokenlink\">words</a>";
-                    // document.body.style.background = "green";
-                    </script></a></td>
+                  <td id="park_event"> <a href="{{url_for('api_events')}}?park_id={{park.idnum}}">
+                  <script type = "text/javascript">  
+                    $.get( "{{url_for('api_events')}}", {park_id: {{park.idnum}} }, function( data ) {
+                      console.log(data.List_of_events[0].org_name);
+                      }, "json" );
+                    </script>
+                  </a>                
+                  </td>
                   <td> <a href="{{ url_for('state_instance', name = park.state_fk) }}">{{park.state_fk}}</a></td>
                 </tr>
               {% endfor %}
@@ -84,3 +85,4 @@
     </script>
   </body>
 </html>
+
