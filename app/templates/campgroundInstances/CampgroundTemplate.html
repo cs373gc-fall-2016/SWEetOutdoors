@@ -34,27 +34,27 @@
         <div class="card">
           <img class="card-img-top img-fluid" src="../../static/img/bearcreek.jpg" alt="Photo of campground">
           <div class="card-block">
-            <p class="card-text">"{{ campground_instance.description }}"</p>
+            <p class="card-text">{{ campground_instance.description|safe }}</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Directions: {{campground_instance.direction}}</li>
+            <li class="list-group-item">Directions: {{campground_instance.direction|safe }}</li>
             <li class="list-group-item">Phone: {{campground_instance.phone}}</li>
             <li class="list-group-item">Email: {{campground_instance.email}}</li>
             <li class="list-group-item">Zipcode: {{campground_instance.zipcode}} </li>
-            <li class="list-group-item">State: <a href="{{ url_for('state') }}">{{campground_instance.state_fk}}</a></li>
+            <li class="list-group-item">State: <a href="{{ url_for('state_instance', name = campground_instance.state_fk) }}">{{campground_instance.state_fk}}</a></li>
           </ul>
-        </div>        
-      </div> 
-      <div class="col-md-4"> 
+        </div>
+	<!-- <div class="col-md-4"> 
         <row>
           <div class="card">
-            <a href="{{ url_for('park') }}" class="card-link" id ="ParkLink">Explore {{campground_instance.park_fk}}</a>
+            < class="card-link" id ="ParkLink">Explore "stateParkName"</a>
             <img class="card-img-top img-fluid" src="../../static/img/bigBend.jpg" alt="Image of nearby state park">
-<!--             <div class="card-block">
+             <div class="card-block">
               <p class="card-text">"stateParkDescription"</p>
-            </div> -->
+            </div>
           </div>
         </row>  
+      </div> -->
       </div> 
     </div> 
   </body>
