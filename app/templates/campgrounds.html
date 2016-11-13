@@ -58,7 +58,7 @@
                   <th>Latitude</th>
                   <th>Longitude</th>
                   <th>Phone</th>
-                  <th>Email</th>
+                  <!-- <th>Email</th> -->
                   <th>Zipcode</th>
                   <th>State</th>      
                 </tr>
@@ -70,7 +70,7 @@
                   <td>{{campground.latitude}}</td>
                   <td>{{campground.longitude}}</td>
                   <td>{{campground.phone}}</td>
-                  <td>{{campground.email}}</td>
+                 <!--  <td>{{campground.email}}</td> -->
                   <td>{{campground.zipcode}}</td>
                   <th>
                     <a href="{{ url_for('state_instance', name = campground.state_fk) }}">{{campground.state_fk}}</a>
