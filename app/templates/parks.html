@@ -23,12 +23,22 @@
 
   <body>
     <ul class="nav nav-pills">
-      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
-      <li role="presentation" class="active"><a href="{{ url_for('parks') }}">Parks</a></li>
-      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
-      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
-      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
-      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>    
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li class="active"><a href="{{ url_for('parks') }}">Parks</a></li>
+      <li><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li><a href="{{ url_for('states') }}">States</a></li>
+      <li><a href="{{ url_for('events') }}">Events</a></li> 
+      <li><a href="{{ url_for('about') }}">About</a></li>
+
+      <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+        <div class="input-group">
+          <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+          </span>
+        </div><!-- /input-group -->
+      </form>
+          
     </ul>
 
     <div class="title">

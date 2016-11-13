@@ -67,6 +67,11 @@ ul {
   margin-right: auto;
 }
 
+.input-group {
+  margin-right: 3em;
+  margin-left: -20em;
+}
+
 /* 
   ------------------------
   MAIN BODY 
