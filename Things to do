@@ -53,7 +53,6 @@ Phase 2:
 			event
 
 	Events table:
-		Split dates column: start and end
 		optional: add closest park column
 
 	Events page:
