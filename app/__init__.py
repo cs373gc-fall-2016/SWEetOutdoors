@@ -320,7 +320,7 @@ def api_events():
     if 'park_id' in request.args:
         query_lst = Event.query.filter_by(park_fk = request.args['park_id']).all()
     elif 'state_name' in request.args:
-        query_lst = Event.query.filter_by(state_name = request.args['state_name']).all()
+        query_lst = Event.query.filter_by(state_fk = request.args['state_name']).all()
     else:
         query_lst = Event.query.all()
 
