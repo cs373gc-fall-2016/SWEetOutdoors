@@ -1,0 +1,63 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module __init__</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>__init__</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/ej2h/Documents/SWE/SWEetOutdoors-dev/app/__init__.py">/v/filer4b/v38q001/ej2h/Documents/SWE/SWEetOutdoors-dev/app/__init__.py</a></font></td></tr></table>
+    <p><tt>Main&nbsp;page&nbsp;for&nbsp;routing&nbsp;URL</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="requests.html">requests</a><br>
+</td><td width="25%" valign=top><a href="subprocess.html">subprocess</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-about"><strong>about</strong></a>()</dt><dd><tt>routes&nbsp;to&nbsp;about&nbsp;page</tt></dd></dl>
+ <dl><dt><a name="-api_campground_detail"><strong>api_campground_detail</strong></a>(id)</dt><dd><tt>show&nbsp;details&nbsp;of&nbsp;a&nbsp;campground&nbsp;by&nbsp;id</tt></dd></dl>
+ <dl><dt><a name="-api_campgrounds"><strong>api_campgrounds</strong></a>()</dt><dd><tt>show&nbsp;list&nbsp;of&nbsp;campgrounds&nbsp;in&nbsp;json&nbsp;format</tt></dd></dl>
+ <dl><dt><a name="-api_event_details"><strong>api_event_details</strong></a>(id)</dt><dd><tt>give&nbsp;details&nbsp;of&nbsp;a&nbsp;specific&nbsp;event,&nbsp;by&nbsp;ID</tt></dd></dl>
+ <dl><dt><a name="-api_events"><strong>api_events</strong></a>()</dt><dd><tt>give&nbsp;list&nbsp;of&nbsp;events&nbsp;in&nbsp;json&nbsp;format<br>
+if&nbsp;park_id&nbsp;is&nbsp;given,&nbsp;list&nbsp;only&nbsp;returns&nbsp;events&nbsp;near&nbsp;that&nbsp;park<br>
+if&nbsp;state_name&nbsp;is&nbsp;given,&nbsp;list&nbsp;only&nbsp;events&nbsp;in&nbsp;that&nbsp;state_instance</tt></dd></dl>
+ <dl><dt><a name="-api_park_details"><strong>api_park_details</strong></a>(id)</dt><dd><tt>Show&nbsp;details&nbsp;of&nbsp;a&nbsp;park&nbsp;by&nbsp;ID</tt></dd></dl>
+ <dl><dt><a name="-api_parks"><strong>api_parks</strong></a>()</dt><dd><tt>show&nbsp;list&nbsp;of&nbsp;parks&nbsp;in&nbsp;json&nbsp;format<br>
+if&nbsp;state&nbsp;name&nbsp;is&nbsp;specified&nbsp;(format:&nbsp;/api/parks?state_name=&lt;state_name&gt;),&nbsp;list&nbsp;is&nbsp;filtered</tt></dd></dl>
+ <dl><dt><a name="-api_state_detail"><strong>api_state_detail</strong></a>(name)</dt><dd><tt>show&nbsp;details&nbsp;of&nbsp;a&nbsp;specific&nbsp;state&nbsp;by&nbsp;name</tt></dd></dl>
+ <dl><dt><a name="-api_states"><strong>api_states</strong></a>()</dt><dd><tt>show&nbsp;list&nbsp;of&nbsp;states&nbsp;in&nbsp;json&nbsp;format</tt></dd></dl>
+ <dl><dt><a name="-campground_instance"><strong>campground_instance</strong></a>(idnum)</dt><dd><tt>routes&nbsp;to&nbsp;specific&nbsp;campground&nbsp;page&nbsp;by&nbsp;IDnum</tt></dd></dl>
+ <dl><dt><a name="-campgrounds"><strong>campgrounds</strong></a>()</dt><dd><tt>routes&nbsp;to&nbsp;campgrounds&nbsp;table&nbsp;page</tt></dd></dl>
+ <dl><dt><a name="-event_instance"><strong>event_instance</strong></a>(idnum)</dt><dd><tt>routes&nbsp;to&nbsp;specific&nbsp;event&nbsp;page&nbsp;by&nbsp;IDnum</tt></dd></dl>
+ <dl><dt><a name="-events"><strong>events</strong></a>()</dt><dd><tt>routes&nbsp;to&nbsp;events&nbsp;table&nbsp;page</tt></dd></dl>
+ <dl><dt><a name="-index"><strong>index</strong></a>()</dt><dd><tt>routes&nbsp;to&nbsp;home&nbsp;page</tt></dd></dl>
+ <dl><dt><a name="-park_instance"><strong>park_instance</strong></a>(idnum)</dt><dd><tt>routes&nbsp;to&nbsp;specific&nbsp;park&nbsp;page&nbsp;by&nbsp;IDnum</tt></dd></dl>
+ <dl><dt><a name="-parks"><strong>parks</strong></a>()</dt><dd><tt>routes&nbsp;to&nbsp;parks&nbsp;table&nbsp;page</tt></dd></dl>
+ <dl><dt><a name="-state_instance"><strong>state_instance</strong></a>(name)</dt><dd><tt>routes&nbsp;to&nbsp;specific&nbsp;state&nbsp;page&nbsp;by&nbsp;name</tt></dd></dl>
+ <dl><dt><a name="-states"><strong>states</strong></a>()</dt><dd><tt>routes&nbsp;to&nbsp;states&nbsp;table&nbsp;page</tt></dd></dl>
+ <dl><dt><a name="-tests"><strong>tests</strong></a>()</dt><dd><tt>show&nbsp;results&nbsp;of&nbsp;unit&nbsp;tests</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>application</strong> = &lt;Flask 'models'&gt;<br>
+<strong>db</strong> = &lt;SQLAlchemy engine='postgresql://sweetOutdoors:w....us-west-2.rds.amazonaws.com:5432/sweetOutdoors'&gt;<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>
