@@ -3,7 +3,7 @@ Phase 2:
 	Database issues: - Rambo
 		reinsert event data by removing repeating events
 		Parse event start/end dates
-		optional: format phone numbers
+		 nah fuck it -optional: format phone numbers
 			- 3 cases: dashes, no dashes, and extension
 		Remove event name concatention from events table
 		I can do this shit w/ javscript cuh - add fake phone number to campgrounds table
