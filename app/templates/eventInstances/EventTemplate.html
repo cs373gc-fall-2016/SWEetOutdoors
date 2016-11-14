@@ -54,8 +54,29 @@
             <img class="card-img-top img-fluid" id="ParkImg" alt="Image of nearby state park">
             <script>
               $.get( "{{url_for('api_park_details', id=event_instance.park_fk)}}", function( data ) {
-                 $("#ParkLink").html("Explore " + data.Details.Name);
+                 $("#ParkLink").html("<strong>Explore " + data.Details.Name + "</strong>");
                  $('#ParkImg').attr('src', data.Details["Photo URL"]);
+                 }, "json" );
+            </script>
+            <p> </p>
+          </div>
+        </row>  
+
+        <row>
+          <div class="card">
+            <a href="{{ url_for('state_instance', name = event_instance.state_fk) }}" class="card-link" id ="StateLink"></a>
+            <img class="card-img-top img-fluid" id="StateImg" alt="Image of {{event_instance.state_fk}}">
+            <div class="card-block">
+              <p class="card-text" id="StateDescription"></p>
+            </div>
+            <script>
+              $.get( "{{url_for('api_state_detail', name=event_instance.state_fk)}}", function( data ) {
+                 $("#StateLink").html("<strong>Explore " + data.Details.Name + "</strong>");
+                 $('#StateImg').attr('src', data.Details["Map URL"]);
+                 var trimmedString = data.Details.Description.substr(0, 300);
+                //re-trim if we are in the middle of a word
+                trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
+                 $("#StateDescription").html(trimmedString + "... " + "<a href=\{{ url_for('state_instance', name = event_instance.state_fk) }}>Continue Reading</a>");
                  }, "json" );
             </script>
           </div>
