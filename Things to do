@@ -6,10 +6,10 @@ Phase 2:
 		optional: format phone numbers
 			- 3 cases: dashes, no dashes, and extension
 		Remove event name concatention from events table
-		add fake phone number to campgrounds table
+		I can do this shit w/ javscript cuh - add fake phone number to campgrounds table
 		States table: fix the state description
 			add a space between "state name" and "is" in first word
-		Parks ratings get it fixed!!!
+		shits working wtf???? - Parks ratings get it fixed!!!
 
 	Parks table: - Elizabeth
 		Fix column widths
