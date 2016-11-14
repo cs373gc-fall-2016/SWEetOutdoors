@@ -55,11 +55,11 @@
               <thead>
                 <tr>
                   <th>State</th>
-                  <th>Highest Point (ft)</th>
+                  <th>Highest Point</th>
                   <th>Population</th>
                   <th>Total Area (sq mi)</th>
-                  <th>Biggest Park</th>
-                  <th>Upcoming Event</th>
+                  <th>Random Park</th>
+                  <th>Random Event</th>
                 </tr>
               </thead>
               <tbody>
@@ -70,8 +70,8 @@
                   <td>{{state.population}}</td>
                   <td>{{state.total_area}}</td>
 
-                  <th><a href="{{ url_for('park_instance', idnum = state.park_fk) }}"> {{ url_for('park_instance', idnum = state.park_fk) }} </a></th>
-                  <th scope="row"><a href="{{ url_for('event_instance', idnum = state.event_fk) }}">Event Name</a></th>
+                  <th><a href="{{ url_for('park_instance', idnum = state.parks_rel.first().idnum) }}"> {{ state.parks_rel.first().name}} </a></th>
+                  <th scope="row"><a href="{{ url_for('event_instance', idnum = state.events_rel.first().idnum) }}"> {{state.events_rel.first().org_name}} </a></th>
                 </tr>
               {% endfor %}
               </tbody>

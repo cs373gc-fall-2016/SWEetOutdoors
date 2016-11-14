@@ -71,14 +71,8 @@
                   <td> {{park.rating}} </td>
                   <td> <a href= "{{park.website}}">{{park.name}}'s site</a></td>
                   <td> {{park.zipcode}} </td>
-                  <td id="park_event"> <a href="{{url_for('api_events')}}?park_id={{park.idnum}}">
-                  <script type = "text/javascript">  
-                    $.get( "{{url_for('api_events')}}", {park_id: {{park.idnum}} }, function( data ) {
-                      console.log(data.List_of_events[0].org_name);
-                      }, "json" );
-                    </script>
-                  </a>                
-                  </td>
+                  <td> <a href="{{url_for('api_events'),park.events.first().idnum}}">{{park.events.first().org_name}}
+                  </a></td>
                   <td> <a href="{{ url_for('state_instance', name = park.state_fk) }}">{{park.state_fk}}</a></td>
                 </tr>
               {% endfor %}
