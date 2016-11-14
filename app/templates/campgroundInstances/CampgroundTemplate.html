@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>"{{ campground_instance.name }}"</title>
+    <title>{{ campground_instance.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -32,7 +32,7 @@
       <div class="col-md-2"></div>              
       <div class="col-md-4">
         <div class="card">
-          <img class="card-img-top img-fluid" src="../../static/img/bearcreek.jpg" alt="Photo of campground">
+          <!-- <img class="card-img-top img-fluid" src="../../static/img/bearcreek.jpg" alt="Photo of campground"> -->
           <div class="card-block">
             <p class="card-text">{{ campground_instance.description|safe }}</p>
           </div>
@@ -44,17 +44,42 @@
             <li class="list-group-item">State: <a href="{{ url_for('state_instance', name = campground_instance.state_fk) }}">{{campground_instance.state_fk}}</a></li>
           </ul>
         </div>
-	<!-- <div class="col-md-4"> 
+      </div>
+    	<div class="col-md-4"> 
         <row>
           <div class="card">
-            < class="card-link" id ="ParkLink">Explore "stateParkName"</a>
-            <img class="card-img-top img-fluid" src="../../static/img/bigBend.jpg" alt="Image of nearby state park">
-             <div class="card-block">
-              <p class="card-text">"stateParkDescription"</p>
-            </div>
+            <a class="card-link" id ="ParkLink" href="{{url_for('park_instance', idnum = campground_instance.park_fk)}}"></a>
+            <img class="card-img-top img-fluid" id="ParkImg" alt="Image of nearby state park">
+            <script>
+              $.get( "{{url_for('api_park_details', id=campground_instance.park_fk)}}", function( data ) {
+                 $("#ParkLink").html("<strong>Explore " + data.Details.Name + "</strong>");
+                 $('#ParkImg').attr('src', data.Details["Photo URL"]);
+                 }, "json" );
+            </script>
+            <p> </p>
           </div>
         </row>  
-      </div> -->
+
+        <row>
+          <div class="card">
+                <a href="{{ url_for('state_instance', name = campground_instance.state_fk) }}" class="card-link" id ="StateLink"></a>
+                <img class="card-img-top img-fluid" id="StateImg" alt="Image of {{campground_instance.state_fk}}">
+                <div class="card-block">
+                  <p class="card-text" id="StateDescription"></p>
+                </div>
+                <script>
+                  $.get( "{{url_for('api_state_detail', name=campground_instance.state_fk)}}", function( data ) {
+                     $("#StateLink").html("<strong>Explore " + data.Details.Name + "</strong>");
+                     $('#StateImg').attr('src', data.Details["Map URL"]);
+                     var trimmedString = data.Details.Description.substr(0, 300);
+                    //re-trim if we are in the middle of a word
+                    trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
+                     $("#StateDescription").html(trimmedString + "... " + "<a href=\{{ url_for('state_instance', name = campground_instance.state_fk) }}>Continue Reading</a>");
+                     }, "json" );
+                </script>
+          </div>
+        </row>  
+      </div>
       </div> 
     </div> 
   </body>
