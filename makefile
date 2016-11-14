@@ -11,23 +11,20 @@
 #     TestNetflix.py                     
 
 ifeq ($(CI), true)                # Travis CI
-    PYTHON   := python3.5
+    PYTHON   := python
     PIP      := pip3.5
     PYLINT   := pylint
     COVERAGE := coverage-3.5
     PYDOC    := pydoc3
     AUTOPEP8 := autopep8
 else                                   # UTCS
-    PYTHON   := python3.5
+    PYTHON   := python
     PIP      := pip3.5
     PYLINT   := pylint3.5
     COVERAGE := coverage-3.5
     PYDOC    := pydoc3.4
     AUTOPEP8 := autopep8
 endif
-
-venv:
-	bash -c "source ./swe_env/bin/activate";
 
 format:
 	$(AUTOPEP8) -i app/tests.py 
@@ -37,11 +34,11 @@ format:
 IDB3.log:
 	git log > IDB3.log
 
-IDB3.html: venv
-	$(PYDOC) -w app/models.py > IDB3.html
+IDB3.html:
+	./IDB3.sh
 
-test: format venv
-	$(PYTHON) app/tests.py > app/tests.out
+test: format
+	./test.sh
 
 clean:
 	rm -f app/tests.out
