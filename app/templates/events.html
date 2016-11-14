@@ -55,7 +55,8 @@
                 <tr> 
                   <th>Event</th>
                   <th>Category</th>
-                  <th>Dates</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
                   <th>Phone</th>
                   <th>City</th>
                   <th>State</th>
@@ -66,7 +67,8 @@
                 <tr>
                   <th scope="row"><a href="{{ url_for('event_instance', idnum = event.idnum) }}">{{event.org_name}}</a></th>
                   <td>{{event.topics}}</td>
-                  <td>{{event.start_date}} - {{event.end_date}}</td>
+                  <td>{{event.start_date}}</td>
+                  <td>{{event.end_date}}</td>
                   <td>{{event.contact_phone_num}}</td>
                   <td>{{event.city}}</td>
                   <th>
