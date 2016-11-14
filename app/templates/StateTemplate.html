@@ -2,72 +2,71 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>{{ park_instance.name }}</title>
+    <title>{{ state_instance.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../../static/style/instancePage.css" media="screen">    
+    <link rel="stylesheet" type="text/css" href="../../static/style/instancePage.css" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
   </head>
-
   <body>
     <ul class="nav nav-pills">
-      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
-      <li role="presentation" class="active"><a href="{{ url_for('parks') }}">Parks</a></li>
-      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
-      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
-      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
-      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>     
-    </ul>
-       
-    <div class="title">
-      <h1> {{ park_instance.name }}</h1>
-    </div>
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('parks') }}">Parks</a></li>
+      <li><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li class="active"><a href="{{ url_for('states') }}">States</a></li>
+      <li><a href="{{ url_for('events') }}">Events</a></li> 
+      <li><a href="{{ url_for('about') }}">About</a></li>
 
+      <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+        <div class="input-group">
+          <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+          </span>
+        </div><!-- /input-group -->
+      </form>
+    </ul>
+     
+    <div class="title">
+      <h1>{{ state_instance.name }}</h1>
+    </div>
     <div class="row">
-      <div class="col-md-2"></div>              
+      <div class="col-md-2">
+      </div>              
       <div class="col-md-4">
         <div class="card">
-          <img class="card-img-top img-fluid" src="{{ park_instance.photo_url }}" alt="Photo of state park">
-<!--           <div class="card-block">
-            <p class="card-text">"description"</p>
-          </div> -->
+          <img class="card-img-top img-fluid" src="{{ state_instance.url }}" alt="Map of {{ state_instance.name }} within the United States.">
+          <div class="card-block">
+            <p class="card-text">{{ state_instance.description }}</p>
+          </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Address: {{ park_instance.address }}</li>
-            <li class="list-group-item">Phone Number: {{ park_instance.phone }}</li>
-            <li class="list-group-item">Rating: {{ park_instance.rating }}</li>
-            <li class="list-group-item"><a href="{{ park_instance.website }}" target="_blank">Go to site</a></li>
-            <li class="list-group-item">Zipcode: {{ park_instance.zipcode }}</li>
-            <li class="list-group-item">State: <a href="{{ url_for('state_instance', name = park_instance.state_fk) }}">{{park_instance.state_fk}}</a></li>
+            <li class="list-group-item">Area: {{ state_instance.total_area }}</li>
+            <li class="list-group-item">Population: {{ state_instance.population }}</li>
+            <li class="list-group-item">Highest Point: {{ state_instance.highest_point }}</li>
           </ul>
         </div>        
-      </div> 
+      </div> <!-- end col-md-4 -->
       <div class="col-md-4"> 
         <row>
           <div class="card">
-            <a href="{{ url_for('state_instance', name = park_instance.state_fk) }}" class="card-link" id ="StateLink"></a>
-            <img class="card-img-top img-fluid" id="StateImg" alt="Image of {{park_instance.state_fk}}">
-            <div class="card-block">
-              <p class="card-text" id="StateDescription"></p>
-            </div>
-            <script>
-              $.get( "{{url_for('api_state_detail', name=park_instance.state_fk)}}", function( data ) {
-                 $("#StateLink").html("<strong>Explore " + data.Details.Name + "</strong>");
-                 $('#StateImg').attr('src', data.Details["Map URL"]);
-                 var trimmedString = data.Details.Description.substr(0, 300);
-                //re-trim if we are in the middle of a word
-                trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
-                 $("#StateDescription").html(trimmedString + "... " + "<a href=\{{ url_for('state_instance', name = park_instance.state_fk) }}>Continue Reading</a>");
-                 }, "json" );
-            </script>
+            <a class="card-link" id ="ParkLink"></a>
+            <img class="card-img-top img-fluid" id="ParkImg" alt="Image of state park in this state">
           </div>
+          <script>
+            $.get( "{{url_for('api_parks')}}", {state_name: "{{state_instance.name}}" }, function( data ) {
+              var park = data["List Of Parks"][0];
+              $("#ParkLink").html("<strong>Explore " + park.Name + "</strong>");
+              $("#ParkLink").attr('href', '/parks/' + park.ID);
+              $('#ParkImg').attr('src', park["Photo URL"]);
+               }, "json" );
+            </script>
         </row>  
-
-        <row id="EventCard">
+<row id="EventCard">
           <div class="card card-block" id="InnerEventCard">
             <h4 class="card-title" id="EventsTitle">Next Event</h4>
             <br>
@@ -116,7 +115,7 @@
             </div> <!-- end class row -->
           </div> <!-- end class card card-block -->
           <script>
-            $.get( "{{url_for('api_events')}}", {park_id: {{park_instance.idnum}} }, function( data ) {
+            $.get( "{{url_for('api_events')}}", {state_name: "{{state_instance.name}}" }, function( data ) {
                 var numEvents = data["List Of Events"].length;
                 switch(numEvents)
                 {
@@ -134,7 +133,8 @@
                 if(numEvents > 0)
                 {
                   var this_event = data["List Of Events"][0];
-                  $('#EventName1').attr('href', this_event.idnum);
+                  console.log(this_event);
+                  $('#EventName1').attr('href', '/events/' + this_event.ID);
                   $('#EventName1').html(this_event.org_name);
                   $('#Category1').html(this_event.Topics);
                   $('#StartDate1').html(this_event["Start Date"]);
@@ -142,7 +142,7 @@
                   if(numEvents > 1)
                   {
                     var this_event = data["List Of Events"][1];
-                    $('#EventName2').attr('href', this_event.idnum);
+                    $('#EventName2').attr('href', '/events/' + this_event.ID);
                     $('#EventName2').html(this_event.org_name);
                     $('#Category2').html(this_event.Topics);
                     $('#StartDate2').html(this_event["Start Date"]);
@@ -150,7 +150,7 @@
                     if(numEvents > 2)
                     {
                       var this_event = data["List Of Events"][2];
-                      $('#EventName3').attr('href', this_event.idnum);
+                      $('#EventName3').attr('href', '/events/' + this_event.ID);
                       $('#EventName3').html(this_event.org_name);
                       $('#Category3').html(this_event.Topics);
                       $('#StartDate3').html(this_event["Start Date"]);
