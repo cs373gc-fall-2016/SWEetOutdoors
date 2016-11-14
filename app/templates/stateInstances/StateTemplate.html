@@ -45,30 +45,123 @@
       <div class="col-md-4"> 
         <row>
           <div class="card">
-            <class="card-link" id ="bigBendLink">Explore "stateParkName"</a>
-            <img class="card-img-top img-fluid" src="../../static/img/bigbend.jpg" alt="Image of state park in this state">
-            <div class="card-block">
-              <p class="card-text">"stateParkDescription"</p>
-            </div>
+            <a class="card-link" id ="ParkLink"></a>
+            <img class="card-img-top img-fluid" id="ParkImg" alt="Image of state park in this state">
           </div>
+          <script>
+            $.get( "{{url_for('api_parks')}}", {state_name: "{{state_instance.name}}" }, function( data ) {
+              var park = data["List Of Parks"][0];
+              $("#ParkLink").html("<strong>Explore " + park.Name + "</strong>");
+              $("#ParkLink").attr('href', '/parks/' + park.ID);
+              $('#ParkImg').attr('src', park["Photo URL"]);
+               }, "json" );
+            </script>
         </row>  
-        <row>
-          <div class="card card-block">
-            <h4 class="card-title">Next Event</h4>
+<row id="EventCard">
+          <div class="card card-block" id="InnerEventCard">
+            <h4 class="card-title" id="EventsTitle">Next Event</h4>
             <br>
-            <div class = "row">
+            <div class = "row" id="row1">
               <div class = "col-md-4">
-                <class="card-link">Event Name</a>
+                <a class="card-link" id="EventName1">Event Name</a>
               </div>
               
               <div class = "col-md-4">
-                <class="card-link">Category</a>
+                <p id="Category1">Category</p>
               </div>
+
               <div class = "col-md-4">
-                <class="card-link">Start Date</a>
+                <p id="StartDate1">Start Date</p>
+              </div>
+            </div>
+
+            <br>
+            <div class = "row" id="row2">
+              <div class = "col-md-4">
+                <a class="card-link" id="EventName2">Event Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <p id="Category2">Category</p>
+              </div>
+
+              <div class = "col-md-4">
+                <p id="StartDate2">Start Date</p>
+              </div>
+            </div>
+
+            <br>
+            <div class = "row" id="row3">
+              <div class = "col-md-4">
+                <a class="card-link" id="EventName3">Event Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <p id="Category3">Category</p>
+              </div>
+
+              <div class = "col-md-4">
+                <p id="StartDate3">Start Date</p>
               </div>
             </div> <!-- end class row -->
           </div> <!-- end class card card-block -->
+          <script>
+            $.get( "{{url_for('api_events')}}", {state_name: "{{state_instance.name}}" }, function( data ) {
+                var numEvents = data["List Of Events"].length;
+                switch(numEvents)
+                {
+                  case 0:
+                    $('#EventCard').attr('ng-hide', true);
+                    $('#EventCard').attr('class', 'ng-hide');
+                    break;
+                  case 1:
+                    $('#EventsTitle').html("Next Event");
+                    break;
+                  default:
+                    $('#EventsTitle').html("Upcoming Events");
+                }
+
+                if(numEvents > 0)
+                {
+                  var this_event = data["List Of Events"][0];
+                  console.log(this_event);
+                  $('#EventName1').attr('href', '/events/' + this_event.ID);
+                  $('#EventName1').html(this_event.org_name);
+                  $('#Category1').html(this_event.Topics);
+                  $('#StartDate1').html(this_event["Start Date"]);
+                  
+                  if(numEvents > 1)
+                  {
+                    var this_event = data["List Of Events"][1];
+                    $('#EventName2').attr('href', '/events/' + this_event.ID);
+                    $('#EventName2').html(this_event.org_name);
+                    $('#Category2').html(this_event.Topics);
+                    $('#StartDate2').html(this_event["Start Date"]);
+
+                    if(numEvents > 2)
+                    {
+                      var this_event = data["List Of Events"][2];
+                      $('#EventName3').attr('href', '/events/' + this_event.ID);
+                      $('#EventName3').html(this_event.org_name);
+                      $('#Category3').html(this_event.Topics);
+                      $('#StartDate3').html(this_event["Start Date"]);
+                    }
+                    else
+                    {
+                      $('#row3').attr('ng-hide', true);
+                      $('#row3').attr('class', 'ng-hide');
+                    }
+                  }
+                  else
+                  {
+                      $('#row2').attr('ng-hide', true);
+                      $('#row2').attr('class', 'ng-hide');   
+                      $('#row3').attr('ng-hide', true);
+                      $('#row3').attr('class', 'ng-hide');                 
+                  }
+                }
+               }, "json" );
+          </script>
         </row>
       </div> <!-- end col-md-4 -->
     </div> <!-- end class row -->

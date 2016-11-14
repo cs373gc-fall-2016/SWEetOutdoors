@@ -134,7 +134,7 @@
                 if(numEvents > 0)
                 {
                   var this_event = data["List Of Events"][0];
-                  $('#EventName1').attr('href', this_event.idnum);
+                  $('#EventName1').attr('href', '/events/' + this_event.ID);
                   $('#EventName1').html(this_event.org_name);
                   $('#Category1').html(this_event.Topics);
                   $('#StartDate1').html(this_event["Start Date"]);
@@ -142,7 +142,7 @@
                   if(numEvents > 1)
                   {
                     var this_event = data["List Of Events"][1];
-                    $('#EventName2').attr('href', this_event.idnum);
+                    $('#EventName2').attr('href', '/events/' + this_event.ID);
                     $('#EventName2').html(this_event.org_name);
                     $('#Category2').html(this_event.Topics);
                     $('#StartDate2').html(this_event["Start Date"]);
@@ -150,7 +150,7 @@
                     if(numEvents > 2)
                     {
                       var this_event = data["List Of Events"][2];
-                      $('#EventName3').attr('href', this_event.idnum);
+                      $('#EventName3').attr('href', '/events/' + this_event.ID);
                       $('#EventName3').html(this_event.org_name);
                       $('#Category3').html(this_event.Topics);
                       $('#StartDate3').html(this_event["Start Date"]);

@@ -226,10 +226,16 @@ def tests():
 @application.route('/api/parks')
 def api_parks():
     park_lst = list()
-    for i in Park.query.all():
+    if 'state_name' in request.args:
+        query_lst = Park.query.filter_by(state_fk = request.args['state_name']).all()
+    else:
+        query_lst = Park.query.all()
+
+    for i in query_lst:
         dict_obj = {}
         dict_obj["ID"] = i.idnum
         dict_obj["Name"] = i.name
+        dict_obj["Photo URL"] = i.photo_url
         park_lst += [dict_obj]
     return jsonify({"Success:" : True, "List Of Parks" : park_lst})
  
@@ -313,6 +319,8 @@ def api_events():
     events_lst = list()
     if 'park_id' in request.args:
         query_lst = Event.query.filter_by(park_fk = request.args['park_id']).all()
+    elif 'state_name' in request.args:
+        query_lst = Event.query.filter_by(state_name = request.args['state_name']).all()
     else:
         query_lst = Event.query.all()
 
@@ -348,4 +356,4 @@ def api_event_details(id):
 
 if __name__ == '__main__':
 	application.debug = True
-	application.run()
+	application.run(threaded=True)
