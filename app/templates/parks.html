@@ -87,6 +87,18 @@
         $('#myTable').DataTable(); 
       });
     </script>
+    <script type="text/javascript">
+        var phone = document.getElementById('myTable');
+        var num = phone.rows.length;
+        for(var i = 1; i < num; i++)
+        {
+          var cell = phone.rows[i].cells[4];
+          if (cell.innerHTML.trim().length == 61)
+          {
+            cell.innerHTML = "No Event Nearby.";
+          }
+        }
+    </script>
   </body>
 </html>
 
