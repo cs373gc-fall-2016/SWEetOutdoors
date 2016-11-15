@@ -91,11 +91,11 @@
 
 
     <script type="text/javascript">
-        var phone = document.getElementById('myTable');
-        var num = phone.rows.length;
+        var table = document.getElementById('myTable');
+        var num = table.rows.length;
         for(var i = 1; i <= num; i++)
         {
-          var cell = phone.rows[i].cells[3];
+          var cell = table.rows[i].cells[3];
           if (cell.innerHTML.trim() == "")
           {
             cell.innerHTML = "555-555-5555";
