@@ -30,7 +30,7 @@
       <li><a href="{{ url_for('events') }}">Events</a></li> 
       <li><a href="{{ url_for('about') }}">About</a></li>
 
-      <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+      <form class="navbar-form navbar-right">
         <div class="input-group">
           <input id="search_term" type="text" class="form-control" placeholder="Search for...">
           <span class="input-group-btn">
@@ -54,9 +54,9 @@
               <thead>
                 <tr>
                   <th>Park</th>
-                  <th>Website</th>
                   <th>Phone</th>
                   <th>Rating</th>
+                  <th>Website</th>
                   <th>Zipcode</th>
                   <th>Upcoming Event</th>
                   <th>State</th>
@@ -66,14 +66,14 @@
               <tbody>
               {% for park in parks %}
                 <tr> 
-                  <th scope="row"><a href= "{{ url_for('park_instance', idnum = park.idnum) }}">{{park.name}}</a></th>
-                  <td> <a href= "{{park.website}}">{{park.website}}</a></td>
-                  <td> {{park.phone}} </td>
-                  <td> {{park.rating}} </td>
+                  <th scope="row"><a href= "#">park.name</a></th>
+                  <td> park.phone </td>
+                  <td> park.rating </td>
+                  <td> <a href= "#">park.name's stie</a></td>
                   <td> {{park.zipcode}} </td>
-                  <td> <a href="{{url_for('api_events'),park.events.first().idnum}}">{{park.events.first().org_name}}
+                  <td> <a href="#">park.events.first().org_name
                   </a></td>
-                  <td> <a href="{{ url_for('state_instance', name = park.state_fk) }}">{{park.state_fk}}</a></td>
+                  <td> <a href="#">park.state_fk</a></td>
                 </tr>
               {% endfor %}
               </tbody>
@@ -82,6 +82,8 @@
         </div> <!-- end of <div class = "table"> -->
       </div> <!-- end of <div class = "col-md-10"> -->
     </div> <!-- end of <div class = "row"> -->
+
+
     <script type="text/javascript">
       $(document).ready(function(){
         $('#myTable').DataTable(); 
@@ -89,4 +91,3 @@
     </script>
   </body>
 </html>
-
