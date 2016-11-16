@@ -21,6 +21,7 @@ install:
   - pip install click
   - pip install itsdangerous
   - pip install wsgiref
+  - pip install autopep8
 
 before_script:
   - uname -a
