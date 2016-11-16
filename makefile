@@ -30,7 +30,7 @@ format:
 	$(AUTOPEP8) -i app/tests.py 
 	$(AUTOPEP8) -i app/__init__.py
 	$(AUTOPEP8) -i app/testmodels.py
-	$(AUTOPEP8) -i app/testssearch.py
+	$(AUTOPEP8) -i app/testsearch.py
 
 html:
 	./html.sh
