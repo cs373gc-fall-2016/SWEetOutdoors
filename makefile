@@ -34,8 +34,8 @@ format:
 IDB3.log:
 	git log > IDB3.log
 
-IDB3.html:
-	./IDB3.sh
+html:
+	./html.sh
 
 test: format
 	./test.sh
