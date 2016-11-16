@@ -35,11 +35,14 @@ format:
 html:
 	./html.sh
 
-test: format
+test: format pylint
 	./test.sh
 
 log:
 	git log > IDB3.log
+
+pylint:
+	$(PYLINT) app/models.py
 
 clean:
 	rm -f app/tests.out
