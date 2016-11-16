@@ -84,7 +84,9 @@
     </div> <!-- end of <div class = "row"> -->
     <script type="text/javascript">
       $(document).ready(function(){
-        $('#myTable').DataTable(); 
+        $('#myTable').DataTable({
+          "deferRender" : true
+        }); 
       });
     </script>
     <script type="text/javascript">
