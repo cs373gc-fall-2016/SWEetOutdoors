@@ -43,7 +43,7 @@ test: format
 clean:
 	rm -f app/tests.out
 	rm -f *.pyc app/*.pyc
-	rm -f IDB3.html
+	rm -f *.html
 
 
 
