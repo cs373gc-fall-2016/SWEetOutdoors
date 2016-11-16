@@ -40,10 +40,14 @@ html:
 test: format
 	./test.sh
 
+log:
+	git log > IDB3.log
+
 clean:
 	rm -f app/tests.out
 	rm -f *.pyc app/*.pyc
 	rm -f *.html
+	rm -f *.log
 
 
 
