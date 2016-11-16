@@ -11,6 +11,17 @@ install:
   - pip install pylint
   - pip install coverage
   - pip install -r travis_requirements.txt
+  - pip install Flask
+  - pip install Flask-SQLAlchemy
+  - pip install Flask-Testing
+  - pip install Jinja2
+  - pip install MarkupSafe
+  - pip install SQLAlchemy
+  - pip install Werkzeug
+  - pip install argparse
+  - pip install click
+  - pip install itsdangerous
+  - pip install wsgiref
 
 before_script:
   - uname -a
