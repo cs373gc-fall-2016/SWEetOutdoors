@@ -70,10 +70,10 @@
                   <td> <a href= "{{park.website}}">{{park.name}}'s Website</a></td>
                   <td> {{park.phone}} </td>
                   <td> {{park.rating}} </td>
-                  <td> <a href="{{url_for('api_events'),park.events.first().idnum}}">{{park.events.first().org_name}}
-                  </a></td>
+                  <th> <a href="{{url_for('api_events'),park.events.first().idnum}}">{{park.events.first().org_name}}
+                  </a></th>
                   <td> {{park.zipcode}} </td>
-                  <td> <a href="{{ url_for('state_instance', name = park.state_fk) }}">{{park.state_fk}}</a></td>
+                  <th> <a href="{{ url_for('state_instance', name = park.state_fk) }}">{{park.state_fk}}</a></th>
                 </tr>
               {% endfor %}
               </tbody>
