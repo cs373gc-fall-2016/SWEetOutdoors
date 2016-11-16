@@ -29,7 +29,6 @@ endif
 format:
 	$(AUTOPEP8) -i app/tests.py 
 	$(AUTOPEP8) -i app/__init__.py
-	$(AUTOPEP8) -i application.py
 
 IDB3.log:
 	git log > IDB3.log

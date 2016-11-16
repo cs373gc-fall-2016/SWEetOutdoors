@@ -344,7 +344,12 @@ def search(search):
     #print campgroundsorlist
 
 
-
+@application.route('/visualization')
+def visualization():
+	"""
+	route to the visualization page for PartyPeople's API
+	"""
+	return render_template('visualization.html')
 
 if __name__ == '__main__':
     """

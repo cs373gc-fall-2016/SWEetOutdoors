@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../static/style/about.css" media="screen">   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+  </head>
+  
+  <body>
+    <ul class="nav nav-pills">
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('parks') }}">Parks</a></li>
+      <li><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+      <li><a href="{{ url_for('states') }}">States</a></li>
+      <li><a href="{{ url_for('events') }}">Events</a></li> 
+      <li class="active"><a href="{{ url_for('about') }}">About</a></li> 
+
+      <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+        <div class="input-group">
+          <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+          </span>
+        </div><!-- /input-group -->
+      </form>
+    </ul>
+
+    <div id="row1" class="row">
+      <div class="title">
+        <h1 id="title1">SWEatshop</h1>
+      </div> 
+      <p>It looks like Partypeople.me is down.</p>
+    </div>
+  </body>
+</html>
