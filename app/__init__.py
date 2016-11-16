@@ -293,6 +293,13 @@ def api_event_details(id):
         return jsonify({"Success": False})
     return jsonify({"Success": True, "Details": dict_obj})
 
+@application.route('/visualization')
+def visualization():
+	"""
+	route to the visualization page for PartyPeople's API
+	"""
+	return render_template('visualization.html')
+
 if __name__ == '__main__':
     """
     main method to run program
