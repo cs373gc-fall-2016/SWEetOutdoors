@@ -294,11 +294,13 @@ def api_event_details(id):
     return jsonify({"Success": True, "Details": dict_obj})
 
 
-@application.route('/search/<search>')    
-def search(search):
+@application.route('/search')    
+def search():
     """
     queries all models and returns matches in both AND and OR format
     """
+    search = request.args['search']
+
     descriptivename = search.split() # create a list so Big Bend -> [ Big , Bend]
 
     eventsorlist = set()

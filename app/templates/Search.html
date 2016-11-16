@@ -30,7 +30,7 @@
       <li><a href="{{ url_for('events') }}">Events</a></li> 
       <li><a href="{{ url_for('about') }}">About</a></li>
 
-      <form class="navbar-form navbar-right">
+      <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
         <div class="input-group">
           <input id="search_term" type="text" class="form-control" placeholder="Search for...">
           <span class="input-group-btn">
@@ -64,10 +64,10 @@
               </thead>
               
               <tbody>
-              {% for park in parks %}
+              {% for park in parksorlist %}
                 <tr> 
-                  <th scope="row"><a href= "#">park.name</a></th>
-                  <td> park.phone </td>
+                  <th scope="row"><a href= "$">{{park.name}}</a></th>
+                  <td> {{park.phone}} </td>
                   <td> park.rating </td>
                   <td> <a href= "#">park.name's stie</a></td>
                   <td> {{park.zipcode}} </td>
@@ -82,8 +82,6 @@
         </div> <!-- end of <div class = "table"> -->
       </div> <!-- end of <div class = "col-md-10"> -->
     </div> <!-- end of <div class = "row"> -->
-
-
     <script type="text/javascript">
       $(document).ready(function(){
         $('#myTable').DataTable(); 
