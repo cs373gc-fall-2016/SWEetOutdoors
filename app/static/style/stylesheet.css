@@ -5,9 +5,9 @@
 */
 
 html, body {
-  height: 100%;
   padding: 0;
   margin: auto;
+  overflow: auto;
   /*overflow-x: hidden;*/
 }   
 
@@ -99,7 +99,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 100%; 
 }
 
 .main-content {
