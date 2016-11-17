@@ -4,12 +4,15 @@ Models page for website with each pillar and its attributes
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
+#pylint:disable=invalid-name, too-many-arguments, too-few-public-methods, too-many-instance-attributes
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://sweetOutdoors:wearefine@sweetoutdoorsdb.ckneyrny5ckj.us-west-2.rds.amazonaws.com:5432/sweetOutdoors'
+app.config['SQLALCHEMY_DATABASE_URI'] = ("postgresql://sweetOutdoors:wearefine"
+                                         "@sweetoutdoorsdb.ckneyrny5ckj.us-wes"
+                                         "t-2.rds.amazonaws.com:5432/"
+                                         "sweetOutdoors")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
-
-#pylint:disable=invalid-name, too-many-arguments, too-few-public-methods, too-many-instance-attributes
 
 class Park(db.Model):
 
@@ -28,14 +31,15 @@ class Park(db.Model):
     zipregion = db.Column(db.String(256))
     photo_url = db.Column(db.String(1024))
 
-    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
+    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'),
+                         nullable=True)
 
     events = db.relationship('Event', backref='Park', lazy='dynamic')
     campgrounds_rel = db.relationship(
         'Campground', backref='Park', lazy='dynamic')
 
-    def __init__(self, name, latitude, longitude, address, phone, rating, website,
-                 zipcode, photo, zipregion, state):
+    def __init__(self, name, latitude, longitude, address, phone, rating,
+                 website, zipcode, photo, zipregion, state):
 
         self.name = name
         self.latitude = latitude
@@ -55,7 +59,8 @@ class Park(db.Model):
 
 class Event(db.Model):
 
-    """Event class with initializer to document models"""
+    """Event class with initializer
+       to document models"""
     __tablename__ = 'Events'
 
     idnum = db.Column(db.Integer, primary_key=True)
@@ -75,11 +80,14 @@ class Event(db.Model):
     zipregion = db.Column(db.String(256))
     # state = string
 
-    park_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
-    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
+    park_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'),
+                        nullable=True)
+    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'),
+                         nullable=True)
 
-    def __init__(self, latitude, longitude, topics, start_date, end_date, pic_url, org_name,
-                 contact_phone_num, zipcode, city, zipregion, state_fk):
+    def __init__(self, latitude, longitude, topics, start_date, end_date,
+                 pic_url, org_name, contact_phone_num, zipcode, city,
+                 zipregion, state_fk):
 
         self.latitude = latitude
         self.longitude = longitude
@@ -118,7 +126,8 @@ class State(db.Model):
     events_rel = db.relationship(
         'Event', backref='State', lazy='dynamic')
 
-    def __init__(self, name, description, total_area, population, highest_point, url):
+    def __init__(self, name, description, total_area, population,
+                 highest_point, url):
         self.name = name
         self.description = description
         self.total_area = total_area
@@ -145,10 +154,13 @@ class Campground(db.Model):
     email = db.Column(db.String(256))
     zipcode = db.Column(db.String(256))
 
-    park_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
-    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
+    park_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'),
+                        nullable=True)
+    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'),
+                         nullable=True)
 
-    def __init__(self, name, description, latitude, longitude, direction, phone, email, zipcode, state):
+    def __init__(self, name, description, latitude, longitude, direction,
+                 phone, email, zipcode, state):
         self.name = name
         self.description = description
         if description == "":

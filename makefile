@@ -43,6 +43,8 @@ clean:
 	rm -f *.pyc app/*.pyc
 	rm -f *.html
 	rm -f *.log
+	rm -f .coverage
+	rm -f app/tests.tmp
 
 
 
