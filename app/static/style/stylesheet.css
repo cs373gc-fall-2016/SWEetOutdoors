@@ -66,17 +66,9 @@ li {
   border: 0;
 }
 
-.navbar-collapse {
-  background-color: #666666;
-}
-
-.navbar {
+.navbar-collapse, .navbar, .navbar-header, .container-fluid {
   background-color: #666666;
   border: 0;
-}
-
-.navbar-header {
-  background-color: #666666;
 }
 
 ul {
