@@ -8,6 +8,7 @@ html, body {
   padding: 0;
   margin: auto;
   overflow: auto;
+  height: 100vh;
   /*overflow-x: hidden;*/
 }   
 
