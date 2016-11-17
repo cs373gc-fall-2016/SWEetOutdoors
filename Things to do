@@ -5,6 +5,3 @@ Phase 2:
 
 	Routing: - Rambo
 		make route for park -> event
-		make route for park -> campground
-		make route for campgrounds -> park
-		make route for state -> park
