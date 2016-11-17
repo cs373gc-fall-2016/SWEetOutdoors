@@ -1,14 +1,4 @@
-.DEFAULT_GOAL := test
-
-# FILES :=                              \
-#     Netflix.html                      \
-#     Netflix.log                       \
-#     Netflix.py                        \
-#     RunNetflix.in                     \
-#     RunNetflix.out                    \
-#     RunNetflix.py                     \
-#     TestNetflix.out                   \
-#     TestNetflix.py                     
+.DEFAULT_GOAL := turnin
 
 ifeq ($(CI), true)                # Travis CI
     PYTHON   := python
@@ -35,7 +25,7 @@ format:
 html:
 	./html.sh
 
-test: format pylint
+test: pylint
 	./test.sh
 
 log:
@@ -43,6 +33,9 @@ log:
 
 pylint:
 	$(PYLINT) app/models.py
+
+turnin: format test html log
+	echo "this is the turnin make target"
 
 clean:
 	rm -f app/tests.out
