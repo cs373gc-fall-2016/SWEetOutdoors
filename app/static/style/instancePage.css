@@ -5,7 +5,7 @@
 */
 
 html, body {
-  height: 100vh;
+  height: 100%;
   padding: 0;
   margin: 0;
 }   
@@ -15,13 +15,21 @@ html, body {
   TITLE 
   ------------------------
 */
-
 .title h1 {
+	text-align: center;
+	font-family: 'Merriweather', serif;
+	color: #4d4d4d; /* -currently- dark gray */
 	margin-top: 1em;
 	font-size: 3em;
 	margin-bottom: .5em;
 }
 
+#main {
+  padding-top: 3em;
+}
+#main h1 {
+  font-size: 72px;
+}
 /* 
   ------------------------
   CAMPGROUND INFO 

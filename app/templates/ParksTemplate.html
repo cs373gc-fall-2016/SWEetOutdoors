@@ -2,12 +2,11 @@
 <html lang="en-us" ng-app>
   <head>
     <meta charset="UTF-8">
-    <title>{{ park_instance.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../static/style/parkInstance.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../../static/style/instancePage.css" media="screen">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -34,11 +33,12 @@
       </form>
     </ul>
        
-    <div class="title">
-      <h1> {{ park_instance.name }}</h1>
-    </div>
+    
 
-    <div class="row">
+    <div class="row" id="details">
+      <div class="title">
+        <h1> {{ park_instance.name }}</h1>
+      </div>
       <div class="col-md-2"></div>              
       <div class="col-md-4">
         <div class="card">
@@ -75,7 +75,7 @@
                  }, "json" );
             </script>
           </div>
-        </row>  
+        </row>   
 
         <row id="EventCard">
           <div class="card card-block" id="InnerEventCard">
