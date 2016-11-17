@@ -294,8 +294,8 @@ def api_event_details(id):
     return jsonify({"Success": True, "Details": dict_obj})
 
 
-@application.route('/search')
-def search():
+@application.route('/orSearch')
+def orSearch():
     """
     queries all models and returns matches in both AND and OR format
     """
@@ -314,8 +314,6 @@ def search():
         print search
         park_search_instance = Park.query.filter(or_(Park.name.like('%' + search + '%'), Park.latitude.like('%' + search + '%'), Park.longitude.like('%' + search + '%'), Park.address.like('%' + search + '%'), Park.phone.like('%' + search + '%'), Park.website.like('%' + search + '%'),
                                                      Park.zipcode.like('%' + search + '%'), Park.photo_url.like('%' + search + '%'), Park.zipregion.like('%' + search + '%'), Park.state_fk.like('%' + search + '%'))).all()
-        print "park search instance"
-        print park_search_instance
 
         for v in park_search_instance:
             parksorlist.add(v)
@@ -337,7 +335,7 @@ def search():
         for v in campground_search_instance:
             campgroundsorlist.add(v)
 
-        return render_template('Search.html', eventsorlist=eventsorlist, statesorlist=statesorlist, campgroundsorlist=campgroundsorlist, parksorlist=parksorlist)
+        return render_template('Search.html', eventsorlist=eventsorlist, statesorlist=statesorlist, campgroundsorlist=campgroundsorlist, parksorlist=parksorlist, search=search)
 
     #print("before the or code")
     # print parksorlist
