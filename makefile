@@ -10,7 +10,7 @@ ifeq ($(CI), true)                # Travis CI
 else                                   # UTCS
     PYTHON   := python
     PIP      := pip3.5
-    PYLINT   := pylint3.5
+    PYLINT   := pylint
     COVERAGE := coverage-3.5
     PYDOC    := pydoc3.4
     AUTOPEP8 := autopep8

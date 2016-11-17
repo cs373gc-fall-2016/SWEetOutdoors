@@ -9,7 +9,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
-#pylint:disable=invalid-name, too-many-arguments, too-few-public-methods, too-many-instance-attributes
+# pylint:disable=invalid-name, too-many-arguments, too-few-public-methods,
+# too-many-instance-attributes
+
 
 class Park(db.Model):
 
@@ -28,7 +30,8 @@ class Park(db.Model):
     zipregion = db.Column(db.String(256))
     photo_url = db.Column(db.String(1024))
 
-    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
+    state_fk = db.Column(db.String(256), db.ForeignKey(
+        'States.name'), nullable=True)
 
     events = db.relationship('Event', backref='Park', lazy='dynamic')
     campgrounds_rel = db.relationship(
@@ -66,19 +69,21 @@ class Event(db.Model):
     start_date = db.Column(db.String(256))
     end_date = db.Column(db.String(256))
     pic_url = db.Column(db.String(2048))
-    
+
     org_name = db.Column(db.String(512))
-    
+
     contact_phone_num = db.Column(db.String(256))
     city = db.Column(db.String(256))
     zipcode = db.Column(db.String(256))
     zipregion = db.Column(db.String(256))
     # state = string
 
-    park_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
-    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
+    park_fk = db.Column(db.Integer, db.ForeignKey(
+        'Parks.idnum'), nullable=True)
+    state_fk = db.Column(db.String(256), db.ForeignKey(
+        'States.name'), nullable=True)
 
-    def __init__(self, latitude, longitude, topics, start_date, end_date, pic_url, org_name, 
+    def __init__(self, latitude, longitude, topics, start_date, end_date, pic_url, org_name,
                  contact_phone_num, zipcode, city, zipregion, state_fk):
 
         self.latitude = latitude
@@ -105,12 +110,11 @@ class State(db.Model):
     """State class with initializer to document models"""
     __tablename__ = 'States'
 
-    name = db.Column(db.String(256), primary_key = True)
+    name = db.Column(db.String(256), primary_key=True)
     description = db.Column(db.String(2048))
     total_area = db.Column(db.String(256))
     population = db.Column(db.String(256))
     highest_point = db.Column(db.String(256))
-   
 
     campgrounds_rel = db.relationship(
         'Campground', backref='State', lazy='dynamic')
@@ -144,8 +148,10 @@ class Campground(db.Model):
     email = db.Column(db.String(256))
     zipcode = db.Column(db.Integer)
 
-    park_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
-    state_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
+    park_fk = db.Column(db.Integer, db.ForeignKey(
+        'Parks.idnum'), nullable=True)
+    state_fk = db.Column(db.String(256), db.ForeignKey(
+        'States.name'), nullable=True)
 
     def __init__(self, name, description, latitude, longitude, direction, phone, email, zipcode, state):
         self.name = name
