@@ -4,10 +4,10 @@
   ------------------------
 */
 
-html {
-  height: 100vh;
+html, body {
+  height: 100%;
   padding: 0;
-  margin: 0;
+  margin: auto;
   /*overflow-x: hidden;*/
 }   
 
@@ -58,6 +58,12 @@ li {
   float: none;
   vertical-align: middle;
   list-style: none;
+  border: 0;
+}
+
+.navbar-collapse, .navbar, .navbar-header, .container-fluid {
+  background-color: #666666;
+  border: 0;
 }
 
 ul {
@@ -79,8 +85,8 @@ body {
   line-height: 1.5;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100vw;
-  height: 100vh; 
+  width: 100%;
+  height: 100%; 
 }
 
 .main-content {

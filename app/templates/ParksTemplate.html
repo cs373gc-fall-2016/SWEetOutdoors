@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../static/style/parkInstance.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+  </head>
+
+  <body>
+   <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="myNavbar">
+          <ul class="nav nav-pills">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="active"><a href="{{ url_for('parks') }}">Parks</a></li>
+            <li><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+            <li><a href="{{ url_for('states') }}">States</a></li>
+            <li><a href="{{ url_for('events') }}">Events</a></li> 
+            <li><a href="{{ url_for('about') }}">About</a></li>
+
+            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+              <div class="input-group">
+                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                </span>
+              </div><!-- /input-group -->
+            </form>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row" id="details">
+      <div class="title">
+        <h1> {{ park_instance.name }}</h1>
+      </div>
+      <div class="col-md-2"></div>              
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="{{ park_instance.photo_url }}" alt="Photo of state park">
+<!--           <div class="card-block">
+            <p class="card-text">"description"</p>
+          </div> -->
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Address: {{ park_instance.address }}</li>
+            <li class="list-group-item">Phone Number: {{ park_instance.phone }}</li>
+            <li class="list-group-item">Rating: {{ park_instance.rating }}</li>
+            <li class="list-group-item"><a href="{{ park_instance.website }}" target="_blank">Go to site</a></li>
+            <li class="list-group-item">Zipcode: {{ park_instance.zipcode }}</li>
+            <li class="list-group-item">State: <a href="{{ url_for('state_instance', name = park_instance.state_fk) }}">{{park_instance.state_fk}}</a></li>
+          </ul>
+        </div>        
+      </div> 
+      <div class="col-md-4"> 
+        <row>
+          <div class="card">
+            <a href="{{ url_for('state_instance', name = park_instance.state_fk) }}" class="card-link" id ="StateLink"></a>
+            <img class="card-img-top img-fluid" id="StateImg" alt="Image of {{park_instance.state_fk}}">
+            <div class="card-block">
+              <p class="card-text" id="StateDescription"></p>
+            </div>
+            <script>
+              $.get( "{{url_for('api_state_detail', name=park_instance.state_fk)}}", function( data ) {
+                 $("#StateLink").html("<strong>Explore " + data.Details.Name + "</strong>");
+                 $('#StateImg').attr('src', data.Details["Map URL"]);
+                 var trimmedString = data.Details.Description.substr(0, 300);
+                //re-trim if we are in the middle of a word
+                trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")))
+                 $("#StateDescription").html(trimmedString + "... " + "<a href=\{{ url_for('state_instance', name = park_instance.state_fk) }}>Continue Reading</a>");
+                 }, "json" );
+            </script>
+          </div>
+        </row>   
+
+        <row id="EventCard">
+          <div class="card card-block" id="InnerEventCard">
+            <h4 class="card-title" id="EventsTitle">Next Event</h4>
+            <br>
+            <div class = "row" id="row1">
+              <div class = "col-md-4">
+                <a class="card-link" id="EventName1">Event Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <p id="Category1">Category</p>
+              </div>
+
+              <div class = "col-md-4">
+                <p id="StartDate1">Start Date</p>
+              </div>
+            </div>
+
+            <br>
+            <div class = "row" id="row2">
+              <div class = "col-md-4">
+                <a class="card-link" id="EventName2">Event Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <p id="Category2">Category</p>
+              </div>
+
+              <div class = "col-md-4">
+                <p id="StartDate2">Start Date</p>
+              </div>
+            </div>
+
+            <br>
+            <div class = "row" id="row3">
+              <div class = "col-md-4">
+                <a class="card-link" id="EventName3">Event Name</a>
+              </div>
+              
+              <div class = "col-md-4">
+                <p id="Category3">Category</p>
+              </div>
+
+              <div class = "col-md-4">
+                <p id="StartDate3">Start Date</p>
+              </div>
+            </div> <!-- end class row -->
+          </div> <!-- end class card card-block -->
+          <script>
+            $.get( "{{url_for('api_events')}}", {park_id: {{park_instance.idnum}} }, function( data ) {
+                var numEvents = data["List Of Events"].length;
+                switch(numEvents)
+                {
+                  case 0:
+                    $('#EventCard').attr('ng-hide', true);
+                    $('#EventCard').attr('class', 'ng-hide');
+                    break;
+                  case 1:
+                    $('#EventsTitle').html("Next Event");
+                    break;
+                  default:
+                    $('#EventsTitle').html("Upcoming Events");
+                }
+
+                if(numEvents > 0)
+                {
+                  var this_event = data["List Of Events"][0];
+                  $('#EventName1').attr('href', '/events/' + this_event.ID);
+                  $('#EventName1').html(this_event.org_name);
+                  $('#Category1').html(this_event.Topics);
+                  $('#StartDate1').html(this_event["Start Date"]);
+                  
+                  if(numEvents > 1)
+                  {
+                    var this_event = data["List Of Events"][1];
+                    $('#EventName2').attr('href', '/events/' + this_event.ID);
+                    $('#EventName2').html(this_event.org_name);
+                    $('#Category2').html(this_event.Topics);
+                    $('#StartDate2').html(this_event["Start Date"]);
+
+                    if(numEvents > 2)
+                    {
+                      var this_event = data["List Of Events"][2];
+                      $('#EventName3').attr('href', '/events/' + this_event.ID);
+                      $('#EventName3').html(this_event.org_name);
+                      $('#Category3').html(this_event.Topics);
+                      $('#StartDate3').html(this_event["Start Date"]);
+                    }
+                    else
+                    {
+                      $('#row3').attr('ng-hide', true);
+                      $('#row3').attr('class', 'ng-hide');
+                    }
+                  }
+                  else
+                  {
+                      $('#row2').attr('ng-hide', true);
+                      $('#row2').attr('class', 'ng-hide');   
+                      $('#row3').attr('ng-hide', true);
+                      $('#row3').attr('class', 'ng-hide');                 
+                  }
+                }
+               }, "json" );
+          </script>
+        </row>
+      </div> <!-- end col-md-4 -->
+    </div> <!-- end class row -->
+  </body>
+</html>

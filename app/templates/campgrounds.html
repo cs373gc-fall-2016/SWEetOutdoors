@@ -22,14 +22,37 @@
   </head>
 
   <body>
-    <ul class="nav nav-pills">
-      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
-      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
-      <li role="presentation" class="active"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
-      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
-      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
-      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>       
-    </ul>
+   <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="myNavbar">
+          <ul class="nav nav-pills">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('parks') }}">Parks</a></li>
+            <li class="active"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+            <li><a href="{{ url_for('states') }}">States</a></li>
+            <li><a href="{{ url_for('events') }}">Events</a></li> 
+            <li><a href="{{ url_for('about') }}">About</a></li>
+
+            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+              <div class="input-group">
+                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                </span>
+              </div><!-- /input-group -->
+            </form>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
       <div class="title">
         <h1>Campgrounds</h1>
@@ -45,10 +68,10 @@
               <thead>
                 <tr>
                   <th>Campground</th>
+                  <th>Phone</th>
+                  <th>Nearby Park</th>
                   <th>Latitude</th>
                   <th>Longitude</th>
-                  <th>Phone</th>
-                  <th></th>
                   <th>Zipcode</th>
                   <th>State</th>      
                 </tr>
@@ -57,10 +80,11 @@
               {% for campground in campgrounds %}
                 <tr>
                   <th scope="row"><a href="{{ url_for('campground_instance', idnum = campground.idnum) }}">{{campground.name}}</a></th>
+                  <td id="phone">{{campground.phone}}
+                  </td>
+                  <th><a href="{{ url_for('park_instance', idnum = campground.Park.idnum) }}">{{campground.Park.name}}</a></th>
                   <td>{{campground.latitude}}</td>
                   <td>{{campground.longitude}}</td>
-                  <td>{{campground.phone}}</td>
-                  <td>{{campground.email}}</td>
                   <td>{{campground.zipcode}}</td>
                   <th>
                     <a href="{{ url_for('state_instance', name = campground.state_fk) }}">{{campground.state_fk}}</a>
@@ -77,6 +101,20 @@
       $(document).ready(function(){
         $('#myTable').DataTable(); 
       });
+    </script>
+
+
+    <script type="text/javascript">
+        var table = document.getElementById('myTable');
+        var num = table.rows.length;
+        for(var i = 1; i <= num; i++)
+        {
+          var cell = table.rows[i].cells[1];
+          if (cell.innerHTML.trim() == "")
+          {
+            cell.innerHTML = "555-555-5555";
+          }
+        }
     </script>
   </body>
 </html>

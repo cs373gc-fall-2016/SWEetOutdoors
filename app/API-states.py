@@ -1,7 +1,7 @@
 import wptools 
 import wikipedia
 import re 
-from models import db, State
+from models import db, State 
 
 #Louisiana, Kansas , Maine, Minnesota, 
 states = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida',

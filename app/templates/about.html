@@ -14,14 +14,37 @@
   </head>
   
   <body>
-    <ul class="nav nav-pills">
-      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
-      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
-      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
-      <li role="presentation"><a href="{{ url_for('states') }}">States</a></li>
-      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
-      <li role="presentation" class="active"><a href="{{ url_for('about') }}">About</a></li>       
-    </ul>
+   <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="myNavbar">
+          <ul class="nav nav-pills">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('parks') }}">Parks</a></li>
+            <li><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+            <li><a href="{{ url_for('states') }}">States</a></li>
+            <li><a href="{{ url_for('events') }}">Events</a></li> 
+            <li class="active"><a href="{{ url_for('about') }}">About</a></li>
+
+            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+              <div class="input-group">
+                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                </span>
+              </div><!-- /input-group -->
+            </form>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <div id="row1" class="row">
       <div class="title">
@@ -33,40 +56,42 @@
             <img class="member" src="../static/img/Didi.jpeg">
             <h2>Didi Crous</h2>
             <p>I'm a senior computer science student. I like singing, tacos and spending time outside when I'm not coding. I am currently looking forward to graduating so that I can spend a few months running around Europe.</p>
-            <p><b>Front end</b></p>
-            <p><b>Commits:</b> 41</p>
-            <p><b>Issues:</b> 1</p>
-            <p><b>Unit tests:</b> 0</p>
-            </div>
+            <p><strong>Front end</strong></p>
+            <p><strong>Commits:</strong> 41</p>
+            <p><strong>Issues:</strong> 1</p>
+            <p><strong>Unit tests:</strong> 0</p>
+          </div>
           <div class="col-lg-3">
             <img class="member"  src="../static/img/Ali.jpg">
             <h2>Ali Darwiche</h2>
             <p>I'm a senior double majoring in computer science and business, and want to be a technical project manager after graduation. I can hit a C7 vocally.</p>
-            <p><b>Back end</b></p>
-            <p><b>Commits:</b> 21</p>
-            <p><b>Issues:</b> 0</p>
-            <p><b>Unit tests:</b> 0</p>
+            <p><strong>Back end</strong></p>
+            <p><strong>Commits:</strong> 21</p>
+            <p><strong>Issues:</strong> 0</p>
+            <p><strong>Unit tests:</strong> 0</p>
           </div>
           <div class="col-lg-3">
             <img class="member"  src="../static/img/Elizabeth.jpg">
             <h2>Elizabeth Haynes</h2>
-            <p>I'm a junior computer science student. I'm the head of the UTCS (WiCS) Makers Club, and I'm currently interning for Hewlett Packard Enterprise. I enjoy crafting, specifically crochet. </p>
-            <p><b>Front end</b></p>
-            <p><b>Commits:</b> 39</p>
-            <p><b>Issues:</b> 25</p>
-            <p><b>Unit tests:</b> 0</p>
+            <p>I'm a junior computer science student. I'm the head of the WiCS Makers Club, and I'm currently interning for Hewlett Packard Enterprise. I enjoy crafting, specifically crochet. </p>
+            <p><strong>Front end</strong></p>
+            <p><strong>Commits:</strong> 39</p>
+            <p><strong>Issues:</strong> 25</p>
+            <p><strong>Unit tests:</strong> 0</p>
           </div>
           <div class="col-lg-3">
             <img class="member"  src="../static/img/Asad.jpg">
             <h2>Asad Mahdi</h2>
             <p>I'm a senior computer science student. I like gaming, NBA, Netflix - basically not being physically active.</p>
-            <p><b>Back end</b></p>
-            <p><b>Commits:</b> 26</p>
-            <p><b>Issues:</b> 0</p>
-            <p><b>Unit tests:</b> 1</p>
+            <p><strong>Back end</strong></p>
+            <p><strong>Commits:</strong> 26</p>
+            <p><strong>Issues:</strong> 0</p>
+            <p><strong>Unit tests:</strong> 1</p>
+          </div>
         </div>
       </div>
     </div>
+    
     <div id="row2" class="row">
       <div class="container marketing">
         <div class="row">
@@ -75,35 +100,35 @@
             <h2>Matthew Rosenbaum</h2>
             <p>I'm a junior computer science student. I like Android development, and I currently work part time. I'm involved with
             Ignite, a Christian camp for freshman students.</p>
-            <p><b>Front end</b></p>
-            <p><b>Commits:</b> 23</p>
-            <p><b>Issues:</b> 2</p>
-            <p><b>Unit tests:</b> 0</p>
+            <p><strong>Front end</strong></p>
+            <p><strong>Commits:</strong> 23</p>
+            <p><strong>Issues:</strong> 2</p>
+            <p><strong>Unit tests:</strong> 0</p>
             <br>
-            </div>
+          </div>
           <div class="col-lg-4">
             <img class="member"  src="../static/img/Kirsten.jpg">
             <h2>Kirsten Thomas</h2>
             <p>I'm a junior computer science student. I'm interested in human computer interaction and usability, specifically for
             people with visual impairment. I volunteer with the Texas School for the Blind and Visually Impaired with my sorority,
             Delta Gamma, in a weekly coding club.</p>
-            <p><b>Front end</b></p>
-            <p><b>Commits:</b> 50</p>
-            <p><b>Issues:</b> 19</p>
-            <p><b>Unit tests:</b> 11</p>
-            </div>          
+            <p><strong>Front end</strong></p>
+            <p><strong>Commits:</strong> 50</p>
+            <p><strong>Issues:</strong> 19</p>
+            <p><strong>Unit tests:</strong> 11</p>
+          </div>          
           <div class="col-lg-4">
             <img class="member"  src="../static/img/Rambo.jpg">
             <h2>Rambo Wu</h2>
             <p>I'm a senior computer science student. I like dogs and iced coffee.</p>
-            <p><b>Back end</b></p>
-            <p><b>Commits:</b> 96</p>
-            <p><b>Issues:</b> 3</p>
-            <p><b>Unit tests:</b> 0</p>
+            <p><strong>Back end</strong></p>
+            <p><strong>Commits:</strong> 96</p>
+            <p><strong>Issues:</strong> 3</p>
+            <p><strong>Unit tests:</strong> 0</p>
             <br>
           </div>
-    </div>
-    </div>
+        </div>
+      </div>
     </div>   
 
     <div id="row3" class="row">
@@ -115,20 +140,22 @@
           <p>No. of commits: 250</p>
           <p>No. of issues: 53</p>
           <p>No. of unit tests: 12</p>
-          <p>Apiary API: <a href ="https://app.apiary.io/sweetoutdoors/">Apiary API</a></p>
-          <p>GitHub Issue Tracker: <a href="https://github.com/cs373gc-fall-2016/SWEetOutdoors/issues">Issues</a></p>
-          <p>GitHub Repo: <a href="https://github.com/cs373gc-fall-2016/SWEetOutdoors">GitHub Repo</a></p>
-          <p>GitHub Wiki: <a href="https://github.com/cs373gc-fall-2016/SWEetOutdoors/wiki">GitHub Wiki</a></p>                        
-        </div>                 
+          <p><a  class="stats_link" href ="https://app.apiary.io/sweetoutdoors/">Apiary API</a></p>
+          <p><a class="stats_link" href="https://github.com/cs373gc-fall-2016/SWEetOutdoors/issues">GitHub Issue Tracker</a></p>
+          <p><a class="stats_link" href="https://github.com/cs373gc-fall-2016/SWEetOutdoors">GitHub Repo</a></p>
+          <p><a class="stats_link" href="https://github.com/cs373gc-fall-2016/SWEetOutdoors/wiki">GitHub Wiki</a></p> 
+          <p><a class="stats_link" href="https://docs.google.com/presentation/d/12Tr6RWmc1_ml1OXPjh_Z3HktcQ34Av_ySb2g5LRxbs4/edit?usp=sharing">Class Presentation</a></p>                       
+        </div>
 
         <div class="col-lg-4 stats">
           <div class="title">
             <h1>Data</h1>
           </div>
-          <p>API: <a href ="https://developers.google.com/places/">Google Places</a></p>
-          <p>API: <a href ="http://developer.active.com/docs/v2_Activity_API_Search">Activity Search</a></p>
-          <p>API: <a href ="http://developer.active.com/docs/read/Campground_Search_API">Campground Search</a></p>
-          <p>API: <a href ="https://www.mediawiki.org/wiki/API:Main_page">MediaWiki</a></p>                       
+          <p><a class="stats_link" href ="https://developers.google.com/places/">Google Places</a></p>
+          <p><a class="stats_link" href ="http://developer.active.com/docs/v2_Activity_API_Search">Activity Search</a></p>
+          <p><a class="stats_link" href ="https://usda.github.io/RIDB/">Campground Search</a></p>
+          <p><a class="stats_link" href ="https://www.mediawiki.org/wiki/API:Main_page">MediaWiki</a></p>
+          <p><a class="stats_link" href ="{{ url_for('visualization') }}">PartyPeople API Visualization</a></p>
        </div>
 
        <div class="col-lg-4 stats" id="tools">
@@ -141,14 +168,13 @@
           <p>GitHub: A web-based git repository hosting service that hosts the repository for this project.</p>
           <p>Apiary: An API documentation tool.</p>
        </div>
-     </div> <!-- end of row for info -->
+      </div> <!-- end of row for info -->
 
-    <ul class="nav nav-pills">
-      <li role="presentation"><a href="{{ url_for('tests') }}">Run Unit Tests</a></li>
-    </ul>
-
-     </div> 
-    </div>  
-
+      <ul class="nav nav-pills">
+        <li role="presentation"><a href="{{ url_for('tests') }}">Run Unit Tests</a></li>
+      </ul>
+      
+      </div> 
+    </div>
   </body>
 </html>

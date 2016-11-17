@@ -2,18 +2,18 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>SWEet Outdoors</title>
+    <title>About</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../static/style/about.css" media="screen">   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
   </head>
-
-  <body background="../static/img/colorado_transparent.jpg">
-    <!-- navigation bar -->
+  
+  <body>
    <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -26,7 +26,7 @@
         </div>
         <div class="navbar-collapse collapse" id="myNavbar">
           <ul class="nav nav-pills">
-            <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('parks') }}">Parks</a></li>
             <li><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
             <li><a href="{{ url_for('states') }}">States</a></li>
@@ -45,47 +45,12 @@
         </div>
       </div>
     </nav>
-    
-    <div id="main" class="title">
-      <h1>Sweet Outdoors</h1>
-    </div> <!-- end of title -->
 
-    <!-- carousel -->
-    <div class="col-md-12">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <div class="carousel-caption">
-              <h1><a href="{{ url_for('parks') }}">Experience beautiful nature and national parks</a></h1>
-            </div>
-          </div>
-          <div class="item">
-            <div class="carousel-caption">
-              <h1><a href="{{ url_for('campgrounds') }}">Camp across the United States</a></h1>
-            </div>
-          </div>
-          <div class="item">
-            <div class="carousel-caption">
-              <h1><a href="{{ url_for('states') }}">Explore your state</a></h1>
-            </div>
-          </div>
-          <div class="item">
-            <div class="carousel-caption">
-              <h1><a href="{{ url_for('events') }}">Get active</a></h1>
-            </div>
-          </div>
-        </div> <!-- end of carousel-inner -->
-      </div> <!-- end of myCarousel -->
-    </div> <!-- end of carousel-container -->
-
+    <div id="row1" class="row">
+      <div class="title">
+        <h1 id="title1">SWEatshop</h1>
+      </div> 
+      <p>It looks like Partypeople.me is down.</p>
+    </div>
   </body>
-  
 </html>

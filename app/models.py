@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://sweetOutdoors:wearefine@sweetoutdoorsdb.ckneyrny5ckj.us-west-2.rds.amazonaws.com:5432/sweetOutdoors'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
 #pylint:disable=invalid-name, too-many-arguments, too-few-public-methods, too-many-instance-attributes
@@ -65,9 +66,9 @@ class Event(db.Model):
     start_date = db.Column(db.String(256))
     end_date = db.Column(db.String(256))
     pic_url = db.Column(db.String(2048))
-    
+
     org_name = db.Column(db.String(512))
-    
+
     contact_phone_num = db.Column(db.String(256))
     city = db.Column(db.String(256))
     zipcode = db.Column(db.String(256))
@@ -77,7 +78,7 @@ class Event(db.Model):
     park_fk = db.Column(db.Integer, db.ForeignKey('Parks.idnum'), nullable=True)
     state_fk = db.Column(db.String(256), db.ForeignKey('States.name'), nullable=True)
 
-    def __init__(self, latitude, longitude, topics, start_date, end_date, pic_url, org_name, 
+    def __init__(self, latitude, longitude, topics, start_date, end_date, pic_url, org_name,
                  contact_phone_num, zipcode, city, zipregion, state_fk):
 
         self.latitude = latitude
@@ -104,7 +105,7 @@ class State(db.Model):
     """State class with initializer to document models"""
     __tablename__ = 'States'
 
-    name = db.Column(db.String(256), primary_key = True)
+    name = db.Column(db.String(256), primary_key=True)
     description = db.Column(db.String(2048))
     total_area = db.Column(db.String(256))
     population = db.Column(db.String(256))
@@ -151,7 +152,7 @@ class Campground(db.Model):
         self.name = name
         self.description = description
         if description == "":
-            self.description == "No Description Available."
+            self.description = "No Description Available."
         self.longitude = longitude
         self.latitude = latitude
         self.direction = direction
@@ -159,10 +160,10 @@ class Campground(db.Model):
             self.direction = "No Directions Available. Go Google It."
         self.phone = phone
         if phone == "":
-            self.phone == "(555) 555-5555"
+            self.phone = "(555) 555-5555"
         self.email = email
         if email == "":
-            self.email == "No Email Available. "
+            self.email = "No Email Available. "
         self.zipcode = zipcode
         self.state_fk = state
 

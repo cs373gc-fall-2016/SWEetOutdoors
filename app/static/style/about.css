@@ -85,7 +85,9 @@ li {
   INFO AND STATS 
   ------------------------
 */
-
+#row3.row {
+  background-color: #95afd0; 
+}
 .stats.col-lg-4 .title {
   margin-bottom: 2%;
 }
@@ -104,6 +106,10 @@ li {
 
 .stats.col-lg-4 {
   margin-top: -2.5em;
+}
+
+.stats_link {
+  color: white;
 }
 
 /*#tools.stats.col-lg-4 {

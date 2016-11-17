@@ -22,14 +22,37 @@
   </head>
 
   <body>
-    <ul class="nav nav-pills">
-      <li role="presentation"><a href="{{ url_for('index') }}">Home</a></li>
-      <li role="presentation"><a href="{{ url_for('parks') }}">Parks</a></li>
-      <li role="presentation"><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
-      <li role="presentation" class="active"><a href="{{ url_for('states') }}">States</a></li>
-      <li role="presentation"><a href="{{ url_for('events') }}">Events</a></li> 
-      <li role="presentation"><a href="{{ url_for('about') }}">About</a></li>
-    </ul>
+   <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="myNavbar">
+          <ul class="nav nav-pills">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('parks') }}">Parks</a></li>
+            <li><a href="{{ url_for('campgrounds') }}">Campgrounds</a></li>
+            <li class="active"><a href="{{ url_for('states') }}">States</a></li>
+            <li><a href="{{ url_for('events') }}">Events</a></li> 
+            <li><a href="{{ url_for('about') }}">About</a></li>
+
+            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+              <div class="input-group">
+                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                </span>
+              </div><!-- /input-group -->
+            </form>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <div class="title">
       <h1>States</h1>
@@ -46,23 +69,22 @@
               <thead>
                 <tr>
                   <th>State</th>
-                  <th>Highest Point (ft)</th>
-                  <th>Population</th>
+                  <th>Highest Point</th>
                   <th>Total Area (sq mi)</th>
-                  <th>Biggest Park</th>
-                  <th>Upcoming Event</th>
+                  <th>Population</th>
+                  <th>Explore A Park</th>
+                  <th>Explore An Event</th>
                 </tr>
               </thead>
               <tbody>
               {% for state in states %}
                 <tr>
-                  <th scope="row"><a href="{{ url_for('state_instance', name = state.name) }}">{{state.name}}</a></th> <!-- turn into route to state -->
+                  <th scope="row"><a href="{{ url_for('state_instance', name = state.name) }}">{{state.name}}</a></th> 
                   <td>{{state.highest_point}}</td>
-                  <td>{{state.population}}</td>
                   <td>{{state.total_area}}</td>
-
-                  <th><a href="{{ url_for('park_row', key = state.name, tablename = state.__tablename__) }}"> {{ url_for('park_row', key = state.name, tablename = state.tablename) }} </a></th>
-                  <th scope="row"><a href="{{ url_for('austinCityLimits') }}">Austin City Limits</a></th>
+                  <td>{{state.population}}</td>
+                  <th><a href="{{ url_for('park_instance', idnum = state.parks_rel.first().idnum) }}"> {{ state.parks_rel.first().name}} </a></th>
+                  <th scope="row"><a href="{{ url_for('event_instance', idnum = state.events_rel.first().idnum) }}"> {{state.events_rel.first().org_name}} </a></th>
                 </tr>
               {% endfor %}
               </tbody>

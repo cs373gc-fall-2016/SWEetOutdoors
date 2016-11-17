@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: python
 python:
-  - '3.4'
+  - '2.7.6'
 
 before_install:
   - pip install --upgrade pip
@@ -10,4 +10,24 @@ before_install:
 install:
   - pip install pylint
   - pip install coverage
-  
+  - pip install Flask
+  - pip install Flask-SQLAlchemy
+  - pip install Flask-Testing
+  - pip install Jinja2
+  - pip install MarkupSafe
+  - pip install SQLAlchemy
+  - pip install Werkzeug
+  - pip install argparse
+  - pip install click
+  - pip install itsdangerous
+  - pip install wsgiref
+  - pip install autopep8
+
+before_script:
+  - uname -a
+  - printenv | sort
+
+script:
+  - date
+  - ls -al
+  - make test
