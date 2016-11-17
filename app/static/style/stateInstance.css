@@ -12,16 +12,16 @@ html, body {
  
  }   
 
-.row{
+.row {
 	margin-right: 0;
 	margin-left: 0;
 }
 
-body{
+body {
 	background-image: url("https://github.com/kethomas/SWEetOutdoors-dev/blob/master/app/static/img/flag.jpg?raw=true");
 
 }
-#details{
+#details {
 	height: 100%;
 	margin-right: auto;
  	background-size: cover;
@@ -33,18 +33,17 @@ body{
   ------------------------
 */
 
-.title h1{
+.title h1 {
 	margin-top: 1em;
 	font-size: 3em;
 	margin-bottom: .5em;
 }
 
-.title h1 span{
+.title h1 span {
 	background-color: white;
 }
 
-button.btn.btn-default
-{
+button.btn.btn-default {
 	height: 34px;
 }
 /* 

@@ -12,13 +12,21 @@ html, body {
  
  }   
 
-#details{
+body {
+	background-image: url("https://github.com/kethomas/SWEetOutdoors-dev/blob/master/app/static/img/camping.jpg?raw=true")
+}
+.row {
+	margin-right: 0;
+	margin-left: 0;
+}
+
+#details {
 	height: 100%;
 	margin-right: auto;
  	background-size: cover;
 }
 
-p{
+p {
 	word-wrap: break-word;
 }
 /* 
@@ -27,18 +35,17 @@ p{
   ------------------------
 */
 
-.title h1{
+.title h1 {
 	margin-top: 1em;
 	font-size: 3em;
 	margin-bottom: .5em;
 }
 
-.title h1 span{
+.title h1 span {
 	background-color: white;
 }
 
-button.btn.btn-default
-{
+button.btn.btn-default {
 	height: 34px;
 }
 /* 
