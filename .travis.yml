@@ -1,6 +1,8 @@
 sudo: required
 dist: trusty
 language: python
+notifications:
+  slack: rambofromburma:PFTNKrp0RiZB0xn8eKXx0MvJ
 python:
   - '2.7.6'
 
