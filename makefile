@@ -28,6 +28,9 @@ html:
 test: pylint
 	./test.sh
 
+server: test
+	mv tests.tmp app/templates/test_results.html
+
 log:
 	git log > IDB3.log
 
