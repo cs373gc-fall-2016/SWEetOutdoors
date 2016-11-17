@@ -35,7 +35,8 @@ pylint:
 	$(PYLINT) app/models.py
 
 turnin: format test html log
-	echo "this is the turnin make target"
+	echo "git SHA for turnin jason"
+	git rev-parse HEAD
 
 clean:
 	rm -f app/tests.out
