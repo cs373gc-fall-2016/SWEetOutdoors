@@ -45,11 +45,3 @@ clean:
 	rm -f *.log
 	rm -f .coverage
 	rm -f app/tests.tmp
-
-
-
-# lint:
-# 	find . -type f \( -name "*.py" -and -not -name "*_test.py" \) | xargs pylint -r n
-
-# run:
-# 	python sweapplication/application.py

@@ -114,7 +114,7 @@ def tests():
     """
     show results of unit tests
     """
-    return render_template("textFile.html")
+    return render_template("tests.html")
 
 
 # API calls-----------------------------------------
