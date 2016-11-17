@@ -313,10 +313,12 @@ def search():
         print search
         park_search_instance = Park.query.filter(or_(Park.name.like('%'+search+'%'), Park.latitude.like('%'+search+'%'), Park.longitude.like('%'+search+'%'), Park.address.like('%'+search+'%'), Park.phone.like('%'+search+'%'),Park.website.like('%'+search+'%'),
             Park.zipcode.like('%'+search+'%'), Park.photo_url.like('%'+search+'%'), Park.zipregion.like('%'+search+'%'), Park.state_fk.like('%'+search+'%'))).all()
-        
-        for v in park_search_instance:
-            parksorlist.add(v)
+        print "park search instance"
+        print park_search_instance
 
+        for v in park_search_instance:           
+            parksorlist.add(v)  
+                    
 
         event_search_instance = Event.query.filter(or_(Event.latitude.like('%'+search+'%'), Event.longitude.like('%'+search+'%'), Event.topics.like('%'+search+'%'), Event.start_date.like('%'+search+'%'), Event.end_date.like('%'+search+'%'), Event.pic_url.like('%'+search+'%'),
                      Event.org_name.like('%'+search+'%'), Event.contact_phone_num.like('%'+search+'%'), Event.zipregion.like('%'+search+'%'), Event.zipcode.like('%'+search+'%'))).all()
