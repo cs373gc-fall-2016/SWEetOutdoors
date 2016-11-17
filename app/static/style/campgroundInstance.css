@@ -12,21 +12,23 @@ html, body {
  
  }   
 
+body {
+	background-image: url("https://github.com/kethomas/SWEetOutdoors-dev/blob/master/app/static/img/camping.jpg?raw=true")
+}
 .row {
 	margin-right: 0;
 	margin-left: 0;
 }
 
-body {
-	background-image: url("https://github.com/kethomas/SWEetOutdoors-dev/blob/master/app/static/img/flag.jpg?raw=true");
-
-}
 #details {
 	height: 100%;
 	margin-right: auto;
  	background-size: cover;
 }
 
+p {
+	word-wrap: break-word;
+}
 /* 
   ------------------------
   TITLE AND NAV BAR 
