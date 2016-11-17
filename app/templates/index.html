@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../static/style/search.css" media="screen">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
@@ -33,14 +34,16 @@
             <li><a href="{{ url_for('events') }}">Events</a></li> 
             <li><a href="{{ url_for('about') }}">About</a></li>
 
-            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
-              <div class="input-group">
-                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
-                </span>
-              </div><!-- /input-group -->
-            </form>
+          <form class="navbar-form navbar-right" action="{{url_for('search')}}" onsubmit="{{url_for('search')}}" role="search">
+            <div class="input-group">
+              <input id="search_term" type="text" class="form-control" name="search" placeholder="Search for...">
+              <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+              </span>
+            </div><!-- /input-group -->
+          </form>
+          
+
           </ul>
         </div>
       </div>
