@@ -93,7 +93,7 @@
         for(var i = 1; i < num; i++)
         {
           var cell = table.rows[i].cells[4];
-          if (cell.innerHTML.trim().length == 61)
+          if (cell.innerHTML.replace(/ /g,"").length == 23)
           {
             cell.innerHTML = "No Event Nearby.";
           }
