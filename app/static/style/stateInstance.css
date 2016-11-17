@@ -21,6 +21,11 @@ body {
 	background-image: url("https://github.com/kethomas/SWEetOutdoors-dev/blob/master/app/static/img/flag.jpg?raw=true");
 
 }
+
+p {
+	word-wrap: break-word;
+}
+
 #details {
 	height: 100%;
 	margin-right: auto;
