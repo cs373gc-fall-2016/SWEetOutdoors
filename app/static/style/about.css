@@ -6,12 +6,16 @@
 
 .title {
   margin-top: 5em;
-  margin-bottom: 5em;
+  margin-bottom: 2em;
 }
 
 #title1 {
   color: white;
   font-size: 4em;
+}
+
+#description {
+  margin-bottom: 2em;
 }
 
 /* 
@@ -85,6 +89,7 @@ li {
   INFO AND STATS 
   ------------------------
 */
+
 #row3.row {
   background-color: #95afd0; 
 }

@@ -311,7 +311,7 @@ def orSearch():
     orlist = []
 
     for search in descriptivename:
-        print search
+        print(search)
         park_search_instance = Park.query.filter(or_(Park.name.like('%' + search + '%'), Park.latitude.like('%' + search + '%'), Park.longitude.like('%' + search + '%'), Park.address.like('%' + search + '%'), Park.phone.like('%' + search + '%'), Park.website.like('%' + search + '%'),
                                                      Park.zipcode.like('%' + search + '%'), Park.photo_url.like('%' + search + '%'), Park.zipregion.like('%' + search + '%'), Park.state_fk.like('%' + search + '%'))).all()
 
