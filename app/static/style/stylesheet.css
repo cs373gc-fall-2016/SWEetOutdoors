@@ -28,12 +28,12 @@ li {
   padding-bottom: 0;
 }
 
-.navbar-right
-{
+.navbar-right {
   margin-right: 0;
 }
 
 .navbar.navbar-default {
+  padding: 0;
   margin-bottom: 0;
 }
 
@@ -43,14 +43,14 @@ li {
   padding-bottom: .5em;
 }
 
-.nav.nav-pills a{
+.nav.nav-pills a {
   font-weight: bold;
   font-size: 15px;
   color: #95afd0; /* non-active text */
   display: block;
 }
 
-.nav.nav-pills a:hover{
+.nav.nav-pills a:hover {
   background-color: #dedede;
 }
 
