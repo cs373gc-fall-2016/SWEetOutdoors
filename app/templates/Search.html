@@ -75,9 +75,35 @@
     <div class="title">
       <h2>Parks</h2>
     </div> <!-- end of title -->
+
     <ul class="list-unstyled">
       {% for park in parksorlist %}
       <li>
+        <div class="row">
+          <h3>OR</h3>
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <p><b>Park Name: </b><a href= "{{ url_for('park_instance', idnum = park.idnum) }}">{{park.name}}</a></p>
+            <p><b>Latitude: </b>{{park.latitude}}</p>  
+            <p><b>Longitude: </b>{{park.longitude}}</p>  
+            <p><b>Address: </b>{{park.address}}</p>
+            <p><b>Phone: </b>{{park.phone}}</p> 
+            <p><b>Rating: </b>{{park.rating}}</p>                 
+            <p><b>Website: </b><a href= "{{park.website}}">{{park.website}}</a></p>
+            <p><b>Zipcode: </b>{{park.zipcode}}</p>  
+            <p><b>Photo URL: </b><a href="{{park.photo_url}}"> {{park.photo_url}}</a></p>        
+            <p><b>Region: </b>{{park.zipregion}}</p>          
+            <p><b>State: </b>{{park.state_fk}}</p> 
+          </div> 
+        </div> <!-- end of row -->
+      </li>
+      <br/>      
+      {% endfor %}    
+
+    <ul class="list-unstyled">
+      {% for park in parksandlist %}
+      <li>
+        <h3>AND</h3>
         <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-10">
@@ -96,7 +122,7 @@
         </div> <!-- end of row -->
       </li>
       <br/>      
-      {% endfor %}      
+      {% endfor %}           
 
     <script type="text/javascript">
       $(document).ready(function(){

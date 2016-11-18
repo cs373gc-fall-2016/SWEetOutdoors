@@ -5,7 +5,7 @@ import os
 import requests
 from flask import Flask, render_template, request, jsonify
 from models import db, State, Event, Campground, Park, app as application
-from sqlalchemy import Table, or_
+from sqlalchemy import Table, or_, and_
 import subprocess
 
 # Actual Webpage Routings
@@ -334,8 +334,158 @@ def orSearch():
 
         for v in campground_search_instance:
             campgroundsorlist.add(v)
+    parkstate = and_(*[Park.state_fk.ilike('%'+s+'%') for s in descriptivename])
+    parkurl = and_(*[Park.photo_url.ilike('%'+s+'%') for s in descriptivename])
+    parkzipreg = and_(*[Park.zipregion.ilike('%'+s+'%') for s in descriptivename])
+    parkzipcode = and_(*[Park.zipcode.ilike('%'+s+'%') for s in descriptivename])
+    parkname = and_(*[Park.name.ilike('%'+s+'%') for s in descriptivename]) 
+    parklat = and_(*[Park.latitude.ilike('%'+s+'%') for s in descriptivename])
+    parklong = and_(*[Park.longitude.ilike('%'+s+'%') for s in descriptivename])
+    parkaddress = and_(*[Park.address.ilike('%'+s+'%') for s in descriptivename])
+    parkweb = and_(*[Park.website.ilike('%'+s+'%') for s in descriptivename])
 
-    return render_template('Search.html', eventsorlist=eventsorlist, statesorlist=statesorlist, campgroundsorlist=campgroundsorlist, parksorlist=parksorlist, search=search_param)
+    parksand = set()
+
+    thing2 = Park.query.filter(parkname).all()
+    thing3 = Park.query.filter(parkurl).all()
+    thing4 = Park.query.filter(parkzipreg).all()
+    thing5 = Park.query.filter(parkstate).all()
+    thing6 = Park.query.filter(parkzipcode).all()
+    thing7 = Park.query.filter(parklat).all()
+    thing8 = Park.query.filter(parklong).all()
+    thing9 = Park.query.filter(parkaddress).all()
+    thing10 = Park.query.filter(parkweb).all()
+
+    for stuff in thing2:
+        parksand.add(stuff)
+    for stuff in thing3:
+        parksand.add(stuff)
+    for stuff in thing4:
+        parksand.add(stuff)
+    for stuff in thing5:
+        parksand.add(stuff)
+    for stuff in thing6:
+        parksand.add(stuff)
+    for stuff in thing7:
+        parksand.add(stuff)
+    for stuff in thing8:
+        parksand.add(stuff)
+    for stuff in thing9:
+        parksand.add(stuff)
+    for stuff in thing10:
+        parksand.add(stuff)
+
+
+    stateand = set()
+
+    stpop = and_(*[State.population.ilike('%'+s+'%') for s in descriptivename])
+    sthigh = and_(*[State.highest_point.ilike('%'+s+'%') for s in descriptivename])
+    starea = and_(*[State.total_area.ilike('%'+s+'%') for s in descriptivename])
+    stdesc = and_(*[State.description.ilike('%'+s+'%') for s in descriptivename])
+    stname = and_(*[State.name.ilike('%'+s+'%') for s in descriptivename]) 
+
+    state1 = State.query.filter(stpop).all()
+    state2 = State.query.filter(sthigh).all()
+    state3 = State.query.filter(starea).all()
+    state4 = State.query.filter(stdesc).all()
+    state5 = State.query.filter(stname).all()
+
+    for stuff in state1:
+        stateand.add(stuff)
+    for stuff in state2:
+        stateand.add(stuff)
+    for stuff in state3:
+        stateand.add(stuff)
+    for stuff in state4:
+        stateand.add(stuff)
+    for stuff in state5:
+        stateand.add(stuff)
+
+    eventsand = set()
+
+
+    eventlat = and_(*[Event.latitude.ilike('%'+s+'%') for s in descriptivename])
+    eventlong = and_(*[Event.longitude.ilike('%'+s+'%') for s in descriptivename])
+    eventtopics = and_(*[Event.topics.ilike('%'+s+'%') for s in descriptivename])
+    eventstart = and_(*[Event.start_date.ilike('%'+s+'%') for s in descriptivename])
+    eventend = and_(*[Event.end_date.ilike('%'+s+'%') for s in descriptivename])
+    eventpic = and_(*[Event.pic_url.ilike('%'+s+'%') for s in descriptivename])
+    eventorg = and_(*[Event.org_name.ilike('%'+s+'%') for s in descriptivename])
+    eventphone = and_(*[Event.contact_phone_num.ilike('%'+s+'%') for s in descriptivename])
+    eventzipreg = and_(*[Event.zipregion.ilike('%'+s+'%') for s in descriptivename])
+    eventzipcode = and_(*[Event.zipcode.ilike('%'+s+'%') for s in descriptivename])
+
+    event1 = Event.query.filter(eventlat).all()
+    event2 = Event.query.filter(eventlong).all()
+    event3 = Event.query.filter(eventtopics).all()
+    event4 = Event.query.filter(eventstart).all()
+    event5 = Event.query.filter(eventend).all()
+    event6 = Event.query.filter(eventpic).all()
+    event7 = Event.query.filter(eventorg).all()
+    event8 = Event.query.filter(eventphone).all()
+    event9 = Event.query.filter(eventzipreg).all()
+    event10 = Event.query.filter(eventzipcode).all()
+
+    for stuff in event1:
+        eventsand.add(stuff)
+    for stuff in event2:
+        eventsand.add(stuff)
+    for stuff in event3:
+        eventsand.add(stuff)
+    for stuff in event4:
+        eventsand.add(stuff)
+    for stuff in event5:
+        eventsand.add(stuff)
+    for stuff in event6:
+        eventsand.add(stuff)
+    for stuff in event7:
+        eventsand.add(stuff)
+    for stuff in event8:
+        eventsand.add(stuff)
+    for stuff in event9:
+        eventsand.add(stuff)
+    for stuff in event10:
+        eventsand.add(stuff)
+
+    campname = and_(*[Campground.name.ilike('%'+s+'%') for s in descriptivename])
+    campdescript = and_(*[Campground.description.ilike('%'+s+'%') for s in descriptivename])
+    camplat = and_(*[Campground.latitude.ilike('%'+s+'%') for s in descriptivename])
+    camplong = and_(*[Campground.longitude.ilike('%'+s+'%') for s in descriptivename])
+    campdirect = and_(*[Campground.direction.ilike('%'+s+'%') for s in descriptivename])
+    campphone = and_(*[Campground.phone.ilike('%'+s+'%') for s in descriptivename])
+    campemail = and_(*[Campground.email.ilike('%'+s+'%') for s in descriptivename])
+    campzip = and_(*[Campground.zipcode.ilike('%'+s+'%') for s in descriptivename])
+
+    camp1 = Campground.query.filter(campname).all()
+    camp2 = Campground.query.filter(campdescript).all()
+    camp3 = Campground.query.filter(camplat).all()
+    camp4 = Campground.query.filter(camplong).all()
+    camp5 = Campground.query.filter(campdirect).all()
+    camp6 = Campground.query.filter(campphone).all()
+    camp7 = Campground.query.filter(campemail).all()
+    camp8 = Campground.query.filter(campzip).all()
+
+    campsand = set()
+
+    for stuff in camp1:
+        campsand.add(stuff)
+    for stuff in camp2:
+        campsand.add(stuff)
+    for stuff in camp3:
+        campsand.add(stuff)
+    for stuff in camp4:
+        campsand.add(stuff)
+    for stuff in camp5:
+        campsand.add(stuff)
+    for stuff in camp6:
+        campsand.add(stuff)
+    for stuff in camp7:
+        campsand.add(stuff)
+    for stuff in camp8:
+        campsand.add(stuff)
+
+
+    return render_template('Search.html', eventsorlist=eventsorlist, statesorlist=statesorlist, campgroundsorlist=campgroundsorlist, parksorlist=parksorlist, parksandlist=parksand, statesandlist=stateand, campgroundsandlist=campsand, search=search_param)
 
     #print("before the or code")
     # print parksorlist
