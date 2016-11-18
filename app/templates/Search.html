@@ -73,12 +73,12 @@
       <p> 
     </div> <!-- end of title -->    
 
-    <div class="col-lg-12">
+    <!-- <div class="col-lg-12">
       <div class="buttons">
       <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">OR</a>
       <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">AND</a> 
       </div>
-    </div>
+    </div> -->
 
     <div class="title">
       <h2>Parks</h2>
@@ -108,11 +108,10 @@
       <br/>      
       {% endfor %}    
 
-    <ul class="list-unstyled">
       {% for park in parksandlist %}
       <li>
-        <h3>AND</h3>
         <div class="row">
+          <h3>AND</h3>
           <div class="col-md-1"></div>
           <div class="col-md-10">
             <p><b>Park Name: </b><a href= "{{ url_for('park_instance', idnum = park.idnum) }}">{{park.name}}</a></p>
@@ -154,6 +153,25 @@
       {% for state in statesorlist %}
       <li>
         <div class="row">
+          <h3>OR</h3>
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <p><b>State: </b><a href="{{ url_for('state_instance', name = state.name) }}">{{state.name}}</a></p>
+            <p><b>Highest Point: </b>{{state.highest_point}}</p>
+            <p><b>Total Area (sq mi): </b>{{state.total_area}}</p>
+            <p><b>Population: </b>{{state.population}}</p>
+            <p><b>Explore A Park: </b><a href="{{ url_for('park_instance', idnum = state.parks_rel.first().idnum) }}"> {{ state.parks_rel.first().name}} </a></p>
+            <p><b>Explore An Event: </b><a href="{{ url_for('event_instance', idnum = state.events_rel.first().idnum) }}"> {{state.events_rel.first().org_name}} </a></p>
+          </div>
+        </div>
+      </li>
+      <br/>
+      {% endfor %}
+
+      {% for state in statesandlist %}
+      <li>
+        <div class="row">
+          <h3>AND</h3>
           <div class="col-md-1"></div>
           <div class="col-md-10">
             <p><b>State: </b><a href="{{ url_for('state_instance', name = state.name) }}">{{state.name}}</a></p>
@@ -179,49 +197,48 @@
       <h2>Events</h2>
     </div> <!-- end of title -->
 
-    <div class="row">
-      <div class="col-md-1"></div>  
-      <div class="col-md-10">
-        <div class="table" data-example-id="simple-responsive-table"
-          <div class ="table-responsive">
-            <!-- Table -->
-            <table class="table table-striped sortable" id="eventTable">
-              <thead>
-                <tr> 
-                  <th>Event</th>
-                  <th>Category</th>
-                  <th>Start Date</th>
-                  <th>End Date</th>
-                  <th>Phone</th>
-                  <th>Nearby State Park</th>
-                  <th>Zipcode</th>
-                  <th>City</th>
-                  <th>State</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for event in eventsorlist %}
-                <tr>
-                  <th scope="row"><a href="{{ url_for('event_instance', idnum = event.idnum) }}">{{event.org_name}}</a></th>
-                  <td>{{event.topics}}</td>
-                  <td>{{event.start_date}}</td>
-                  <td>{{event.end_date}}</td>
-                  <td>{{event.contact_phone_num}}</td>
-                  <th><a = href="{{ url_for('park_instance', idnum = event.Park.idnum)}}">{{event.Park.name}}
-                  </th>
-                  <td>{{event.zipcode}}</td>
-                  <td>{{event.city}}</td>
-                  <th>
-                    <a href="{{ url_for('state_instance', name=event.state_fk)}}">{{event.state_fk}}</a>
-                  </th>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+    {% for event in eventsorlist %}
+    <li>
+      <div class="row">
+        <h3>OR</h3>
+        <div class="col-md-1"></div>  
+        <div class="col-md-10">
+          <p><b>Event: </b><a href="{{ url_for('event_instance', idnum = event.idnum) }}">{{event.org_name}}</a></p>
+          <p><b>Category: </b>{{event.topics}}</p>
+          <p><b>Start Date: </b>{{event.start_date}}</p>
+          <p><b>End Date: </b>{{event.end_date}}</p>
+          <p><b>Phone: </b>{{event.contact_phone_num}}</p>
+          <p><b>Nearby State Park: </b><a = href="{{ url_for('park_instance', idnum = event.Park.idnum)}}"></a></p>
+          <p><b>Zipcode: </b>{{event.zipcode}}</p>
+          <p><b>City: </b>{{event.city}}</p>
+          <p><b>State: </b><a href="{{ url_for('state_instance', name=event.state_fk)}}">{{event.state_fk}}</a></p>
         </div>
       </div>
-    </div>
+    </li>
+    <br/>
+    {% endfor %}
+
+    {% for event in eventsandlist %}
+    <li>
+      <div class="row">
+        <h3>AND</h3>
+        <div class="col-md-1"></div>  
+        <div class="col-md-10">
+          <p><b>Event: </b><a href="{{ url_for('event_instance', idnum = event.idnum) }}">{{event.org_name}}</a></p>
+          <p><b>Category: </b>{{event.topics}}</p>
+          <p><b>Start Date: </b>{{event.start_date}}</p>
+          <p><b>End Date: </b>{{event.end_date}}</p>
+          <p><b>Phone: </b>{{event.contact_phone_num}}</p>
+          <p><b>Nearby State Park: </b><a = href="{{ url_for('park_instance', idnum = event.Park.idnum)}}"></a></p>
+          <p><b>Zipcode: </b>{{event.zipcode}}</p>
+          <p><b>City: </b>{{event.city}}</p>
+          <p><b>State: </b><a href="{{ url_for('state_instance', name=event.state_fk)}}">{{event.state_fk}}</a></p>
+        </div>
+      </div>
+    </li>
+    <br/>
+    {% endfor %}
+
     <script type="text/javascript">
       $(document).ready(function(){
         $('#eventTable').DataTable(); 
@@ -232,45 +249,46 @@
       <h2>Campgrounds</h2>
     </div> <!-- end of title -->
 
+    {% for campground in campgroundsorlist %}
+    <li>
     <div class="row">
+      <h3>OR</h3>
       <div class="col-md-1"></div>  
       <div class="col-md-10">
-        <div class="table" data-example-id="simple-responsive-table"
-          <div class ="table-responsive">
-            <!-- Table -->
-            <table class="table table-striped" id="campgroundTable">
-              <thead>
-                <tr>
-                  <th>Campground</th>
-                  <th>Phone</th>
-                  <th>Nearby Park</th>
-                  <th>Latitude</th>
-                  <th>Longitude</th>
-                  <th>Zipcode</th>
-                  <th>State</th>      
-                </tr>
-              </thead>
-              <tbody>
-              {% for campground in campgroundsorlist %}
-                <tr>
-                  <th scope="row"><a href="{{ url_for('campground_instance', idnum = campground.idnum) }}">{{campground.name}}</a></th>
-                  <td id="phone">{{campground.phone}}
-                  </td>
-                  <th><a href="{{ url_for('park_instance', idnum = campground.Park.idnum) }}">{{campground.Park.name}}</a></th>
-                  <td>{{campground.latitude}}</td>
-                  <td>{{campground.longitude}}</td>
-                  <td>{{campground.zipcode}}</td>
-                  <th>
-                    <a href="{{ url_for('state_instance', name = campground.state_fk) }}">{{campground.state_fk}}</a>
-                  </th>                      
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div> <!-- end of <div class = "table-responsive"> -->
-        </div> <!-- end of <div class = "table"> -->
-      </div> <!-- end of <div class = "col-md-10"> -->
-    </div> <!-- end of <div class = "row"> -->
+        <p><b>Campground: </b><a href="{{ url_for('campground_instance', idnum = campground.idnum) }}">{{campground.name}}</a></p>
+        <p><b>Phone: </b>{{campground.phone}}</p>
+        <p><b>Nearby Park: </b><a href="{{ url_for('park_instance', idnum = campground.Park.idnum) }}">{{campground.Park.name}}</a></p>
+        <p><b>Latitude: </b>{{campground.latitude}}</p>
+        <p><b>Longitude: </b>{{campground.longitude}}</p>
+        <p><b>Zipcode: </b>{{campground.zipcode}}</p>
+        <p><b>State: </b> <a href="{{ url_for('state_instance', name = campground.state_fk) }}">{{campground.state_fk}}</a></p>    
+      </div>
+    </div>
+    </li>
+    <br/>  
+    {% endfor %}
+
+    {% for campground in campgroundsandlist %}
+    <li>
+    <div class="row">
+      <h3>AND</h3>
+      <div class="col-md-1"></div>  
+      <div class="col-md-10">
+        <p><b>Campground: </b><a href="{{ url_for('campground_instance', idnum = campground.idnum) }}">{{campground.name}}</a></p>
+        <p><b>Phone: </b>{{campground.phone}}</p>
+        <p><b>Nearby Park: </b><a href="{{ url_for('park_instance', idnum = campground.Park.idnum) }}">{{campground.Park.name}}</a></p>
+        <p><b>Latitude: </b>{{campground.latitude}}</p>
+        <p><b>Longitude: </b>{{campground.longitude}}</p>
+        <p><b>Zipcode: </b>{{campground.zipcode}}</p>
+        <p><b>State: </b> <a href="{{ url_for('state_instance', name = campground.state_fk) }}">{{campground.state_fk}}</a></p>    
+      </div>
+    </div>
+    </li>
+    <br/>  
+    {% endfor %}
+  </ul>
+
+
     <script type="text/javascript">
       $(document).ready(function(){
         $('#campgroundTable').DataTable(); 
