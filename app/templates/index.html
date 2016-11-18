@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../static/style/search.css" media="screen">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
@@ -33,14 +34,14 @@
             <li><a href="{{ url_for('events') }}">Events</a></li> 
             <li><a href="{{ url_for('about') }}">About</a></li>
 
-            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+            <form class="navbar-form navbar-right" action="{{url_for('orSearch')}}" onsubmit="{{url_for('orSearch')}}" role="search">
               <div class="input-group">
-                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+                <input id="search_term" type="text" class="form-control" name="search" placeholder="Search for...">
                 <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                <button class="btn btn-default" type="submit"><span class=" glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
-            </form>
+            </form> 
           </ul>
         </div>
       </div>
@@ -64,7 +65,7 @@
         <div class="carousel-inner" role="listbox">
           <div class="item active">
             <div class="carousel-caption">
-              <h1><a href="{{ url_for('parks') }}">Experience beautiful nature and national parks</a></h1>
+              <h1><a href="{{ url_for('parks') }}">Experience beautiful national parks</a></h1>
             </div>
           </div>
           <div class="item">

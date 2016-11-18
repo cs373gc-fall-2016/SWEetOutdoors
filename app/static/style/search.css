@@ -1,0 +1,32 @@
+.buttons {
+	width: 140px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.col-lg-12 {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 5em;
+}
+
+.col-md-10{
+	background-color: #dedede;
+	height:30%;
+}
+
+#search_nav {
+	margin-bottom: 2em;
+}
+
+.title{
+	margin-bottom: 2em;
+}
+
+h2{
+	text-align: center;
+}
+
+p{
+	word-wrap:break-word;
+}

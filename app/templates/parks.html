@@ -40,12 +40,11 @@
             <li><a href="{{ url_for('states') }}">States</a></li>
             <li><a href="{{ url_for('events') }}">Events</a></li> 
             <li><a href="{{ url_for('about') }}">About</a></li>
-
-            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+            <form class="navbar-form navbar-right" action="{{url_for('orSearch')}}" onsubmit="{{url_for('orSearch')}}" role="search">
               <div class="input-group">
-                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+                <input id="search_term" type="text" class="form-control" name="search" placeholder="Search for...">
                 <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                <button class="btn btn-default" type="submit"><span class=" glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
             </form>
@@ -61,6 +60,7 @@
     <div class="row">
       <div class="col-md-1"></div>  
       <div class="col-md-10">
+        <div id="load"></div>
         <div class="table" data-example-id="simple-responsive-table">
           <div class="table-responsive">
             <!-- Table -->
@@ -84,7 +84,7 @@
                   <td> <a href= "{{park.website}}">{{park.name}}'s Website</a></td>
                   <td> {{park.phone}} </td>
                   <td> {{park.rating}} </td>
-                  <th> <a href="{{url_for('api_events'),park.events.first().idnum}}">{{park.events.first().org_name}}
+                  <th> <a href="{{url_for('event_instance',idnum = park.events.first().idnum)}}">{{park.events.first().org_name}}
                   </a></th>
                   <td> {{park.zipcode}} </td>
                   <th> <a href="{{ url_for('state_instance', name = park.state_fk) }}">{{park.state_fk}}</a></th>
@@ -107,11 +107,17 @@
         for(var i = 1; i < num; i++)
         {
           var cell = table.rows[i].cells[4];
-          if (cell.innerHTML.trim().length == 61)
+          if (cell.innerHTML.replace(/ /g,"").length == 23)
           {
             cell.innerHTML = "No Event Nearby.";
           }
         }
+    </script>
+    <script type="text/javascript">
+      $(window).load(function() {
+        $("#load").fadeOut();
+        document.getElementById('myTable').style.visibility="visible";
+      });
     </script>
   </body>
 </html>

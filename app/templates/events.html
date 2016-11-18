@@ -40,15 +40,14 @@
             <li><a href="{{ url_for('states') }}">States</a></li>
             <li class="active"><a href="{{ url_for('events') }}">Events</a></li> 
             <li><a href="{{ url_for('about') }}">About</a></li>
-
-            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+            <form class="navbar-form navbar-right" action="{{url_for('orSearch')}}" onsubmit="{{url_for('orSearch')}}" role="search">
               <div class="input-group">
-                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+                <input id="search_term" type="text" class="form-control" name="search" placeholder="Search for...">
                 <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                <button class="btn btn-default" type="submit"><span class=" glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
-            </form>
+            </form> 
           </ul>
         </div>
       </div>
@@ -61,7 +60,8 @@
     <div class="row">
       <div class="col-md-1"></div>  
       <div class="col-md-10">
-        <div class="table" data-example-id="simple-responsive-table"
+        <div id="load"></div>
+        <div class="table" data-example-id="simple-responsive-table">
           <div class ="table-responsive">
             <!-- Table -->
             <table class="table table-striped sortable" id="myTable">
@@ -104,6 +104,12 @@
     <script type="text/javascript">
       $(document).ready(function(){
         $('#myTable').DataTable(); 
+      });
+    </script>
+    <script type="text/javascript">
+      $(window).load(function() {
+        $("#load").fadeOut();
+        document.getElementById('myTable').style.visibility="visible";
       });
     </script>
   </body>

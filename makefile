@@ -10,7 +10,7 @@ ifeq ($(CI), true)                # Travis CI
 else                                   # UTCS
     PYTHON   := python
     PIP      := pip3.5
-    PYLINT   := pylint3.5
+    PYLINT   := pylint
     COVERAGE := coverage-3.5
     PYDOC    := pydoc3.4
     AUTOPEP8 := autopep8
@@ -35,18 +35,13 @@ pylint:
 	$(PYLINT) app/models.py
 
 turnin: format test html log
-	echo "this is the turnin make target"
+	echo "git SHA for turnin jason"
+	git rev-parse HEAD
 
 clean:
 	rm -f app/tests.out
 	rm -f *.pyc app/*.pyc
 	rm -f *.html
 	rm -f *.log
-
-
-
-# lint:
-# 	find . -type f \( -name "*.py" -and -not -name "*_test.py" \) | xargs pylint -r n
-
-# run:
-# 	python sweapplication/application.py
+	rm -f .coverage
+	rm -f app/tests.tmp

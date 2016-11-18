@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../../static/style/instancePage.css" media="screen">    
+    <link rel="stylesheet" type="text/css" href="../../static/style/instancePage.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../static/style/campgroundInstance.css" media="screen">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -34,22 +35,21 @@
             <li><a href="{{ url_for('states') }}">States</a></li>
             <li><a href="{{ url_for('events') }}">Events</a></li> 
             <li><a href="{{ url_for('about') }}">About</a></li>
-
-            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+            <form class="navbar-form navbar-right" action="{{url_for('orSearch')}}" onsubmit="{{url_for('orSearch')}}" role="search">
               <div class="input-group">
-                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+                <input id="search_term" type="text" class="form-control" name="search" placeholder="Search for...">
                 <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                <button class="btn btn-default" type="submit"><span class=" glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
-            </form>
+            </form> 
           </ul>
         </div>
       </div>
     </nav>
        
     <div class="title">
-      <h1>{{ campground_instance.name }}</h1>
+      <h1><span>{{ campground_instance.name }}</span></h1>
     </div>
 
     <div class="row">
@@ -80,7 +80,6 @@
                  $('#ParkImg').attr('src', data.Details["Photo URL"]);
                  }, "json" );
             </script>
-            <p> </p>
           </div>
         </row>  
 
@@ -102,7 +101,9 @@
                      }, "json" );
                 </script>
           </div>
-        </row>  
+        </row>
+        <iframe height="188" frameborder="0" style="border:0" src="http://www.google.com/maps/embed/v1/view?key=AIzaSyA83s4AwWOSHAQei8mGfEZEUUO0eOEYB38&center={{campground_instance.latitude}},{{campground_instance.longitude}}&zoom=12" allowfullscreen="">
+        </iframe>  
       </div>
       </div> 
     </div> 

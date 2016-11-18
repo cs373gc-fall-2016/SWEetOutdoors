@@ -5,9 +5,10 @@
 */
 
 html, body {
-  height: 100%;
   padding: 0;
   margin: auto;
+  overflow: auto;
+  height: 100vh;
   /*overflow-x: hidden;*/
 }   
 
@@ -16,6 +17,21 @@ li {
   font-size: 1.5em;
 }
 
+#load {
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:9999;
+    background-image : url("https://raw.githubusercontent.com/kethomas/SWEetOutdoors-dev/master/app/static/img/load.gif");
+    background-repeat: no-repeat;
+    background-position-x: 40%;
+    background-position-y: 50%;
+    background-size: 60px 60px;
+}
+
+#myTable {
+  visibility: hidden;
+}
 /* 
   ------------------------
   HEADER 
@@ -27,6 +43,14 @@ li {
   margin: 0;
   padding-bottom: 0;
 }
+.navbar-right {
+  margin-right: 0;
+}
+
+.navbar.navbar-default {
+  padding: 0;
+  margin-bottom: 0;
+}
 
 .nav.nav-pills {
   background-color: #666666; /* bar */
@@ -34,14 +58,14 @@ li {
   padding-bottom: .5em;
 }
 
-.nav.nav-pills a{
+.nav.nav-pills a {
   font-weight: bold;
   font-size: 15px;
   color: #95afd0; /* non-active text */
   display: block;
 }
 
-.nav.nav-pills a:hover{
+.nav.nav-pills a:hover {
   background-color: #dedede;
 }
 
@@ -86,7 +110,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 100%; 
 }
 
 .main-content {
@@ -100,7 +123,7 @@ body {
   ------------------------
 */
 
-.title h1 {
+.title h1, .title h2 {
   text-align: center;
   font-family: 'Merriweather', serif;
   color: #4d4d4d; /* -currently- dark gray */
@@ -156,3 +179,11 @@ body {
   color: white;
 }
 
+/* 
+  ------------------------
+  TABLE PAGES
+  ------------------------
+*/
+mark {
+  background-color: #dedede;
+}

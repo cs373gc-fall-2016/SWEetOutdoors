@@ -2,11 +2,13 @@
 <html lang="en-us" ng-app>
   <head>
     <meta charset="UTF-8">
+    <title>{{ park_instance.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../static/style/parkInstance.css" media="screen">
     <link rel="stylesheet" type="text/css" href="../../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../static/style/instancePage.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../static/style/parkInstance.css" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -33,15 +35,14 @@
             <li><a href="{{ url_for('states') }}">States</a></li>
             <li><a href="{{ url_for('events') }}">Events</a></li> 
             <li><a href="{{ url_for('about') }}">About</a></li>
-
-            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+            <form class="navbar-form navbar-right" action="{{url_for('orSearch')}}" onsubmit="{{url_for('orSearch')}}" role="search">
               <div class="input-group">
-                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+                <input id="search_term" type="text" class="form-control" name="search" placeholder="Search for...">
                 <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                <button class="btn btn-default" type="submit"><span class=" glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
-            </form>
+            </form> 
           </ul>
         </div>
       </div>
@@ -49,7 +50,7 @@
 
     <div class="row" id="details">
       <div class="title">
-        <h1> {{ park_instance.name }}</h1>
+        <h1><span>{{ park_instance.name }}</span></h1>
       </div>
       <div class="col-md-2"></div>              
       <div class="col-md-4">
@@ -66,7 +67,9 @@
             <li class="list-group-item">Zipcode: {{ park_instance.zipcode }}</li>
             <li class="list-group-item">State: <a href="{{ url_for('state_instance', name = park_instance.state_fk) }}">{{park_instance.state_fk}}</a></li>
           </ul>
-        </div>        
+        </div>
+        <iframe width="290" height="188" frameborder="0" style="border:0" src="http://www.google.com/maps/embed/v1/view?key=AIzaSyA83s4AwWOSHAQei8mGfEZEUUO0eOEYB38&center={{park_instance.latitude}},{{park_instance.longitude}}&zoom=12" allowfullscreen="">
+        </iframe>        
       </div> 
       <div class="col-md-4"> 
         <row>

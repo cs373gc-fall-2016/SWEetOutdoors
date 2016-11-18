@@ -32,12 +32,11 @@
             <li><a href="{{ url_for('states') }}">States</a></li>
             <li><a href="{{ url_for('events') }}">Events</a></li> 
             <li class="active"><a href="{{ url_for('about') }}">About</a></li>
-
-            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+            <form class="navbar-form navbar-right" action="{{url_for('orSearch')}}" onsubmit="{{url_for('orSearch')}}" role="search">
               <div class="input-group">
-                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+                <input id="search_term" type="text" class="form-control" name="search" placeholder="Search for...">
                 <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                <button class="btn btn-default" type="submit"><span class=" glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
             </form>
@@ -50,15 +49,16 @@
       <div class="title">
         <h1 id="title1">Meet SWEet Outdoors</h1>
       </div> 
+      <p id="description">Welcome to SWEetOutdoors! This site serves as a gateway to your wild side. It allows you to explore national and state parks all over the United States, get details about campgrounds, and learn about upcoming events. </p>
       <div class="container marketing">
         <div class="row">
           <div class="col-lg-3">
-            <img class="member" src="../static/img/Didi.jpeg">
+            <img class="member" src="../static/img/Didi.jpeg" onmouseover="this.src='../static/img/Didi2.jpg'" onmouseout="this.src='../static/img/Didi.jpeg'">
             <h2>Didi Crous</h2>
             <p>I'm a senior computer science student. I like singing, tacos and spending time outside when I'm not coding. I am currently looking forward to graduating so that I can spend a few months running around Europe.</p>
             <p><strong>Front end</strong></p>
-            <p><strong>Commits:</strong> 41</p>
-            <p><strong>Issues:</strong> 1</p>
+            <p><strong>Commits:</strong> 21</p>
+            <p><strong>Issues:</strong> 3</p>
             <p><strong>Unit tests:</strong> 0</p>
           </div>
           <div class="col-lg-3">
@@ -66,26 +66,26 @@
             <h2>Ali Darwiche</h2>
             <p>I'm a senior double majoring in computer science and business, and want to be a technical project manager after graduation. I can hit a C7 vocally.</p>
             <p><strong>Back end</strong></p>
-            <p><strong>Commits:</strong> 21</p>
-            <p><strong>Issues:</strong> 0</p>
+            <p><strong>Commits:</strong> 29</p>
+            <p><strong>Issues:</strong> 1</p>
             <p><strong>Unit tests:</strong> 0</p>
           </div>
           <div class="col-lg-3">
-            <img class="member"  src="../static/img/Elizabeth.jpg">
+            <img class="member"  src="../static/img/Elizabeth.jpg" onmouseover="this.src='../static/img/Elizabeth2.png'" onmouseout="this.src='../static/img/Elizabeth.jpg'">
             <h2>Elizabeth Haynes</h2>
             <p>I'm a junior computer science student. I'm the head of the WiCS Makers Club, and I'm currently interning for Hewlett Packard Enterprise. I enjoy crafting, specifically crochet. </p>
             <p><strong>Front end</strong></p>
-            <p><strong>Commits:</strong> 39</p>
-            <p><strong>Issues:</strong> 25</p>
+            <p><strong>Commits:</strong> 35</p>
+            <p><strong>Issues:</strong> 26</p>
             <p><strong>Unit tests:</strong> 0</p>
           </div>
           <div class="col-lg-3">
-            <img class="member"  src="../static/img/Asad.jpg">
+            <img class="member" src="../static/img/Asad.jpg" onmouseover="this.src='../static/img/Asad2.jpeg'" onmouseout="this.src='../static/img/Asad.jpg'">
             <h2>Asad Mahdi</h2>
             <p>I'm a senior computer science student. I like gaming, NBA, Netflix - basically not being physically active.</p>
             <p><strong>Back end</strong></p>
-            <p><strong>Commits:</strong> 26</p>
-            <p><strong>Issues:</strong> 0</p>
+            <p><strong>Commits:</strong> 21</p>
+            <p><strong>Issues:</strong> 3</p>
             <p><strong>Unit tests:</strong> 1</p>
           </div>
         </div>
@@ -96,34 +96,34 @@
       <div class="container marketing">
         <div class="row">
           <div class="col-lg-4">
-            <img class="member"  src="../static/img/Matthew.jpeg">
+            <img class="member" src="../static/img/Matthew.jpeg" onmouseover="this.src='../static/img/Matthew2.jpg'" onmouseout="this.src='../static/img/Matthew.jpeg'">
             <h2>Matthew Rosenbaum</h2>
             <p>I'm a junior computer science student. I like Android development, and I currently work part time. I'm involved with
             Ignite, a Christian camp for freshman students.</p>
             <p><strong>Front end</strong></p>
-            <p><strong>Commits:</strong> 23</p>
-            <p><strong>Issues:</strong> 2</p>
+            <p><strong>Commits:</strong> 48</p>
+            <p><strong>Issues:</strong> 20</p>
             <p><strong>Unit tests:</strong> 0</p>
             <br>
           </div>
           <div class="col-lg-4">
-            <img class="member"  src="../static/img/Kirsten.jpg">
+            <img class="member"  src="../static/img/Kirsten.jpg" onmouseover="this.src='../static/img/Kirsten2.jpg'" onmouseout="this.src='../static/img/Kirsten.jpg'">
             <h2>Kirsten Thomas</h2>
             <p>I'm a junior computer science student. I'm interested in human computer interaction and usability, specifically for
             people with visual impairment. I volunteer with the Texas School for the Blind and Visually Impaired with my sorority,
             Delta Gamma, in a weekly coding club.</p>
             <p><strong>Front end</strong></p>
-            <p><strong>Commits:</strong> 50</p>
-            <p><strong>Issues:</strong> 19</p>
+            <p><strong>Commits:</strong> 58</p>
+            <p><strong>Issues:</strong> 27</p>
             <p><strong>Unit tests:</strong> 11</p>
           </div>          
           <div class="col-lg-4">
-            <img class="member"  src="../static/img/Rambo.jpg">
+            <img class="member"  src="../static/img/Rambo.jpg" onmouseover="this.src='../static/img/Rambo2.jpg'" onmouseout="this.src='../static/img/Rambo.jpg'">
             <h2>Rambo Wu</h2>
             <p>I'm a senior computer science student. I like dogs and iced coffee.</p>
             <p><strong>Back end</strong></p>
-            <p><strong>Commits:</strong> 96</p>
-            <p><strong>Issues:</strong> 3</p>
+            <p><strong>Commits:</strong> 55</p>
+            <p><strong>Issues:</strong> 4</p>
             <p><strong>Unit tests:</strong> 0</p>
             <br>
           </div>
@@ -151,10 +151,12 @@
           <div class="title">
             <h1>Data</h1>
           </div>
-          <p><a class="stats_link" href ="https://developers.google.com/places/">Google Places</a></p>
-          <p><a class="stats_link" href ="http://developer.active.com/docs/v2_Activity_API_Search">Activity Search</a></p>
-          <p><a class="stats_link" href ="https://usda.github.io/RIDB/">Campground Search</a></p>
-          <p><a class="stats_link" href ="https://www.mediawiki.org/wiki/API:Main_page">MediaWiki</a></p>
+          <p><a class="stats_link" href ="https://developers.google.com/places/">Google Places</a>- used in conjunction with Wikipedia to get the information of state and national parks</p>
+          <p><a class="stats_link" href ="http://developer.active.com/docs/v2_Activity_API_Search">Activity Search</a>- used to get all events data</p>
+          <p><a class="stats_link" href ="https://usda.github.io/RIDB/">Campground Search</a>- used the Facilites object to get all our campground information</p>
+          <p><a class="stats_link" href ="https://www.mediawiki.org/wiki/API:Main_page">MediaWiki</a>- used to get all information on states, and to get lists of state and national parks</p>
+          <p><a class="stats_link" href ="https://msdn.microsoft.com/en-us/library/ff701715.aspx">Bing Locations</a>- used to get zipcode by latitude and longitude, needed in several models</p>
+          <br>
           <p><a class="stats_link" href ="{{ url_for('visualization') }}">PartyPeople API Visualization</a></p>
        </div>
 
