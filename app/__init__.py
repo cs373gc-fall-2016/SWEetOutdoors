@@ -335,7 +335,7 @@ def orSearch():
         for v in campground_search_instance:
             campgroundsorlist.add(v)
 
-        return render_template('Search.html', eventsorlist=eventsorlist, statesorlist=statesorlist, campgroundsorlist=campgroundsorlist, parksorlist=parksorlist, search=search)
+    return render_template('Search.html', eventsorlist=eventsorlist, statesorlist=statesorlist, campgroundsorlist=campgroundsorlist, parksorlist=parksorlist, search=search)
 
     #print("before the or code")
     # print parksorlist
