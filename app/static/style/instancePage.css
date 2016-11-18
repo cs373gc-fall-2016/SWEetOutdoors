@@ -25,6 +25,20 @@ html, body {
 p {
 	word-wrap: break-word;
 }
+
+iframe {
+	width: 100%
+}
+
+.card {
+	background-color: darkgrey;
+	opacity: .9;
+}
+
+li.list-group-item{
+	background-color: darkgrey;
+	opacity: .9;
+}
 /* 
   ------------------------
   TITLE AND NAV BAR 
@@ -38,7 +52,8 @@ p {
 }
 
 .title h1 span {
-	background-color: white;
+	background-color: darkgrey;
+	opacity: .9;
 }
 
 button.btn.btn-default {
