@@ -61,6 +61,7 @@
     <div class="row">
       <div class="col-md-1"></div>  
       <div class="col-md-10">
+        <div id="load"></div>
         <div class="table" data-example-id="simple-responsive-table">
           <div class="table-responsive">
             <!-- Table -->
@@ -112,6 +113,12 @@
             cell.innerHTML = "No Event Nearby.";
           }
         }
+    </script>
+    <script type="text/javascript">
+      $(window).load(function() {
+        $("#load").fadeOut();
+        document.getElementById('myTable').style.visibility="visible";
+      });
     </script>
   </body>
 </html>
