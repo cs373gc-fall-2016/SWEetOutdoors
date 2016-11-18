@@ -22,9 +22,9 @@
     <!-- js files for table sorting and pagination-->
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript" src="https://github.com/sdeering/jquery-quick-pagination/blob/master/js/jquery.quick.pagination.min.js"></script>
     <!-- css for table pagination -->
-
+    <script rel="stylesheet" type="text/css" href="https://github.com/sdeering/jquery-quick-pagination/blob/master/css/styles.css"></script>
   </head>
 
   <body>
@@ -75,7 +75,7 @@
     <div class="title">
       <h2>Parks</h2>
     </div> <!-- end of title -->
-    <ul class="pagination list-unstyled">
+    <ul class="list-unstyled">
       {% for park in parksorlist %}
       <li>
         <div class="row">
@@ -89,7 +89,7 @@
             <p><b>Rating: </b>{{park.rating}}</p>                 
             <p><b>Website: </b><a href= "{{park.website}}">{{park.website}}</a></p>
             <p><b>Zipcode: </b>{{park.zipcode}}</p>  
-            <p><b>Photo_url: </b><a href="{{park.photo_url}}"> {{park.photo_url}}</a></p>        
+            <p><b>Photo URL: </b><a href="{{park.photo_url}}"> {{park.photo_url}}</a></p>        
             <p><b>Region: </b>{{park.zipregion}}</p>          
             <p><b>State: </b>{{park.state_fk}}</p> 
           </div> 
@@ -97,9 +97,6 @@
       </li>
       <br/>      
       {% endfor %}      
-
-    </ul>
-    
 
     <script type="text/javascript">
       $(document).ready(function(){
@@ -117,46 +114,26 @@
       });
     </script>
 
- <div class="title">
-      <h2>States</h2>
-    </div> <!-- end of title -->
-
-    <div class="col-md-1"></div>
-
-    <div class="row">
-      <div class="col-md-10">
-        <div class="table" data-example-id="simple-responsive-table"
-          <div class ="table-responsive">
-            <!-- Table -->
-            <table class="table table-striped sortable" id="stateTable">
-              <thead>
-                <tr>
-                  <th>State</th>
-                  <th>Highest Point</th>
-                  <th>Total Area (sq mi)</th>
-                  <th>Population</th>
-                  <th>Explore A Park</th>
-                  <th>Explore An Event</th>
-                </tr>
-              </thead>
-              <tbody>
-              {% for state in statesorlist %}
-                <tr>
-                  <th scope="row"><a href="{{ url_for('state_instance', name = state.name) }}">{{state.name}}</a></th> 
-                  <td>{{state.highest_point}}</td>
-                  <td>{{state.total_area}}</td>
-                  <td>{{state.population}}</td>
-                  <th><a href="{{ url_for('park_instance', idnum = state.parks_rel.first().idnum) }}"> {{ state.parks_rel.first().name}} </a></th>
-                  <th scope="row"><a href="{{ url_for('event_instance', idnum = state.events_rel.first().idnum) }}"> {{state.events_rel.first().org_name}} </a></th>
-                </tr>
-              <!--{% endfor %}-->
-              </tbody>
-            </table>
+      <div class="title">
+        <h2>States</h2>
+      </div> <!-- end of title -->
+      {% for state in statesorlist %}
+      <li>
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <p><b>State: </b><a href="{{ url_for('state_instance', name = state.name) }}">{{state.name}}</a></p>
+            <p><b>Highest Point: </b>{{state.highest_point}}</p>
+            <p><b>Total Area (sq mi): </b>{{state.total_area}}</p>
+            <p><b>Population: </b>{{state.population}}</p>
+            <p><b>Explore A Park: </b><a href="{{ url_for('park_instance', idnum = state.parks_rel.first().idnum) }}"> {{ state.parks_rel.first().name}} </a></p>
+            <p><b>Explore An Event: </b><a href="{{ url_for('event_instance', idnum = state.events_rel.first().idnum) }}"> {{state.events_rel.first().org_name}} </a></p>
           </div>
         </div>
-      </div>
-    </div>
-
+      </li>
+      <br/>
+      {% endfor %}
+    </ul>
 
     <script type="text/javascript">
       $(document).ready(function(){
