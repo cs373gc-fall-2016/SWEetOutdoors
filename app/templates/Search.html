@@ -55,14 +55,6 @@
                 </span>
               </div><!-- /input-group -->
             </form>
-            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
-              <div class="input-group">
-                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
-                </span>
-              </div><!-- /input-group -->
-            </form>
           </ul>
         </div>
       </div>
@@ -73,18 +65,11 @@
       <p> 
     </div> <!-- end of title -->    
 
-    <!-- <div class="col-lg-12">
-      <div class="buttons">
-      <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">OR</a>
-      <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">AND</a> 
-      </div>
-    </div> -->
-
     <div class="title">
       <h2>Parks</h2>
     </div> <!-- end of title -->
 
-    <ul class="list-unstyled">
+    <ul id="search_results" class="list-unstyled">
       {% for park in parksorlist %}
       <li>
         <div class="row">
@@ -131,22 +116,6 @@
       <br/>      
       {% endfor %}           
 
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('#parkTable').DataTable();
-        var table = document.getElementById('parkTable');         
-          var num = table.rows.length;
-          for(var i = 1; i < num; i++)
-          {
-            var cell = table.rows[i].cells[4];
-            if (cell.innerHTML.trim().length == 61)
-            {
-              cell.innerHTML = "No Event Nearby.";
-            }
-          }        
-      });
-    </script>
-
       <div class="title">
         <h2>States</h2>
       </div> <!-- end of title -->
@@ -185,13 +154,7 @@
       </li>
       <br/>
       {% endfor %}
-    </ul>
 
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('#stateTable').DataTable(); 
-      });
-    </script>
 
     <div class="title">
       <h2>Events</h2>
@@ -239,11 +202,6 @@
     <br/>
     {% endfor %}
 
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('#eventTable').DataTable(); 
-      });
-    </script>
 
     <div class="title">
       <h2>Campgrounds</h2>
@@ -290,24 +248,16 @@
 
 
     <script type="text/javascript">
-      $(document).ready(function(){
-        $('#campgroundTable').DataTable(); 
-      });
-    </script>
-
-
-    <script type="text/javascript">
-        var table = document.getElementById('myTable');
-        var num = table.rows.length;
-        for(var i = 1; i <= num; i++)
-        {
-          var cell = table.rows[i].cells[1];
-          if (cell.innerHTML.trim() == "")
-          {
-            cell.innerHTML = "555-555-5555";
-          }
-        }
-    </script>
+     $(document).ready(function(){
+       var search = "{{search}}";
+       for (value of search.split(" "))
+       {
+         var re = new RegExp('(' + value + ')', 'ig');
+         $('#search_results').html( $('#search_results').html().replace(re, "<mark>$1</mark>"));
+       }      
+     });
+     $("ul.list-unstyled").quickPagination();
+   </script>
 
   </body>
 </html>
