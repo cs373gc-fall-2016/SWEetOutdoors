@@ -312,30 +312,30 @@ def orSearch():
 
     for search in descriptivename:
         print(search)
-        park_search_instance = Park.query.filter(or_(Park.name.like('%' + search + '%'), Park.latitude.like('%' + search + '%'), Park.longitude.like('%' + search + '%'), Park.address.like('%' + search + '%'), Park.phone.like('%' + search + '%'), Park.website.like('%' + search + '%'),
-                                                     Park.zipcode.like('%' + search + '%'), Park.photo_url.like('%' + search + '%'), Park.zipregion.like('%' + search + '%'), Park.state_fk.like('%' + search + '%'))).all()
+        park_search_instance = Park.query.filter(or_(Park.name.ilike('%' + search + '%'), Park.latitude.ilike('%' + search + '%'), Park.longitude.ilike('%' + search + '%'), Park.address.ilike('%' + search + '%'), Park.phone.ilike('%' + search + '%'), Park.website.ilike('%' + search + '%'),
+                                                     Park.zipcode.ilike('%' + search + '%'), Park.photo_url.ilike('%' + search + '%'), Park.zipregion.ilike('%' + search + '%'), Park.state_fk.ilike('%' + search + '%'))).all()
 
         for v in park_search_instance:
             parksorlist.add(v)
 
-        event_search_instance = Event.query.filter(or_(Event.latitude.like('%' + search + '%'), Event.longitude.like('%' + search + '%'), Event.topics.like('%' + search + '%'), Event.start_date.like('%' + search + '%'), Event.end_date.like('%' + search + '%'), Event.pic_url.like('%' + search + '%'),
-                                                       Event.org_name.like('%' + search + '%'), Event.contact_phone_num.like('%' + search + '%'), Event.zipregion.like('%' + search + '%'), Event.zipcode.like('%' + search + '%'))).all()
+        event_search_instance = Event.query.filter(or_(Event.latitude.ilike('%' + search + '%'), Event.longitude.ilike('%' + search + '%'), Event.topics.ilike('%' + search + '%'), Event.start_date.ilike('%' + search + '%'), Event.end_date.ilike('%' + search + '%'), Event.pic_url.ilike('%' + search + '%'),
+                                                       Event.org_name.ilike('%' + search + '%'), Event.contact_phone_num.ilike('%' + search + '%'), Event.zipregion.ilike('%' + search + '%'), Event.zipcode.ilike('%' + search + '%'))).all()
 
         for v in event_search_instance:
             eventsorlist.add(v)
 
-        state_search_instance = State.query.filter(or_(State.name.like(search), State.description.like('%' + search + '%'), State.total_area.like(
-            '%' + search + '%'), State.population.like('%' + search + '%'), State.highest_point.like('%' + search + '%'))).all()
+        state_search_instance = State.query.filter(or_(State.name.ilike(search), State.description.ilike('%' + search + '%'), State.total_area.ilike(
+            '%' + search + '%'), State.population.ilike('%' + search + '%'), State.highest_point.ilike('%' + search + '%'))).all()
         for v in state_search_instance:
             statesorlist.add(v)
 
-        campground_search_instance = Campground.query.filter(or_(Campground.name.like('%' + search + '%'), Campground.description.like('%' + search + '%'), Campground.latitude.like('%' + search + '%'), Campground.longitude.like('%' + search + '%'), Campground.direction.like('%' + search + '%'),
-                                                                 Campground.phone.like('%' + search + '%'), Campground.email.like('%' + search + '%'), Campground.zipcode.like('%' + search + '%'))).all()
+        campground_search_instance = Campground.query.filter(or_(Campground.name.ilike('%' + search + '%'), Campground.description.ilike('%' + search + '%'), Campground.latitude.ilike('%' + search + '%'), Campground.longitude.ilike('%' + search + '%'), Campground.direction.ilike('%' + search + '%'),
+                                                                 Campground.phone.ilike('%' + search + '%'), Campground.email.ilike('%' + search + '%'), Campground.zipcode.ilike('%' + search + '%'))).all()
 
         for v in campground_search_instance:
             campgroundsorlist.add(v)
 
-        return render_template('Search.html', eventsorlist=eventsorlist, statesorlist=statesorlist, campgroundsorlist=campgroundsorlist, parksorlist=parksorlist, search=search)
+    return render_template('Search.html', eventsorlist=eventsorlist, statesorlist=statesorlist, campgroundsorlist=campgroundsorlist, parksorlist=parksorlist, search=search)
 
     #print("before the or code")
     # print parksorlist

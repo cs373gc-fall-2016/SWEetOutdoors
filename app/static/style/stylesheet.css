@@ -109,7 +109,7 @@ body {
   ------------------------
 */
 
-.title h1 {
+.title h1, .title h2 {
   text-align: center;
   font-family: 'Merriweather', serif;
   color: #4d4d4d; /* -currently- dark gray */

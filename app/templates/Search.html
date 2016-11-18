@@ -7,19 +7,23 @@
     <!-- stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen">  
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
     <link rel="stylesheet" type="text/css" href="../static/style/search.css" media="screen">    
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">    
+
     <!-- basic js files -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- js files for table sorting and pagination-->
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
     <!-- css for table pagination -->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen">  
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" media="screen"> 
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
+
   </head>
 
   <body>
@@ -55,6 +59,11 @@
       </div>
     </nav>
 
+    <div class="title">
+      <h1>Search results for {{search}}</h1>
+      <p> 
+    </div> <!-- end of title -->    
+
     <div class="col-lg-12">
       <div class="buttons">
       <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">OR</a>
@@ -63,15 +72,39 @@
     </div>
 
     <div class="title">
-      <h1>Parks</h1>
+      <h2>Parks</h2>
     </div> <!-- end of title -->
-  
+
+    {% for park in parksorlist %}
     <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <p><b>Park Name: </b><a href= "{{ url_for('park_instance', idnum = park.idnum) }}">{{park.name}}</a></p>
+        <p><b>Latitude: </b>{{park.latitude}}</p>  
+        <p><b>Longitude: </b>{{park.longitude}}</p>  
+        <p><b>Address: </b>{{park.address}}</p>
+        <p><b>Phone: </b>{{park.phone}}</p> 
+        <p><b>Rating: </b>{{park.rating}}</p>                 
+        <p><b>Website: </b><a href= "{{park.website}}">{{park.website}}</a></p>
+        <p><b>Zipcode: </b>{{park.zipcode}}</p>  
+        <p><b>Photo_url: </b><a href="{{park.photo_url}}"> {{park.photo_url}}</a></p>        
+        <p><b>Region: </b>{{park.zipregion}}</p>          
+        <p><b>State: </b>{{park.state_fk}}</p> 
+      </div> 
+    </div>
+    <br/>      
+    {% endfor %}      
+
+
+    </div>  
+
+
+<!--     <div class="row">
       <div class="col-md-1"></div>  
       <div class="col-md-10">
         <div class="table" data-example-id="simple-responsive-table">
           <div class="table-responsive">
-            <!-- Table -->
+          
             <table class="table table-striped" id="parkTable">
               <thead>
                 <tr>
@@ -100,10 +133,10 @@
               {% endfor %}
               </tbody>
             </table> 
-          </div> <!-- end of <div class = "table-responsive"> -->
+          </div> --> <!-- end of <div class = "table-responsive"> -->
         </div> <!-- end of <div class = "table"> -->
       </div> <!-- end of <div class = "col-md-10"> -->
-    </div> <!-- end of <div class = "row"> -->
+    </div> <!-- end of <div class = "row"> --> 
     <script type="text/javascript">
       $(document).ready(function(){
         $('#parkTable').DataTable();
@@ -121,7 +154,7 @@
     </script>
 
  <div class="title">
-      <h1>States</h1>
+      <h2>States</h2>
     </div> <!-- end of title -->
 
     <div class="col-md-1"></div>
@@ -168,7 +201,7 @@
     </script>
 
     <div class="title">
-      <h1>Events</h1>
+      <h2>Events</h2>
     </div> <!-- end of title -->
 
     <div class="row">
@@ -221,7 +254,7 @@
     </script>
 
     <div class="title">
-      <h1>Campgrounds</h1>
+      <h2>Campgrounds</h2>
     </div> <!-- end of title -->
 
     <div class="row">
