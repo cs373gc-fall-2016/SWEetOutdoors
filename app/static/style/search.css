@@ -27,4 +27,6 @@ h2{
 	text-align: center;
 }
 
-
+p{
+	word-wrap:break-word;
+}
