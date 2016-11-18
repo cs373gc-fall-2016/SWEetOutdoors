@@ -22,6 +22,7 @@
     <!-- js files for table sorting and pagination-->
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript"></script>
     <!-- css for table pagination -->
 
   </head>
@@ -79,17 +80,19 @@
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
-        <p><b>Park Name: </b><a href= "{{ url_for('park_instance', idnum = park.idnum) }}">{{park.name}}</a></p>
-        <p><b>Latitude: </b>{{park.latitude}}</p>  
-        <p><b>Longitude: </b>{{park.longitude}}</p>  
-        <p><b>Address: </b>{{park.address}}</p>
-        <p><b>Phone: </b>{{park.phone}}</p> 
-        <p><b>Rating: </b>{{park.rating}}</p>                 
-        <p><b>Website: </b><a href= "{{park.website}}">{{park.website}}</a></p>
-        <p><b>Zipcode: </b>{{park.zipcode}}</p>  
-        <p><b>Photo_url: </b><a href="{{park.photo_url}}"> {{park.photo_url}}</a></p>        
-        <p><b>Region: </b>{{park.zipregion}}</p>          
-        <p><b>State: </b>{{park.state_fk}}</p> 
+        <ul>
+         <li><b>Park Name: </b><a href= "{{ url_for('park_instance', idnum = park.idnum) }}">{{park.name}}</a></li>
+         <li><b>Latitude: </b>{{park.latitude}}</li>  
+         <li><b>Longitude: </b>{{park.longitude}}</li>  
+         <li><b>Address: </b>{{park.address}}</li>
+         <li><b>Phone: </b>{{park.phone}}</li>
+         <li><b>Rating: </b>{{park.rating}}</li>                
+         <li><b>Website: </b><a href= "{{park.website}}">{{park.website}}</a></li>
+         <li><b>Zipcode: </b>{{park.zipcode}}</li>  
+         <li><b>Photo_url: </b><a href="{{park.photo_url}}"> {{park.photo_url}}</a></li>        
+         <li><b>Region: </b>{{park.zipregion}}</li>          
+         <li><b>State: </b>{{park.state_fk}}</li>
+       </ul>
       </div> 
     </div>
     <br/>      
