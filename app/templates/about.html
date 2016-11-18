@@ -32,7 +32,6 @@
             <li><a href="{{ url_for('states') }}">States</a></li>
             <li><a href="{{ url_for('events') }}">Events</a></li> 
             <li class="active"><a href="{{ url_for('about') }}">About</a></li>
-
             <form class="navbar-form navbar-right" action="{{url_for('orSearch')}}" onsubmit="{{url_for('orSearch')}}" role="search">
               <div class="input-group">
                 <input id="search_term" type="text" class="form-control" name="search" placeholder="Search for...">
@@ -40,7 +39,15 @@
                 <button class="btn btn-default" type="submit"><span class=" glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
-            </form> 
+            </form>
+            <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
+              <div class="input-group">
+                <input id="search_term" type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                </span>
+              </div><!-- /input-group -->
+            </form>
           </ul>
         </div>
       </div>
@@ -54,7 +61,7 @@
       <div class="container marketing">
         <div class="row">
           <div class="col-lg-3">
-            <img class="member" src="../static/img/Didi.jpeg">
+            <img class="member" src="../static/img/Didi.jpeg" onmouseover="this.src='../static/img/Didi2.jpg'" onmouseout="this.src='../static/img/Didi.jpeg'">
             <h2>Didi Crous</h2>
             <p>I'm a senior computer science student. I like singing, tacos and spending time outside when I'm not coding. I am currently looking forward to graduating so that I can spend a few months running around Europe.</p>
             <p><strong>Front end</strong></p>
@@ -72,7 +79,7 @@
             <p><strong>Unit tests:</strong> 0</p>
           </div>
           <div class="col-lg-3">
-            <img class="member"  src="../static/img/Elizabeth.jpg">
+            <img class="member"  src="../static/img/Elizabeth.jpg" onmouseover="this.src='../static/img/Elizabeth2.png'" onmouseout="this.src='../static/img/Elizabeth.jpg'">
             <h2>Elizabeth Haynes</h2>
             <p>I'm a junior computer science student. I'm the head of the WiCS Makers Club, and I'm currently interning for Hewlett Packard Enterprise. I enjoy crafting, specifically crochet. </p>
             <p><strong>Front end</strong></p>
@@ -81,7 +88,7 @@
             <p><strong>Unit tests:</strong> 0</p>
           </div>
           <div class="col-lg-3">
-            <img class="member"  src="../static/img/Asad.jpg">
+            <img class="member" src="../static/img/Asad.jpg" onmouseover="this.src='../static/img/Asad2.jpeg'" onmouseout="this.src='../static/img/Asad.jpg'">
             <h2>Asad Mahdi</h2>
             <p>I'm a senior computer science student. I like gaming, NBA, Netflix - basically not being physically active.</p>
             <p><strong>Back end</strong></p>
@@ -97,7 +104,7 @@
       <div class="container marketing">
         <div class="row">
           <div class="col-lg-4">
-            <img class="member"  src="../static/img/Matthew.jpeg">
+            <img class="member" src="../static/img/Matthew.jpeg" onmouseover="this.src='../static/img/Matthew2.jpg'" onmouseout="this.src='../static/img/Matthew.jpeg'">
             <h2>Matthew Rosenbaum</h2>
             <p>I'm a junior computer science student. I like Android development, and I currently work part time. I'm involved with
             Ignite, a Christian camp for freshman students.</p>
@@ -108,7 +115,7 @@
             <br>
           </div>
           <div class="col-lg-4">
-            <img class="member"  src="../static/img/Kirsten.jpg">
+            <img class="member"  src="../static/img/Kirsten.jpg" onmouseover="this.src='../static/img/Kirsten2.jpg'" onmouseout="this.src='../static/img/Kirsten.jpg'">
             <h2>Kirsten Thomas</h2>
             <p>I'm a junior computer science student. I'm interested in human computer interaction and usability, specifically for
             people with visual impairment. I volunteer with the Texas School for the Blind and Visually Impaired with my sorority,
@@ -119,7 +126,7 @@
             <p><strong>Unit tests:</strong> 11</p>
           </div>          
           <div class="col-lg-4">
-            <img class="member"  src="../static/img/Rambo.jpg">
+            <img class="member"  src="../static/img/Rambo.jpg" onmouseover="this.src='../static/img/Rambo2.jpg'" onmouseout="this.src='../static/img/Rambo.jpg'">
             <h2>Rambo Wu</h2>
             <p>I'm a senior computer science student. I like dogs and iced coffee.</p>
             <p><strong>Back end</strong></p>

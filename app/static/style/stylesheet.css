@@ -18,14 +18,15 @@ li {
 }
 
 #load {
-    width:25%;
-    height:25%;
+    width:100%;
+    height:100%;
     position:fixed;
     z-index:9999;
     background-image : url("https://raw.githubusercontent.com/kethomas/SWEetOutdoors-dev/master/app/static/img/load.gif");
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: 5%;
+    background-position-x: 40%;
+    background-position-y: 50%;
+    background-size: 60px 60px;
 }
 
 #myTable {
@@ -42,7 +43,6 @@ li {
   margin: 0;
   padding-bottom: 0;
 }
-
 .navbar-right {
   margin-right: 0;
 }
