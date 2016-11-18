@@ -299,10 +299,10 @@ def orSearch():
     """
     queries all models and returns matches in both AND and OR format
     """
-    search = request.args['search']
+    search_param = request.args['search']
 
     # create a list so Big Bend -> [ Big , Bend]
-    descriptivename = search.split()
+    descriptivename = search_param.split()
 
     eventsorlist = set()
     statesorlist = set()
@@ -335,7 +335,7 @@ def orSearch():
         for v in campground_search_instance:
             campgroundsorlist.add(v)
 
-        return render_template('Search.html', eventsorlist=eventsorlist, statesorlist=statesorlist, campgroundsorlist=campgroundsorlist, parksorlist=parksorlist, search=search)
+    return render_template('Search.html', eventsorlist=eventsorlist, statesorlist=statesorlist, campgroundsorlist=campgroundsorlist, parksorlist=parksorlist, search=search_param)
 
     #print("before the or code")
     # print parksorlist
