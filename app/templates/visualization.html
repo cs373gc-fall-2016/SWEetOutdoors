@@ -32,25 +32,18 @@
             <li><a href="{{ url_for('states') }}">States</a></li>
             <li><a href="{{ url_for('events') }}">Events</a></li> 
             <li><a href="{{ url_for('about') }}">About</a></li>
-
-<<<<<<< HEAD
             <form class="navbar-form navbar-right" action="{{url_for('orSearch')}}" onsubmit="{{url_for('orSearch')}}" role="search">
               <div class="input-group">
                 <input id="search_term" type="text" class="form-control" name="search" placeholder="Search for...">
-=======
             <form class="navbar-form navbar-right" action="/search/" method="GET" onsubmit="return search()" role="search">
               <div class="input-group">
                 <input id="search_term" type="text" class="form-control" placeholder="Search for...">
->>>>>>> 16d9794b48733e32aea510dffadb72e91b6c4f6e
                 <span class="input-group-btn">
                 <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
-<<<<<<< HEAD
-            </form> 
-=======
             </form>
->>>>>>> 16d9794b48733e32aea510dffadb72e91b6c4f6e
+            </form>
           </ul>
         </div>
       </div>
