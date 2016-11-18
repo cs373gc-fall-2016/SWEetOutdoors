@@ -165,3 +165,11 @@ body {
   color: white;
 }
 
+/* 
+  ------------------------
+  TABLE PAGES
+  ------------------------
+*/
+mark {
+  background-color: #dedede;
+}
