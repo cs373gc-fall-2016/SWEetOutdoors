@@ -40,7 +40,7 @@
               <div class="input-group">
                 <input id="search_term" type="text" class="form-control" name="search" placeholder="Search for...">
                 <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                <button class="btn btn-default" type="submit"><span class=" glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
             </form> 
@@ -68,7 +68,9 @@
             <li class="list-group-item">Zipcode: {{ park_instance.zipcode }}</li>
             <li class="list-group-item">State: <a href="{{ url_for('state_instance', name = park_instance.state_fk) }}">{{park_instance.state_fk}}</a></li>
           </ul>
-        </div>        
+        </div>
+        <iframe width="290" height="188" frameborder="0" style="border:0" src="http://www.google.com/maps/embed/v1/view?key=AIzaSyA83s4AwWOSHAQei8mGfEZEUUO0eOEYB38&center={{park_instance.latitude}},{{park_instance.longitude}}&zoom=12" allowfullscreen="">
+        </iframe>        
       </div> 
       <div class="col-md-4"> 
         <row>

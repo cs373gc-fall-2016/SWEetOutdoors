@@ -40,7 +40,7 @@
               <div class="input-group">
                 <input id="search_term" type="text" class="form-control" name="search" placeholder="Search for...">
                 <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                <button class="btn btn-default" type="submit"><span class=" glyphicon glyphicon-search"></span></button>
                 </span>
               </div><!-- /input-group -->
             </form> 
@@ -81,7 +81,6 @@
                  $('#ParkImg').attr('src', data.Details["Photo URL"]);
                  }, "json" );
             </script>
-            <p> </p>
           </div>
         </row>  
 
@@ -103,7 +102,9 @@
                      }, "json" );
                 </script>
           </div>
-        </row>  
+        </row>
+        <iframe height="188" frameborder="0" style="border:0" src="http://www.google.com/maps/embed/v1/view?key=AIzaSyA83s4AwWOSHAQei8mGfEZEUUO0eOEYB38&center={{campground_instance.latitude}},{{campground_instance.longitude}}&zoom=12" allowfullscreen="">
+        </iframe>  
       </div>
       </div> 
     </div> 
